@@ -1,53 +1,45 @@
 <template>
   <div>
-    <nuxt/>
+    <Header />
+    <main>
+      <nuxt/>
+    </main>
   </div>
 </template>
 
-<style>
-html {
-  font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  font-size: 16px;
-  word-spacing: 1px;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  box-sizing: border-box;
-}
+<script>
+import Header from '~/components/Header.vue'
 
-*, *:before, *:after {
-  box-sizing: border-box;
-  margin: 0;
+export default {
+  components: {
+    Header
+  }
 }
+</script>
 
-.button--green {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #3b8070;
-  color: #3b8070;
-  text-decoration: none;
-  padding: 10px 30px;
-}
-
-.button--green:hover {
-  color: #fff;
-  background-color: #3b8070;
-}
-
-.button--grey {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #35495e;
-  color: #35495e;
-  text-decoration: none;
-  padding: 10px 30px;
-  margin-left: 15px;
-}
-
-.button--grey:hover {
-  color: #fff;
-  background-color: #35495e;
-}
+<style lang="stylus">
+@font-face 
+  font-family 'Product Sans'
+  font-style normal
+  font-weight 400
+  src local('Open Sans'), local('OpenSans'), url(https://fonts.gstatic.com/s/productsans/v5/HYvgU2fE2nRJvZ5JFAumwegdm0LZdjqr5-oayXSOefg.woff2) format('woff2')
+html 
+  font-family 'Product Sans', 'Yu Gothic', 'YuGothic', 'Noto Sans JP', sans-serif
+  font-size 14px
+  color #555
+body 
+  margin 0
+main 
+  width 98%
+  max-width 1000px
+  margin 50px auto 100px
+:link,
+:visited 
+  color inherit
+  font-weight bold
+  text-decoration none
+@media (max-width: 768px) 
+  main 
+    margin-top 0
 </style>
 

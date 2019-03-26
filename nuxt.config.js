@@ -1,4 +1,5 @@
 const config = require('./.contentful.json')
+const siteConfig = require('./siteConfig.json')
 
 module.exports = {
   env: {
@@ -11,23 +12,30 @@ module.exports = {
   ** Headers of the page
   */
   head: {
-    title: 'blackjam',
+    title: siteConfig.title,
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: 'Nuxt.js project' }
+      { hid: 'description', name: 'description', content: siteConfig.title+' | '+siteConfig.subtitle }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: siteConfig.favicon },
+      { rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css' },
+      { rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/atom-one-dark.min.css' },
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Hi+Melody' },
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Noto+Sans+JP' }
     ]
   },
   /*
   ** Customize the progress bar color
   */
-  loading: { color: '#3B8070' },
+  loading: { color: '#555' },
   /*
   ** Build configuration
   */
+  plugins: [
+    '~/plugins/vue2-filters'
+  ],
   build: {
     /*
     ** Run ESLint on save
