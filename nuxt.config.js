@@ -52,10 +52,22 @@ module.exports = {
   },
   generate: {
     routes () {
-      return client.getEntries({
+      return Promise.all([
+        client.getEntries({
           'content_type': config.CTF_BLOG_POST_TYPE_ID
-        }).then((posts) => {
-        return [...posts.items.map(post => `post/${post.fields.slug}`)]
+        }),
+        client.getEntries({
+          'content_type': 'category'
+        }),
+        client.getEntries({
+          'content_type': 'tag'
+        }),
+      ]).then(([posts,categories,tags]) => {
+        return [
+          ...posts.items.map(post => `post/${post.fields.slug}`),
+          ...categories.items.map(category => `category/${category.fields.slug}`),
+          ...tags.items.map(tag => `category/${tag.fields.slug}`)
+        ]
       })
     }
   },
