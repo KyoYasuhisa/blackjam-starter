@@ -1,8 +1,5 @@
-import { createClient } from '~/plugins/contentful.js'
-
 const config = require('./.contentful.json')
 const siteConfig = require('./siteConfig.json')
-const client = createClient()
 
 module.exports = {
   env: {
@@ -52,17 +49,6 @@ module.exports = {
           exclude: /(node_modules)/
         })
       }
-    }
-  },
-  generate: {
-    routes() {
-      return client.getEntries({
-        'content_type': 'post',
-      }).then(posts => {
-        return posts.items.map(post => {
-          return `post/${post.fields.slug}`
-        })
-      })
     }
   }
 }

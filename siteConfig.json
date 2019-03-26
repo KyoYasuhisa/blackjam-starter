@@ -1,9 +1,9 @@
 {
   "title": "blackJAM",
   "subtitle": "Start Your Modern Blog with Nuxt.js & Contentful.",
-  "logo": "/logo.png",
+  "logo": "/logo.svg",
   "baseURL": "https://blackjam.netlify.com",
-  "favicon": "favicon.png",
+  "favicon": "logo.svg",
   "categoriesFeatured": [
     {
       "name": "ブログ",

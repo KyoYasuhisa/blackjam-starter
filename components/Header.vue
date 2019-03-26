@@ -58,8 +58,6 @@ header
     height 50px
     min-width 50px
     min-height 50px
-    border 1px solid #eee
-    border-radius 5px
     margin 7px 0 0 10px
     overflow hidden
     img 

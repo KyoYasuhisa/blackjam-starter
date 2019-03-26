@@ -1,6 +1,5 @@
 <template>
   <div class="box-item">
-    <div class="cover"></div>
     <div class="img">
       <img :src="post.fields.image.fields.file.url" alt="thumbnail">
     </div>
@@ -27,7 +26,7 @@
                                    params: { 
                                      getby: 'tag',
                                      query: tag.sys.id } })">
-          {{ tag.fields.name }}
+          # {{ tag.fields.name }}
         </li>
       </div>
     </div>
@@ -47,15 +46,19 @@ export default {
   margin 5px
   border-radius 5px
   position relative
-  overflow hidden
-  .cover 
-    background rgba(0,0,0,.1)
+  border 1px solid #eee
+  transition .2s
+  .img
+    width 50px
+    height 50px
+    border-radius 50%
     position absolute
-    top 0
-    bottom 0
-    width 100%
-  img 
-    width 100%
+    top 10px
+    right 10px
+    overflow hidden
+    border 1px solid #eee
+    img 
+      width 150%
   .category 
     background #555
     border-radius 5px
@@ -69,29 +72,27 @@ export default {
     left 10px
     cursor pointer
   .text-box 
-    background rgba(255,255,255,.7)
-    position absolute
-    bottom 0
-    width 100%
-    padding 5px
-  h2 
-    font-size 1rem
-    margin 0
-    padding 5px
-    cursor pointer
-  .date 
-    font-size .8rem
-    margin 0 10px 0 0
-    text-align right
-  .tags li 
-    list-style none
-    background #eee
-    padding 5px 10px
-    border-radius 5px
-    display inline-block
-    font-size .8rem
-    margin 0 2px
-    cursor pointer
+    margin 65px 10px 5px 10px
+    h2 
+      font-size 1.2rem
+      margin 0
+      padding 5px
+      cursor pointer
+    .date 
+      font-size .8rem
+      margin 0 10px 0 0
+      text-align right
+    .tags li 
+      list-style none
+      padding 5px 10px
+      border 1px solid #eee
+      border-radius 5px
+      display inline-block
+      font-size .8rem
+      margin 0 2px
+      cursor pointer
+.box-item:hover
+  border 1px solid #555
 @media (max-width: 1000px) 
   .box-item 
     width 45%

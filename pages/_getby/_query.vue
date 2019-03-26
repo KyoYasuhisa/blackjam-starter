@@ -1,6 +1,5 @@
 <template>
   <section class="query">
-    
     <section class="post-list">
       <div class="section-title">
         <h1>
