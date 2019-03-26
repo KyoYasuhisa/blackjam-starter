@@ -55,7 +55,7 @@ module.exports = {
       return client.getEntries({
           'content_type': config.CTF_BLOG_POST_TYPE_ID
         }).then((posts) => {
-        return [...posts.items.map(post => `posts/${post.fields.slug}`)]
+        return [...posts.items.map(post => `post/${post.fields.slug}`)]
       })
     }
   },
