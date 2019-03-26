@@ -1,13 +1,12 @@
 const config = require('./.contentful.json')
 const siteConfig = require('./siteConfig.json')
+const contentful = require('contentful')
+const client = contentful.createClient({
+  space: config.CTF_SPACE_ID,
+  accessToken: config.CTF_CDA_ACCESS_TOKEN
+})
 
 module.exports = {
-  env: {
-    CTF_SPACE_ID: config.CTF_SPACE_ID,
-    CTF_CDA_ACCESS_TOKEN: config.CTF_CDA_ACCESS_TOKEN,
-    CTF_PERSON_ID: config.CTF_PERSON_ID,
-    CTF_BLOG_POST_TYPE_ID: config.CTF_BLOG_POST_TYPE_ID
-  },
   /*
   ** Headers of the page
   */
@@ -50,6 +49,21 @@ module.exports = {
         })
       }
     }
+  },
+  generate: {
+    routes () {
+      return client.getEntries({
+          'content_type': config.CTF_BLOG_POST_TYPE_ID
+        }).then((posts) => {
+        return [...posts.items.map(post => `posts/${post.fields.slug}`)]
+      })
+    }
+  },
+  env: {
+    CTF_SPACE_ID: config.CTF_SPACE_ID,
+    CTF_CDA_ACCESS_TOKEN: config.CTF_CDA_ACCESS_TOKEN,
+    CTF_PERSON_ID: config.CTF_PERSON_ID,
+    CTF_BLOG_POST_TYPE_ID: config.CTF_BLOG_POST_TYPE_ID
   }
 }
 
