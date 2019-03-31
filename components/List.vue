@@ -2,14 +2,14 @@
   <section class="post-list">
     <div class="section-title">
       <h1>{{ category.name }}</h1>
-      <p class="subtitle">{{ category.slug }}</p>
+      <p v-if="showSlug" class="subtitle">{{ category.slug }}</p>
     </div>
     <div class="posts">
       <BoxItem v-for="post in limitBy(filterBy(posts, category.slug, 'fields.category.fields.slug'), shownumTop)"
-            :key="post.sys.id"
-            :post="post" />
+               :key="post.sys.id"
+               :post="post" />
     </div>
-    <nuxt-link :to="{ name: 'getby-query', 
+    <nuxt-link :to="{ name: 'tips-getby-query', 
                       params: { 
                         getby: 'category', 
                         query: category.slug } }">
@@ -28,6 +28,7 @@ export default {
   mixins: [Vue2Filters.mixin],
   data () {
     return {
+      showSlug: siteConfig.listOption.showSlug,
       shownumTop: siteConfig.listOption.shownumTop
     }
   },

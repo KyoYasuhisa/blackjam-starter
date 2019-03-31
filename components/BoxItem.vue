@@ -3,7 +3,7 @@
     <div class="img">
       <img :src="post.fields.image.fields.file.url" alt="thumbnail">
     </div>
-    <nuxt-link :to="{ name: 'getby-query', 
+    <nuxt-link :to="{ name: 'tips-getby-query', 
                       params: { 
                         getby: 'category',
                         query: post.fields.category.fields.slug } }">
@@ -12,7 +12,7 @@
       </p>
     </nuxt-link>
     <div class="text-box">
-      <nuxt-link :to="{ name: 'post-slug', 
+      <nuxt-link :to="{ name: 'tips-slug', 
                         params: { slug: post.fields.slug } }">
         <h2>
           {{ post.fields.title }}
@@ -22,7 +22,7 @@
       <div class="tags">
         <li v-for="tag in post.fields.tags"
             :key="tag.sys.id"
-            @click="$router.push({ name: 'getby-query', 
+            @click="$router.push({ name: 'tips-getby-query', 
                                    params: { 
                                      getby: 'tag',
                                      query: tag.sys.id } })">
@@ -42,8 +42,8 @@ export default {
 <style lang="stylus" scoped>
 .box-item
   width 315px
-  height 200px
   margin 5px
+  padding 10px 0
   border-radius 5px
   position relative
   border 1px solid #eee
