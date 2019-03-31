@@ -46,6 +46,9 @@ module.exports = {
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Noto+Sans+JP' }
     ]
   },
+  css: [
+    'swiper/dist/css/swiper.css'
+  ],
   /*
   ** Customize the progress bar color
   */
@@ -54,6 +57,7 @@ module.exports = {
   ** Build configuration
   */
   plugins: [
+    { src: '~plugins/vue-awesome-swiper', ssr: false },
     '~/plugins/vue2-filters'
   ],
   markdownit: {
@@ -71,6 +75,9 @@ module.exports = {
     ]
   },
   build: {
+    vendor: [
+      'vue-awesome-swiper'
+    ],
     /*
     ** Run ESLint on save
     */
@@ -105,7 +112,9 @@ module.exports = {
           ...posts.items.map(post => `tips/${post.fields.slug}`),
           ...categories.items.map(category => `tips/category/${category.fields.slug}`),
           ...tags.items.map(tag => `tips/tag/${tag.fields.slug}`),
-          ...docs.items.map(doc => `docs/${doc.fields.slug}`)
+          ...docs.items.map(doc => `docs/${doc.fields.slug}`),
+          'tips',
+          'docs'
         ]
       })
     }

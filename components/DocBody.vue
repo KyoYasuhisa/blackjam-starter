@@ -55,7 +55,7 @@ export default {
           padding-bottom 2px
     h2
       font-size 1.2rem
-      margin-top 50px
+      padding-top 75px
     h3
       background #eee
       padding 5px 10px
@@ -80,6 +80,8 @@ export default {
 @media (max-width: 768px)
   .doc-body
     .body
+      h2
+        padding-top 40px
       .hljs 
         border-radius 0
         padding 10px 20px

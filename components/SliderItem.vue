@@ -1,0 +1,90 @@
+<template>
+  <swiper-slide class="slider-item">
+    <p class="category">
+      {{ post.fields.category.fields.name }}
+    </p>
+    <div class="img">
+      <img :src="post.fields.image.fields.file.url" alt="thumbnail">
+    </div>
+    <nuxt-link :to="{ name: 'tips-getby-query', 
+                      params: { 
+                        getby: 'category',
+                        query: post.fields.category.fields.slug } }">
+    </nuxt-link>
+    <div class="text-box">
+      <nuxt-link :to="{ name: 'tips-slug', 
+                        params: { slug: post.fields.slug } }">
+        <h2>
+          {{ post.fields.title }}
+        </h2>
+      </nuxt-link>
+      <p class="date">{{ (new Date(post.fields.date)).toLocaleDateString() }}</p>
+      <div class="tags">
+        <li v-for="tag in post.fields.tags"
+            :key="tag.sys.id"
+            @click="$router.push({ name: 'tips-getby-query', 
+                                   params: { 
+                                     getby: 'tag',
+                                     query: tag.sys.id } })">
+          # {{ tag.fields.name }}
+        </li>
+      </div>
+    </div>
+  </swiper-slide>
+</template>
+
+<script>
+export default {
+  props: ['post']
+}
+</script>
+
+<style lang="stylus" scoped>
+.slider-item
+  width 90%
+  position relative
+  border-top 1px solid #eee
+  border-bottom 1px solid #eee
+  padding 10px 0 20px
+  margin-top -10px
+  .img
+    width 100px
+    height 100px
+    border-radius 50%
+    margin 20px auto
+    overflow hidden
+    border 1px solid #eee
+    img 
+      width 150%
+  .category 
+    background #555
+    border-radius 20px
+    padding 10px 0
+    color white
+    font-size .8rem
+    margin 0 auto
+    width 100px
+    text-align center
+    cursor pointer
+  .text-box 
+    text-align center
+    h2 
+      font-size 1.2rem
+      margin 0
+      padding 5px
+      cursor pointer
+    .date 
+      font-size .8rem
+      margin 0 0 20px
+      text-align center
+    .tags li 
+      list-style none
+      padding 5px 10px
+      border 1px solid #eee
+      border-radius 5px
+      display inline-block
+      font-size .8rem
+      margin 0 2px
+      cursor pointer
+</style>
+

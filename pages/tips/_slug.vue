@@ -229,7 +229,7 @@ export default {
 
     h2 
       margin 0 0 -10px
-      padding-top 50px
+      padding-top 60px
       font-size 1.4rem
     h3 
       font-size 1rem
@@ -260,6 +260,8 @@ export default {
       font-size 4vw
     .body 
       width 98%
+      h2
+        padding-top 20px
       .hljs 
         background rgba(0,0,0,.9)
         border-radius 0

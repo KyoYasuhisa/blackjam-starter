@@ -30,7 +30,7 @@ html
 body 
   margin 0
 main 
-  width 98%
+  width 100%
   max-width 1000px
   margin 100px auto 100px
   position relative
