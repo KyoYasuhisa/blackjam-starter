@@ -32,12 +32,19 @@ body
 main 
   width 98%
   max-width 1000px
-  margin 50px auto 100px
+  margin 100px auto 100px
+  position relative
 :link,
 :visited 
   color inherit
   font-weight bold
   text-decoration none
+::-webkit-scrollbar 
+  width 8px
+::-webkit-scrollbar-track
+  background #eee
+::-webkit-scrollbar-thumb 
+  background #555
 @media (max-width: 768px) 
   main 
     margin-top 0

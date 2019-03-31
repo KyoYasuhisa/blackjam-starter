@@ -1,6 +1,12 @@
 <template>
-  <section class="top">
-    BLACKJAM      
+  <section class="tips">
+    <List v-for="category in categoriesFeatured" 
+          :key="category.slug"
+          :posts="posts"
+          :category="category" />
+    <Footer :posts="posts"
+            :tags="tags"
+            :author="author" />      
   </section>
 </template>
 
@@ -9,14 +15,13 @@ import { createClient } from '~/plugins/contentful.js'
 import siteConfig from '~/siteConfig.json'
 import List from '~/components/List.vue'
 import Footer from '~/components/Footer.vue'
-import Vue2Filters from 'vue2-filters'
 
 const client = createClient()
 
 export default { 
   head () {
     return {
-      title: `${siteConfig.title} | ${siteConfig.subtitle}`,
+      title: `Tips - ${siteConfig.title} | ${siteConfig.subtitle}`,
       meta: [{
         hid: `description`,
         name: 'description',
@@ -30,7 +35,7 @@ export default {
         'sys.id': env.CTF_AUTHOR_ID
       }),
       client.getEntries({
-        'content_type': env.CTF_BLOG_POST_TYPE_ID,
+        'content_type': 'post',
         order: '-sys.createdAt'
       }),
       client.getEntries({
@@ -54,8 +59,7 @@ export default {
   components: {
     List,
     Footer
-  },
-  mixins: [Vue2Filters.mixin]
+  }
 }
 </script>
 

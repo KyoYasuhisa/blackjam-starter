@@ -1,23 +1,29 @@
 {
   "title": "blackJAM",
-  "subtitle": "Start Your Modern Blog with Nuxt.js & Contentful.",
+  "subtitle": "モダンなブログをかんたんにはじめよう",
   "logo": "/logo.svg",
   "baseURL": "https://blackjam.netlify.com",
   "favicon": "/logo.svg",
   "categoriesFeatured": [
     {
-      "name": "ブログ",
-      "slug": "blog"
+      "name": "機能を追加しよう",
+      "slug": "customize"
     },
     {
-      "name": "ドキュメンテーション",
-      "slug": "doc"
+      "name": "デザインを高めよう",
+      "slug": "design"
+    },
+    {
+      "name": "読んでもらおう",
+      "slug": "seo"
     }
   ],
   "listOption": {
-    "shownum,": 6,
-    "loadnum": 6,
-    "shownumTop": 6
+    "showSlug": true,
+    "shownum,": 3,
+    "loadnum": 3,
+    "shownumTop": 3,
+    "shownumLatest": 4
   },
   "swiperOption": {
     "autoplay": {

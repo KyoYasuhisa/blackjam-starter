@@ -37,7 +37,10 @@
            class="not-found">
         <p>記事が見つかりませんでした...</p>
       </div>
-    </section>
+    </section>  
+    <Footer :posts="postsAll"
+            :tags="tags"
+            :author="author" />    
   </section>
 </template>
 
@@ -46,6 +49,7 @@ import BoxItem from '~/components/BoxItem.vue'
 import Vue2Filters from 'vue2-filters'
 import siteConfig from '~/siteConfig.json'
 import { createClient } from '~/plugins/contentful.js'
+import Footer from '~/components/Footer.vue'
 
 const client = createClient()
 
@@ -78,29 +82,23 @@ export default {
           'sys.id': env.CTF_AUTHOR_ID
         }),
         client.getEntries({
-          'content_type': env.CTF_BLOG_POST_TYPE_ID,
+          'content_type': 'post',
           order: '-sys.createdAt'
         }),
         client.getEntries({
-          'content_type': env.CTF_BLOG_POST_TYPE_ID,
+          'content_type': 'post',
           query: params.query,
-          order: '-sys.createdAt',
-          limit: 1
-        }),
-        client.getEntries({
-          'content_type': env.CTF_BLOG_POST_TYPE_ID,
-          'fields.slug[nin]': params.query
+          order: '-sys.createdAt'
         }),
         client.getEntries({
           'content_type': 'tag',
           order: '-sys.createdAt'
         })
-      ]).then(([entries, postsAll, posts, postsLatest, tags]) => {
+      ]).then(([entries, postsAll, posts, tags]) => {
         return {
           author: entries.items[0],
           postsAll: postsAll.items,
           posts: posts.items,
-          postsLatest: postsLatest.items,
           tags: tags.items
         }
       }).catch(console.error)
@@ -110,11 +108,11 @@ export default {
           'sys.id': env.CTF_AUTHOR_ID
         }),
         client.getEntries({
-          'content_type': env.CTF_BLOG_POST_TYPE_ID,
+          'content_type': 'post',
           order: '-sys.createdAt'
         }),
         client.getEntries({
-          'content_type': env.CTF_BLOG_POST_TYPE_ID,
+          'content_type': 'post',
           'fields.category.sys.contentType.sys.id': 'category',
           'fields.category.fields.slug[match]': params.query
         }),
@@ -123,20 +121,15 @@ export default {
           'fields.slug': params.query,
         }),
         client.getEntries({
-          'content_type': env.CTF_BLOG_POST_TYPE_ID,
-          'fields.slug[nin]': params.query
-        }),
-        client.getEntries({
           'content_type': 'tag',
           order: '-sys.createdAt'
         })
-      ]).then(([entries, postsAll, posts, category, postsLatest, tags]) => {
+      ]).then(([entries, postsAll, posts, category, tags]) => {
         return {
           author: entries.items[0],
           postsAll: postsAll.items,
           posts: posts.items,
           thisQuery: category.items[0],
-          postsLatest: postsLatest.items,
           tags: tags.items
         }
       }).catch(console.error)
@@ -146,11 +139,11 @@ export default {
           'sys.id': env.CTF_AUTHOR_ID
         }),
         client.getEntries({
-          'content_type': env.CTF_BLOG_POST_TYPE_ID,
+          'content_type': 'post',
           order: '-sys.createdAt'
         }),
         client.getEntries({
-          'content_type': env.CTF_BLOG_POST_TYPE_ID,
+          'content_type': 'post',
           'fields.tags.sys.id': params.query,
           order: '-sys.createdAt'
         }),
@@ -159,20 +152,15 @@ export default {
           'sys.id': params.query,
         }),
         client.getEntries({
-          'content_type': env.CTF_BLOG_POST_TYPE_ID,
-          'fields.slug[nin]': params.query
-        }),
-        client.getEntries({
           'content_type': 'tag',
           order: '-sys.createdAt'
         })
-      ]).then(([entries, postsAll, posts, tag, postsLatest, tags]) => {
+      ]).then(([entries, postsAll, posts, tag, tags]) => {
         return {
           author: entries.items[0],
           postsAll: postsAll.items,
           posts: posts.items,
           thisQuery: tag.items[0],
-          postsLatest: postsLatest.items,
           tags: tags.items
         }
       }).catch(console.error)
@@ -186,13 +174,14 @@ export default {
     }
   },
   components: {
-    BoxItem
+    BoxItem,
+    Footer
   },
   mixins: [Vue2Filters.mixin]
 }
 </script>
 
-<style lang="stylus" scoped>
+<style lang="stylus">
 .not-found 
   text-align center
 </style>

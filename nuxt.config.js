@@ -7,11 +7,32 @@ const client = contentful.createClient({
 })
 
 module.exports = {
+  env: {
+    CTF_SPACE_ID: config.CTF_SPACE_ID,
+    CTF_CDA_ACCESS_TOKEN: config.CTF_CDA_ACCESS_TOKEN,
+    CTF_AUTHOR_ID: config.CTF_AUTHOR_ID
+  },
+  modules: [ 
+    '@nuxtjs/markdownit',
+    ['nuxt-fontawesome', {
+      component: 'fa',
+      imports: [
+        {
+          set: '@fortawesome/free-brands-svg-icons',
+          icons: ['fab']
+        },
+        {
+          set: '@fortawesome/free-solid-svg-icons',
+          icons: ['fas']
+        },
+      ]
+    }]
+  ],
   /*
   ** Headers of the page
   */
   head: {
-    title: siteConfig.title,
+    title: siteConfig.title+' | '+siteConfig.subtitle,
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -35,6 +56,20 @@ module.exports = {
   plugins: [
     '~/plugins/vue2-filters'
   ],
+  markdownit: {
+    html: true,
+    preset: 'default',
+    injected: true,
+    linkify: true,
+    breaks: true,
+    use: [
+      'markdown-it-anchor',
+      'markdown-it-table-of-contents',
+      'markdown-it-highlightjs',
+      'markdown-it-katex',
+      'markdown-it-footnote'
+    ]
+  },
   build: {
     /*
     ** Run ESLint on save
@@ -54,7 +89,7 @@ module.exports = {
     routes () {
       return Promise.all([
         client.getEntries({
-          'content_type': config.CTF_BLOG_POST_TYPE_ID
+          'content_type': 'post'
         }),
         client.getEntries({
           'content_type': 'category'
@@ -62,20 +97,22 @@ module.exports = {
         client.getEntries({
           'content_type': 'tag'
         }),
-      ]).then(([posts,categories,tags]) => {
+        client.getEntries({
+          'content_type': 'doc'
+        })
+      ]).then(([posts,categories,tags,docs]) => {
         return [
-          ...posts.items.map(post => `post/${post.fields.slug}`),
-          ...categories.items.map(category => `category/${category.fields.slug}`),
-          ...tags.items.map(tag => `category/${tag.fields.slug}`)
+          ...posts.items.map(post => `tips/${post.fields.slug}`),
+          ...categories.items.map(category => `tips/category/${category.fields.slug}`),
+          ...tags.items.map(tag => `tips/tag/${tag.fields.slug}`),
+          ...docs.items.map(doc => `docs/${doc.fields.slug}`)
         ]
-      })
+      }),
+      [
+        'tips',
+        'docs'
+      ]
     }
-  },
-  env: {
-    CTF_SPACE_ID: config.CTF_SPACE_ID,
-    CTF_CDA_ACCESS_TOKEN: config.CTF_CDA_ACCESS_TOKEN,
-    CTF_PERSON_ID: config.CTF_PERSON_ID,
-    CTF_BLOG_POST_TYPE_ID: config.CTF_BLOG_POST_TYPE_ID
   }
 }
 
