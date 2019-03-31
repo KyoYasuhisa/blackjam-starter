@@ -1,16 +1,16 @@
 <template>
   <swiper-slide class="slider-item">
-    <p class="category">
-      {{ post.fields.category.fields.name }}
-    </p>
-    <div class="img">
-      <img :src="post.fields.image.fields.file.url" alt="thumbnail">
-    </div>
     <nuxt-link :to="{ name: 'tips-getby-query', 
                       params: { 
                         getby: 'category',
                         query: post.fields.category.fields.slug } }">
-    </nuxt-link>
+      <p class="category">
+        {{ post.fields.category.fields.name }}
+      </p>
+    </nuxt-link>  
+    <div class="img">
+      <img :src="post.fields.image.fields.file.url" alt="thumbnail">
+    </div>
     <div class="text-box">
       <nuxt-link :to="{ name: 'tips-slug', 
                         params: { slug: post.fields.slug } }">
