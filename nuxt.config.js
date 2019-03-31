@@ -107,11 +107,7 @@ module.exports = {
           ...tags.items.map(tag => `tips/tag/${tag.fields.slug}`),
           ...docs.items.map(doc => `docs/${doc.fields.slug}`)
         ]
-      }),
-      [
-        'tips',
-        'docs'
-      ]
+      })
     }
   }
 }
