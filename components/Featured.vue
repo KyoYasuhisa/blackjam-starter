@@ -3,8 +3,9 @@
     <swiper :options="swiperOption">
       <SliderItem v-for="post in filterBy(posts, true, 'fields.featured')"
                :key="post.sys.id"
-               :post="post" />           
-      <div class="swiper-pagination" slot="pagination"></div>              
+               :post="post" />
+      <div class="swiper-button-prev" slot="button-prev"></div>
+      <div class="swiper-button-next" slot="button-next"></div>                     
     </swiper>
   </section>
 </template>
@@ -31,6 +32,11 @@ export default {
 <style lang="stylus" scoped>
 .featured
   width 100%
-.swiper-pagination-bullet
-  background #555
+.swiper-button-prev,
+.swiper-button-next
+  display none
+@media (max-width: 768px)
+  .swiper-button-prev,
+  .swiper-button-next
+    display block
 </style>

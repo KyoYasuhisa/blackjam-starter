@@ -68,7 +68,7 @@ header
   top 0
   width 100%
   margin 0 auto
-  padding 5px 0
+  padding 0 0 5px
   display flex
   flex-wrap nowrap
   justify-content flex-start
@@ -88,9 +88,9 @@ header
     width 200px
     margin -6px 0 0 5px
     .title
-      margin-bottom 0
-      font-size 2rem
-      font-family 'Hi Melody', sans-serif
+      margin-bottom 8px
+      font-size 1.8rem
+      font-family 'Amatic SC', sans-serif
     .subtitle 
       margin-top -10px
       font-size .7rem
@@ -142,7 +142,7 @@ header
     display block
     text-align center
     position relative
-    padding-bottom 15px
+    padding 10px 0
     border none
     .logo 
       margin 10px auto 0
@@ -150,7 +150,7 @@ header
       width 100%
       margin 0
       .title
-        margin 0 auto
+        margin 0 auto 8px
     nav 
       margin 0 0 10px 0
     .searcher

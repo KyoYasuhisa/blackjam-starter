@@ -13,6 +13,10 @@ module.exports = {
     CTF_AUTHOR_ID: config.CTF_AUTHOR_ID
   },
   modules: [ 
+    '@nuxtjs/pwa',
+    ['@nuxtjs/google-analytics', {
+      id: siteConfig.analyticsID
+    }],
     '@nuxtjs/markdownit',
     ['nuxt-fontawesome', {
       component: 'fa',
@@ -37,14 +41,22 @@ module.exports = {
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: siteConfig.title+' | '+siteConfig.subtitle }
-    ],
+    ], 
     link: [
       { rel: 'icon', type: 'image/x-icon', href: siteConfig.favicon },
       { rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css' },
       { rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/atom-one-dark.min.css' },
-      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Hi+Melody' },
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Amatic+SC' },
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Noto+Sans+JP' }
     ]
+  },
+  manifest: {
+    name: siteConfig.title,
+    short_name: siteConfig.title,
+    lang: siteConfig.lang,
+    description: siteConfig.subtitle,
+    background_color: siteConfig.background_color,
+    theme_color: siteConfig.theme_color
   },
   css: [
     'swiper/dist/css/swiper.css'

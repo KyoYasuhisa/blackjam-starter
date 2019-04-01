@@ -1,6 +1,11 @@
 <template>
   <section class="top">
-    BLACKJAM      
+    <h1>{{ title }}</h1>
+    <div class="logo">
+      <img :src="logo">
+    </div>
+    <p class="buy-btn">コーヒー１杯分(500円)のお金でblackJAMをはじめる</p>
+    <p class="copyright">Copyright 2019. {{ author.fields.name }}. All Rights Reserved. The logo was created by cato Barend van Scalkwyk from Noun Project.</p>
   </section>
 </template>
 
@@ -28,77 +33,51 @@ export default {
     return Promise.all([
       client.getEntries({
         'sys.id': env.CTF_AUTHOR_ID
-      }),
-      client.getEntries({
-        'content_type': env.CTF_BLOG_POST_TYPE_ID,
-        order: '-sys.createdAt'
-      }),
-      client.getEntries({
-        'content_type': 'tag',
-        order: '-sys.createdAt'
       })
-    ]).then(([authors, posts, tags]) => {
+    ]).then(([authors]) => {
       return {
-        author: authors.items[0],
-        posts: posts.items,
-        tags: tags.items
+        author: authors.items[0]
       }
     }).catch(console.error)
   },
   data () {
     return {
-      swiperOption: siteConfig.swiperOption,
-      categoriesFeatured: siteConfig.categoriesFeatured
+      title: siteConfig.title,
+      logo: siteConfig.logo
     }
-  },
-  components: {
-    List,
-    Footer
-  },
-  mixins: [Vue2Filters.mixin]
+  }
 }
 </script>
 
-<style lang="stylus">
-.post-list
-  margin 50px 0
-  .posts 
-    display flex
-    flex-wrap wrap
-    justify-content center
-.post-list:after
-  content ''
-  display block
-  height 5px
-  width 100px
-  background #eee
-  margin 50px auto
-  border-radius 10px
-.section-title 
+<style lang="stylus" scoped>
+h1
+  font-size 5rem
   text-align center
-  padding 10px 0
-  border-radius 5px
-  margin-bottom 10px
-  h1, h2 
-    margin 0
-    font-size 1.5rem
-  .subtitle
-    margin 0
-    font-size .9rem
-.more-btn 
-  display block
-  width 150px
-  margin 10px auto
-  text-align center
-  padding 10px 0
-  border 1px solid #eee
-  border-radius 20px
+  font-family 'Amatic SC', sans-serif
+  margin 50px 0 0
+.logo
+  margin 0 auto -60px
+  width 300px
+  overflow hidden
+  img
+    width 100%
+.buy-btn
+  margin 0 auto 100px
+  width 174px
+  text-align center   
+  background #555
+  color white
+  padding 10px 25px
+  border 3px solid #555
+  border-radius 40px
   font-weight bold
   cursor pointer
   transition .2s
-.more-btn:hover 
-  border 1px solid #555
-.swiper-pagination-bullet 
+.buy-btn:hover
   background white
+  color #555
+.copyright
+  text-align center
+  font-size .8rem
 </style>
 

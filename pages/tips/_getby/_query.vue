@@ -1,5 +1,6 @@
 <template>
   <section class="query">
+    <Featured :posts="posts" />
     <section class="post-list">
       <div class="section-title">
         <h1>
@@ -22,12 +23,12 @@
           </span>
         </p>
       </div>
-      <div v-if="posts.length > 0"
+      <div v-if="postsFiltered.length > 0"
            class="posts">
-        <BoxItem v-for="post in limitBy(posts, shownum)"
+        <BoxItem v-for="post in limitBy(postsFiltered, shownum)"
               :key="post.sys.id"
               :post="post" />
-        <p v-if="shownum < posts.length"
+        <p v-if="shownum < postsFiltered.length"
            class="more-btn" 
            @click="shownum = shownum + loadnum">
           もっとみる
@@ -38,7 +39,7 @@
         <p>記事が見つかりませんでした...</p>
       </div>
     </section>  
-    <Footer :posts="postsAll"
+    <Footer :posts="posts"
             :tags="tags"
             :author="author" />    
   </section>
@@ -49,6 +50,7 @@ import BoxItem from '~/components/BoxItem.vue'
 import Vue2Filters from 'vue2-filters'
 import siteConfig from '~/siteConfig.json'
 import { createClient } from '~/plugins/contentful.js'
+import Featured from '~/components/Featured.vue'
 import Footer from '~/components/Footer.vue'
 
 const client = createClient()
@@ -94,11 +96,11 @@ export default {
           'content_type': 'tag',
           order: '-sys.createdAt'
         })
-      ]).then(([entries, postsAll, posts, tags]) => {
+      ]).then(([entries, posts, postsFiltered, tags]) => {
         return {
           author: entries.items[0],
-          postsAll: postsAll.items,
           posts: posts.items,
+          postsFiltered: postsFiltered.items,
           tags: tags.items
         }
       }).catch(console.error)
@@ -124,11 +126,11 @@ export default {
           'content_type': 'tag',
           order: '-sys.createdAt'
         })
-      ]).then(([entries, postsAll, posts, category, tags]) => {
+      ]).then(([entries, posts, postsFiltered, category, tags]) => {
         return {
           author: entries.items[0],
-          postsAll: postsAll.items,
           posts: posts.items,
+          postsFiltered: postsFiltered.items,
           thisQuery: category.items[0],
           tags: tags.items
         }
@@ -155,11 +157,11 @@ export default {
           'content_type': 'tag',
           order: '-sys.createdAt'
         })
-      ]).then(([entries, postsAll, posts, tag, tags]) => {
+      ]).then(([entries, posts, postsFiltered, tag, tags]) => {
         return {
           author: entries.items[0],
-          postsAll: postsAll.items,
           posts: posts.items,
+          postsFiltered: postsFiltered.items,
           thisQuery: tag.items[0],
           tags: tags.items
         }
@@ -175,6 +177,7 @@ export default {
   },
   components: {
     BoxItem,
+    Featured,
     Footer
   },
   mixins: [Vue2Filters.mixin]

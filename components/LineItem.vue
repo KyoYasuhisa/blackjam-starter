@@ -1,13 +1,5 @@
 <template>
-  <div class="line-item">
-    <nuxt-link :to="{ name: 'tips-getby-query', 
-                      params: { 
-                        getby: 'category',
-                        query: post.fields.category.fields.slug } }">
-      <p class="category">
-        {{ post.fields.category.fields.name }}
-      </p>
-    </nuxt-link>   
+  <div class="line-item">  
     <div class="img">
       <img :src="post.fields.image.fields.file.url" alt="thumbnail">
     </div>
@@ -21,9 +13,12 @@
       <p class="date">{{ (new Date(post.fields.date)).toLocaleDateString() }}</p>
       <div>
         <nuxt-link :to="{ name: 'tips-getby-query', 
-                          params: { 
-                            getby: 'category',
-                            query: post.fields.category.fields.slug } }">
+                      params: { 
+                        getby: 'category',
+                        query: post.fields.category.fields.slug } }">
+          <p class="category">
+            {{ post.fields.category.fields.name }}
+          </p>
         </nuxt-link> 
         <li class="tag"
             v-for="tag in post.fields.tags"
@@ -59,15 +54,6 @@ export default {
   border-radius 5px
   overflow hidden
   transition .2s
-  .category
-    position absolute
-    right 0
-    top -12px
-    background #555
-    color white
-    font-size .8rem
-    padding 2px 5px
-    border-bottom-left-radius  5px
   .img 
     overflow hidden
     width 50px
@@ -90,6 +76,13 @@ export default {
     .date 
       margin 5px 0
       font-size .8rem
+    .category
+      display inline-block
+      background #555
+      color white
+      font-size .8rem
+      padding 3px 5px
+      border-radius 5px  
     .tag 
       list-style none
       display inline-block

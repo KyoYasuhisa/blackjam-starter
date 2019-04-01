@@ -14,9 +14,9 @@
     <div class="text-box">
       <nuxt-link :to="{ name: 'tips-slug', 
                         params: { slug: post.fields.slug } }">
-        <h2>
+        <h1>
           {{ post.fields.title }}
-        </h2>
+        </h1>
       </nuxt-link>
       <p class="date">{{ (new Date(post.fields.date)).toLocaleDateString() }}</p>
       <div class="tags">
@@ -61,15 +61,15 @@ export default {
     border-radius 20px
     padding 10px 0
     color white
-    font-size .8rem
+    font-size 1rem
     margin 0 auto
     width 100px
     text-align center
     cursor pointer
   .text-box 
     text-align center
-    h2 
-      font-size 1.2rem
+    h1
+      font-size 1.5rem
       margin 0
       padding 5px
       cursor pointer

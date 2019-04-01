@@ -3,7 +3,12 @@
   "subtitle": "モダンなブログをかんたんにはじめよう",
   "logo": "/logo.svg",
   "baseURL": "https://blackjam.netlify.com",
-  "favicon": "/logo.svg",
+  "favicon": "/logo.png",
+  "analyticsID": "UA-133324575-2",
+  "icon": "/logo.png",
+  "lang": "ja",
+  "background_color": "#fff",
+  "theme_color": "black",
   "categoriesFeatured": [
     {
       "name": "機能を追加しよう",
