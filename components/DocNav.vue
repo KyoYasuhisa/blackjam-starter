@@ -10,7 +10,7 @@
       <div  v-if="isOpen"
            class="nav-btn"
            @click="toggleMenu">
-        <fa-layers full-width class="fa-2x icon">
+        <fa-layers full-width class="fa-3x icon">
           <fa :icon="faTimes"/>
         </fa-layers>
       </div>
@@ -22,7 +22,7 @@
     <div v-if="!isOpen"
          class="nav-btn open-btn"
          @click="toggleMenu">
-      <fa-layers full-width class="fa-2x icon">
+      <fa-layers full-width class="fa-3x icon">
         <fa :icon="faBars"/>
       </fa-layers>
     </div>
@@ -70,7 +70,7 @@ export default {
 <style lang="stylus" scoped>
 #l-nav
   position fixed
-  top 75px
+  top 70px
   left 0
   bottom 0
   width 280px

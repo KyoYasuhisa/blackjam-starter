@@ -26,7 +26,7 @@ export default {
 
 <style lang="stylus" scoped>
 .tags
-  margin 100px auto 150px
+  margin 50px auto
   .tags 
     display flex
     flex-wrap wrap

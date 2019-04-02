@@ -115,7 +115,7 @@ header
   .searcher 
     display block
     width 80%
-    margin 12px
+    margin 15px 12px 10px
     padding 0 20px
     border-radius 20px
     height 40px

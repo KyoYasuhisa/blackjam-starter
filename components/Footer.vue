@@ -33,7 +33,7 @@ footer
     font-size .8rem
 @media (max-width: 768px) 
   footer 
-    width 98%
+    width 95%
   .latest .item 
     width auto
 </style>

@@ -76,6 +76,7 @@ export default {
   .next-box
     border 1px solid #eee
     padding 0 20px
+    margin 0 2%
     border-radius 5px
 @media (max-width: 768px)
   .doc-body

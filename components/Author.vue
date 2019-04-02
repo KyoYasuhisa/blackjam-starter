@@ -1,11 +1,17 @@
 <template>
   <section class="author">
-    <img :src="author.fields.avatar.fields.file.url" alt="avatar">
-    <p class="name"><span>Author:</span> {{ author.fields.name }}</p>
-    <a :href="'https://twitter.com/' + author.fields.twitter" target="blank">
-      <p class="twitter">@{{ author.fields.twitter }}</p>
-    </a>
-    <p class="short-bio">{{ author.fields.shortBio }}</p>
+    <div class="head">
+      <div class="texts">
+        <p class="name"><span>Author:</span> {{ author.fields.name }}</p>
+        <a :href="'https://twitter.com/' + author.fields.twitter" target="blank">
+          <p class="twitter">@{{ author.fields.twitter }}</p>
+        </a>
+      </div>
+      <div class="img">
+        <img :src="author.fields.avatar.fields.file.url" alt="avatar">
+      </div>  
+    </div>
+    <p class="body">{{ author.fields.shortBio }}</p>
   </section>
 </template>
 
@@ -21,26 +27,42 @@ export default {
   margin 0 auto 100px
   position relative
   background rgba(255,255,255,.4)
-  img 
-    position absolute
-    top -100px
-    right 0
-    z-index -1
-    width 180px
-  .name 
-    font-size 2rem
-    font-weight bold
-    margin-bottom 0
-    span 
-      font-size 1rem
-  .twitter 
-    display inline-block
-    margin-top 0
-    padding-bottom 2px
-    border-bottom 2px solid #eee
-    transition .2s
-  .twitter:hover 
-    border-bottom 2px solid #555
+  .head
+    display flex
+    flex-wrap no-wrap
+    justify-content flex-end
+    .img
+      width 80px
+      height 80px
+      max-width 80px
+      max-height 80px
+      border-radius 50%
+      border 1px solid #eee  
+      margin-left 20px
+      overflow hidden
+      position relative
+      top 20px
+      img 
+        width 100%
+    .texts
+      .name 
+        font-size 2rem
+        font-weight bold
+        margin-bottom 0
+        span 
+          font-size 1rem
+      .twitter 
+        display inline-block
+        margin-top 0
+        padding-bottom 2px
+        border-bottom 2px solid #eee
+        transition .2s
+      .twitter:hover 
+        border-bottom 2px solid #555
+  .body
+    border 1px solid #eee
+    border-radius 5px
+    padding 10px
   .copyright 
     text-align center
     font-size .8rem

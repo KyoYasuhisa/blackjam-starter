@@ -29,6 +29,7 @@ html
   color #555
 body 
   margin 0
+  overflow-x hidden
 main 
   width 100%
   max-width 1000px
