@@ -1,15 +1,15 @@
 <template>
   <section class="author">
     <div class="head">
+      <div class="img">
+        <img :src="author.fields.avatar.fields.file.url" alt="avatar">
+      </div>  
       <div class="texts">
         <p class="name"><span>Author:</span> {{ author.fields.name }}</p>
         <a :href="'https://twitter.com/' + author.fields.twitter" target="blank">
           <p class="twitter">@{{ author.fields.twitter }}</p>
         </a>
       </div>
-      <div class="img">
-        <img :src="author.fields.avatar.fields.file.url" alt="avatar">
-      </div>  
     </div>
     <p class="body">{{ author.fields.shortBio }}</p>
   </section>
@@ -28,9 +28,9 @@ export default {
   position relative
   background rgba(255,255,255,.4)
   .head
-    display flex
-    flex-wrap no-wrap
-    justify-content flex-end
+    text-align center
+    height auto
+    margin-bottom 0
     .img
       width 80px
       height 80px
@@ -38,19 +38,20 @@ export default {
       max-height 80px
       border-radius 50%
       border 1px solid #eee  
-      margin-left 20px
+      margin 0 auto -10px
       overflow hidden
       position relative
-      top 20px
+      top 8px
       img 
         width 100%
     .texts
+      margin 0 auto
       .name 
-        font-size 2rem
+        font-size 1.5rem
         font-weight bold
         margin-bottom 0
         span 
-          font-size 1rem
+          font-size .9rem
       .twitter 
         display inline-block
         margin-top 0
@@ -63,6 +64,9 @@ export default {
     border 1px solid #eee
     border-radius 5px
     padding 10px
+    margin 0 auto
+    font-size 1rem
+    line-height 1.5rem
   .copyright 
     text-align center
     font-size .8rem

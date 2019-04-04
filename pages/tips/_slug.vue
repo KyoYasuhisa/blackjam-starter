@@ -248,25 +248,6 @@ export default {
       background rgba(0,0,0,.9)
       border-radius 8px
       padding 10px 20px
-@media (max-width: 768px) 
-  .single 
-    .head 
-      width 102%
-      margin 10px 0 30px -1%
-      border-radius 0
-      .text-box 
-        top 3vw
-    h1 
-      font-size 4vw
-    .body 
-      width 98%
-      h2
-        padding-top 20px
-      .hljs 
-        background rgba(0,0,0,.9)
-        border-radius 0
-        padding 10px
-        margin 0 -2%
 @media (max-width: 1000px)
   .single
     .head
@@ -274,15 +255,45 @@ export default {
         width auto
         font-size 1.5rem
     .body
+      width 80%
+      margin 50px auto
       .table-of-contents
         position relative
         width auto
         top auto
         right auto
+        border 1px solid #eee
+        border-radius 5px
+        width 60%
+        margin 20px auto
     .sns
       top auto
       left auto
       bottom 10px
-      right 10px
+      right 10px      
+@media (max-width: 768px) 
+  .single 
+    .head 
+      width 100%
+      margin 10px 0 30px 0
+      border-radius 0
+      .text-box 
+        top 3vw
+    h1 
+      font-size 1.2rem
+    .body 
+      width 95%
+      padding 5px
+      margin 0 auto
+      text-align justify
+      .table-of-contents
+        width 90%
+      h2
+        padding-top 20px
+      .hljs 
+        background rgba(0,0,0,.9)
+        border-radius 0
+        padding 10px
+        margin 0 -2.5%
 </style>
 

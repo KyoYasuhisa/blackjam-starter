@@ -16,20 +16,24 @@
        </div> 
       <p>blackJAMは「静的サイトジェネレータ」と「ヘッドレスCMS」によって構成されるモダンでハイスペックなブログを今すぐかんたんに始めるためのテンプレートです。</p>
     </div>
-    <div class="top-btn">
-      <fa-layers full-width class="fa-2x icon">
-        <fa :icon="faFeatherAlt"/>
-      </fa-layers>
-      500円でモダンブログをはじめる
+    <div class="btns">
+      <nuxt-link to="/tips">
+        <div class="top-btn">
+          <fa-layers full-width class="fa-2x icon">
+            <fa :icon="faFeatherAlt"/>
+          </fa-layers>
+          500円でモダンブログをはじめる
+        </div>
+      </nuxt-link>  
+      <nuxt-link to="/tips">
+        <div class="top-btn">
+          <fa-layers full-width class="icon">
+            <fa :icon="faEye"/>
+          </fa-layers>
+          Live Demoをみる
+        </div>
+      </nuxt-link>  
     </div>
-    <nuxt-link to="/tips">
-      <div class="top-btn">
-        <fa-layers full-width class="icon">
-          <fa :icon="faEye"/>
-        </fa-layers>
-        Live Demoをみる
-      </div>
-    </nuxt-link>  
     <p class="copyright">Copyright 2019. {{ author.fields.name }}. All Rights Reserved. The logo was created by cato Barend van Scalkwyk from Noun Project.</p>
   </section>
 </template>
@@ -127,27 +131,31 @@ export default {
         width 100%
     p
       margin 0
-.top-btn
-  width 250px
-  margin 10px auto
-  text-align center   
-  background white
-  color #555
-  padding 10px 25px 12px
-  border 1px solid #eee
-  border-radius 40px
-  font-weight bold
-  transition .2s
-  .icon
-    font-size 1.5rem
-    margin 0 10px 0 0
-    position relative
-    top 3px
-.top-btn:hover
-  box-shadow 0 0 5px rgba(0,0,0,.3)
+.btns      
+  margin-bottom 100px
+  .top-btn
+    width 250px
+    margin 10px auto
+    text-align center   
+    background white
+    color #555
+    padding 10px 25px 12px
+    border 1px solid #eee
+    border-radius 40px
+    font-weight bold
+    transition .2s
+    .icon
+      font-size 1.5rem
+      margin 0 10px 0 0
+      position relative
+      top 3px
+  .top-btn:hover
+    box-shadow 0 0 5px rgba(0,0,0,.3)
 .copyright
+  margin 0 auto
   text-align center
   font-size .8rem
+  width 95%
 @media (max-width: 768px)
   .message
     width 80%

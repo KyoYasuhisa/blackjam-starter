@@ -35,7 +35,7 @@ export default {
       font-size 1.5rem
       margin-top 0
   .body
-    margin 50px 2%
+    margin 50px auto
     font-size 1rem
     line-height 2rem
     text-align justify
@@ -81,12 +81,13 @@ export default {
 @media (max-width: 768px)
   .doc-body
     .body
+      width 95%
       h2
         padding-top 40px
       .hljs 
         border-radius 0
         padding 10px 20px
-        margin 30px -5%
+        margin 30px -2.5%
 </style>
 
 

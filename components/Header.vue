@@ -14,7 +14,7 @@
           {{ subtitle }}
         </h2>
       </div>
-    </nuxt-link> 
+    </nuxt-link>
     <nav>
       <nuxt-link to='/tips'>
         <li :class="{ active: $route.name == 'tips-getby-query' || $route.name == 'tips-slug' || $route.name == 'tips' }">Tips</li>

@@ -94,7 +94,7 @@ export default {
 .nav-btn
   position fixed
   top 20px
-  right 20px
+  right 25px
   z-index 1000
   cursor pointer
 .open-btn

@@ -69,7 +69,7 @@ export default {
   .text-box 
     text-align center
     h1
-      font-size 1.5rem
+      font-size 1.8rem
       margin 0
       padding 5px
       cursor pointer
