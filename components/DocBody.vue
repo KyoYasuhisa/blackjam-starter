@@ -55,7 +55,7 @@ export default {
           padding-bottom 2px
     h2
       font-size 1.2rem
-      padding-top 75px
+      padding-top 30px
     h3
       background #eee
       padding 5px 10px

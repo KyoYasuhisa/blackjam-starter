@@ -26,8 +26,10 @@
       </div>
     </div>
     <SideBtns :post="post"
-              :author="author" />
-    <div class="body" v-html="$md.render(post.fields.content)"></div>
+              :author="author" />        
+    <div class="body" v-html="$md.render(post.fields.content)">
+      <adsbygoogle />
+    </div>
     <Rec :postsRec="filterBy(postsRec, post.fields.tags[0].fields.name, 'fields.content')"
          :postsFeatured="filterBy(postsRec, true, 'fields.featured')"
          :tag="post.fields.tags[0]" />
@@ -189,7 +191,7 @@ export default {
 
     h2 
       margin 0 0 -10px
-      padding-top 60px
+      padding-top 30px
       font-size 1.4rem
     h3 
       font-size 1rem

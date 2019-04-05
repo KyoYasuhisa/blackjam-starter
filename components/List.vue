@@ -7,12 +7,12 @@
     <div class="posts">
       <BoxItem v-for="post in limitBy(filterBy(posts, category.slug, 'fields.category.fields.slug'), shownumTop)"
                :key="post.sys.id"
-               :post="post" />
+               :post="post" />    
     </div>
     <nuxt-link :to="{ name: 'tips-getby-query', 
                       params: { 
                         getby: 'category', 
-                        query: category.slug } }">
+                        query: category.slug } }">            
       <p class="more-btn">もっとみる</p>
     </nuxt-link>
   </section>

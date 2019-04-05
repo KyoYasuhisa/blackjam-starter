@@ -29,3 +29,9 @@ export default {
 }
 </script>
 
+<style lang="stylus" scoped>
+.latest
+  margin-top 50px
+</style>
+
+

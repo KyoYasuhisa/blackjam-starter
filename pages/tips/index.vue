@@ -1,6 +1,7 @@
 <template>
   <section class="tips">
     <Featured :posts="posts" />
+     <adsbygoogle />
     <List v-for="category in categoriesFeatured" 
           :key="category.slug"
           :posts="posts"

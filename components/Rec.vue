@@ -44,6 +44,7 @@ export default {
 
 <style lang="stylus" scoped>
 .rec
+  margin-top -100px
   width 100%
   position relative
 .swiper-button-prev,
