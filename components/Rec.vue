@@ -1,12 +1,25 @@
 <template>
   <section class="rec post-list">
-    <swiper :options="swiperOption">
-      <SliderItem v-for="post in limitBy(filterBy(posts, tags, 'fields.tags'), 4)"
-               :key="post.sys.id"
-               :post="post" />
-      <div class="swiper-button-prev" slot="button-prev"></div>
-      <div class="swiper-button-next" slot="button-next"></div>                     
-    </swiper>
+    <div class="section-title">
+      <h2>これを読んだあなたにお薦めの記事</h2>
+      <p class="subtitle">recommended</p>
+    </div>
+    <div v-if="postsRec.length > 0">
+      <swiper :options="swiperOption">
+        <SliderItem v-for="post in limitBy(postsRec, 4)"
+                    :key="post.sys.id"
+                    :post="post" />
+      </swiper>              
+    </div>
+    <div v-else>
+      <swiper :options="swiperOption">
+        <SliderItem v-for="post in limitBy(postsFeatured, 4)"
+                    :key="post.sys.id"
+                    :post="post" />
+      </swiper>                 
+    </div>
+    <div class="swiper-button-prev" slot="button-prev"></div>
+    <div class="swiper-button-next" slot="button-next"></div>                     
   </section>
 </template>
 
@@ -21,7 +34,7 @@ export default {
       swiperOption: siteConfig.swiperOption,
     }
   },
-  props: ['posts','tags'],
+  props: ['postsRec','postsFeatured','tag'],
   components: {
     SliderItem
   },
@@ -32,6 +45,7 @@ export default {
 <style lang="stylus" scoped>
 .rec
   width 100%
+  position relative
 .swiper-button-prev,
 .swiper-button-next
   display none
@@ -39,7 +53,7 @@ export default {
   .swiper-button-prev,
   .swiper-button-next
     display block
-    top 40%
+    top 45%
   .swiper-button-prev
     background-image url('/left-arrow.svg')
   .swiper-button-next

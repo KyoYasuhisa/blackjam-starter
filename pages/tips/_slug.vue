@@ -25,27 +25,12 @@
         </div>
       </div>
     </div>
-    <div class="sns">
-      <a :href='"https://twitter.com/share?url="+baseURL+"/post/"+post.fields.slug+"&via="+author.fields.twitter+"&related="+author.fields.twitter+"&text="+post.fields.title' 
-         rel="nofollow" 
-         target="_blank">
-        <fa-layers full-width class="fa-2x icon">
-          <fa :icon="faTwitter"/>
-        </fa-layers>
-      </a>
-      <a :href='"http://www.facebook.com/share.php?u="+baseURL+"/post/"+post.fields.slug' 
-         rel="nofollow" 
-         target="_blank">
-        <fa-layers full-width class="fa-2x icon">
-          <fa :icon="faFacebook"/>
-        </fa-layers>
-      </a>
-      <fa-layers full-width class="fa-2x icon"
-                 @click="copyLink">
-        <fa :icon="faLink"/>
-      </fa-layers>
-    </div>
+    <SideBtns :post="post"
+              :author="author" />
     <div class="body" v-html="$md.render(post.fields.content)"></div>
+    <Rec :postsRec="filterBy(postsRec, post.fields.tags[0].fields.name, 'fields.content')"
+         :postsFeatured="filterBy(postsRec, true, 'fields.featured')"
+         :tag="post.fields.tags[0]" />
     <Footer :posts="posts"
             :tags="tags"
             :author="author" />     
@@ -56,10 +41,10 @@
 import { createClient } from '~/plugins/contentful.js'
 import siteConfig from '~/siteConfig.json'
 import List from '~/components/List.vue'
+import Rec from '~/components/Rec.vue'
 import Footer from '~/components/Footer.vue'
-import { faTwitter } from '@fortawesome/free-brands-svg-icons'
-import { faFacebook } from '@fortawesome/free-brands-svg-icons'
-import { faLink } from '@fortawesome/free-solid-svg-icons'
+import SideBtns from '~/components/SideBtns.vue'
+import Vue2Filters from 'vue2-filters'
 
 const client = createClient()
 
@@ -88,14 +73,20 @@ export default {
         order: '-sys.createdAt'
       }),
       client.getEntries({
+        'content_type': 'post',
+        'fields.slug[nin]': params.slug,
+        order: '-sys.createdAt'
+      }),
+      client.getEntries({
         'content_type': 'tag',
         order: '-sys.createdAt'
       })
-    ]).then(([authors, post, posts, tags]) => {
+    ]).then(([authors, post, posts, postsRec, tags]) => {
       return {
         author: authors.items[0],
         post: post.items[0],
         posts: posts.items,
+        postsRec: postsRec.items,
         tags: tags.items
       }
     }).catch(console.error)
@@ -103,51 +94,22 @@ export default {
   data () {
     return {
       swiperOption: siteConfig.swiperOption,
-      baseURL: siteConfig.baseURL,
       title: siteConfig.title,
       subtitle: siteConfig.subtitle
     }
   },
   components: {
     List,
-    Footer
+    Footer,
+    SideBtns,
+    Rec
   },
-  computed: {
-    faTwitter () {
-      return faTwitter
-    },
-    faFacebook () {
-      return faFacebook
-    },
-    faLink () {
-      return faLink
-    }
-  },
-  methods: {
-    copyLink () {
-      navigator.clipboard.writeText(this.baseURL+'/post/'+this.post.fields.slug)
-      .then(function() {
-        alert('URL Copied!')
-      })
-    }
-  }
+  mixins: [Vue2Filters.mixin]
 }
 </script>
 
 <style lang="stylus">
 .single 
-  .sns
-    position fixed
-    top 30vh
-    left 20px
-    padding 0 15px
-    border-radius 5px
-    background rgba(255,255,255,.8)
-    z-index 20
-    .icon
-      display block
-      margin 20px 0
-      cursor pointer
   .head 
     width 100%
     height calc(30vw + 100px)
@@ -203,12 +165,10 @@ export default {
     .table-of-contents
       position fixed
       width 180px
-      top 30vh
+      top 35vh
       right 5px
       border-radius 5px
       padding 0 12px
-      margin 40px 0
-      background rgba(255,255,255,.8)
       z-index 10
       ul 
         margin 0
@@ -265,12 +225,7 @@ export default {
         border 1px solid #eee
         border-radius 5px
         width 60%
-        margin 20px auto
-    .sns
-      top auto
-      left auto
-      bottom 10px
-      right 10px      
+        margin 20px auto    
 @media (max-width: 768px) 
   .single 
     .head 

@@ -43,10 +43,12 @@
                                              query: query } })">
     <div v-if="$route.name == 'index'"></div>
     <div v-else class="pay-btn">
-      <fa-layers full-width class="fa-x icon">
-        <fa :icon="faFeatherAlt"/>
-      </fa-layers>
-       モダンブログを始める
+      <a href="https://note.mu/kyo_game_theory/n/n0786955fc31d" target="_blank">
+        <fa-layers full-width class="fa-x icon">
+          <fa :icon="faFeatherAlt"/>
+        </fa-layers>
+         モダンブログを始める
+      </a>   
     </div>                                         
   </header>
 </template>
@@ -163,6 +165,7 @@ header
     text-align center
     font-size .9rem
     transition .2s
+    cursor pointer
     .icon
       margin 0 5px
   .pay-btn:hover
@@ -197,7 +200,7 @@ header
       position fixed
       bottom 20px
       left 50%
-      margin-left -45%
+      margin 0 0 0 -45%
       font-size .9rem
       width 90%
       height 30px

@@ -54,9 +54,11 @@ export default {
 .docs
   .doc-body
     margin-left 280px
+    padding 0 5%
 @media (max-width: 768px)
   .docs
     .doc-body
       margin-left 0
+      padding 0
 </style>
 

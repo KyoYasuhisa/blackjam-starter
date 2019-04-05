@@ -14,6 +14,7 @@ module.exports = {
   },
   modules: [ 
     '@nuxtjs/pwa',
+    'nuxt-clipboard2',
     ['@nuxtjs/google-analytics', {
       id: siteConfig.analyticsID
     }],
@@ -46,13 +47,16 @@ module.exports = {
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: siteConfig.title+' | '+siteConfig.subtitle }
     ], 
+    script: [
+      { src: 'https://unpkg.com/vue-paypal-checkout@2.0.0/dist/vue-paypal-checkout.min.js' }
+    ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: siteConfig.favicon },
       { rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css' },
       { rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/atom-one-dark.min.css' },
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Amatic+SC' },
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Noto+Sans+JP' }
-    ]
+    ] 
   },
   manifest: {
     name: siteConfig.title,
@@ -76,7 +80,7 @@ module.exports = {
     { src: '~plugins/vue-awesome-swiper', ssr: false },
     '~/plugins/vue2-filters'
   ],
-  markdownit: {
+  markdownit: { 
     html: true,
     preset: 'default',
     injected: true,
@@ -128,9 +132,7 @@ module.exports = {
           ...posts.items.map(post => `tips/${post.fields.slug}`),
           ...categories.items.map(category => `tips/category/${category.fields.slug}`),
           ...tags.items.map(tag => `tips/tag/${tag.fields.slug}`),
-          ...docs.items.map(doc => `docs/${doc.fields.slug}`),
-          'tips',
-          'docs'
+          ...docs.items.map(doc => `docs/${doc.fields.slug}`)
         ]
       })
     }

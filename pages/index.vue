@@ -17,14 +17,14 @@
       <p>blackJAMは「静的サイトジェネレータ」と「ヘッドレスCMS」によって構成されるモダンでハイスペックなブログを今すぐかんたんに始めるためのテンプレートです。</p>
     </div>
     <div class="btns">
-      <nuxt-link to="/tips">
+      <a href="https://note.mu/kyo_game_theory/n/n0786955fc31d" target="_blank">
         <div class="top-btn">
           <fa-layers full-width class="fa-2x icon">
             <fa :icon="faFeatherAlt"/>
           </fa-layers>
           500円でモダンブログをはじめる
         </div>
-      </nuxt-link>  
+      </a>  
       <nuxt-link to="/tips">
         <div class="top-btn">
           <fa-layers full-width class="icon">
@@ -43,7 +43,6 @@ import { createClient } from '~/plugins/contentful.js'
 import siteConfig from '~/siteConfig.json'
 import List from '~/components/List.vue'
 import Footer from '~/components/Footer.vue'
-import Vue2Filters from 'vue2-filters'
 import { faEye } from '@fortawesome/free-regular-svg-icons'
 import { faFeatherAlt } from '@fortawesome/free-solid-svg-icons'
 
@@ -75,7 +74,11 @@ export default {
     return {
       title: siteConfig.title,
       subtitle: siteConfig.subtitle,
-      logo: siteConfig.logo 
+      logo: siteConfig.logo,
+      credentials: {
+        sandbox: 'AcpGL3CdBpLeRE27MwobneBk2DnHBuTHgSQjrc2cV_jA3LP5WmAjY0C46Boo7G9XYHjocxraOCWXqZie',
+        production: '<production client id>'
+      }
     }
   },
   computed: {
@@ -134,7 +137,7 @@ export default {
 .btns      
   margin-bottom 100px
   .top-btn
-    width 250px
+    width 320px
     margin 10px auto
     text-align center   
     background white
