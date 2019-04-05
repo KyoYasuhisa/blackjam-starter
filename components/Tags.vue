@@ -7,7 +7,7 @@
     <div class="tags">
       <li v-for="tag in tags"
           :key="tag.sys.id"
-          @click="$router.push({ name: 'tips-getby-query', 
+          @click="$router.push({ name: 'posts-getby-query', 
                                  params: { 
                                    getby: 'tag',
                                    query: tag.sys.id } })">

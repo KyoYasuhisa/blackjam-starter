@@ -9,7 +9,7 @@
                :key="post.sys.id"
                :post="post" />    
     </div>
-    <nuxt-link :to="{ name: 'tips-getby-query', 
+    <nuxt-link :to="{ name: 'posts-getby-query', 
                       params: { 
                         getby: 'category', 
                         query: category.slug } }">            

@@ -126,16 +126,12 @@ module.exports = {
         }),
         client.getEntries({
           'content_type': 'tag'
-        }),
-        client.getEntries({
-          'content_type': 'doc'
         })
-      ]).then(([posts,categories,tags,docs]) => {
+      ]).then(([posts,categories,tags]) => {
         return [
-          ...posts.items.map(post => `tips/${post.fields.slug}`),
-          ...categories.items.map(category => `tips/category/${category.fields.slug}`),
-          ...tags.items.map(tag => `tips/tag/${tag.fields.slug}`),
-          ...docs.items.map(doc => `docs/${doc.fields.slug}`)
+          ...posts.items.map(post => `posts/${post.fields.slug}`),
+          ...categories.items.map(category => `posts/category/${category.fields.slug}`),
+          ...tags.items.map(tag => `posts/tag/${tag.fields.slug}`)
         ]
       })
     }

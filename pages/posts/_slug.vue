@@ -4,7 +4,7 @@
       <div class="cover"></div> 
       <img :src="post.fields.image.fields.file.url" alt="thumbnail">
       <div class="text-box">
-        <nuxt-link :to="{ name: 'tips-getby-query', 
+        <nuxt-link :to="{ name: 'posts-getby-query', 
                           params: { 
                             getby: 'category',
                             query: post.fields.category.fields.slug } }">
@@ -16,7 +16,7 @@
         <div class="tags">
           <li v-for="tag in post.fields.tags"
               :key="tag.sys.id"
-              @click="$router.push({ name: 'tips-getby-query', 
+              @click="$router.push({ name: 'posts-getby-query', 
                                      params: { 
                                        getby: 'tag',
                                        query: tag.sys.id } })">
@@ -27,9 +27,7 @@
     </div>
     <SideBtns :post="post"
               :author="author" />        
-    <div class="body" v-html="$md.render(post.fields.content)">
-      <adsbygoogle />
-    </div>
+    <div class="body" v-html="$md.render(post.fields.content)"></div>
     <Rec :postsRec="filterBy(postsRec, post.fields.tags[0].fields.name, 'fields.content')"
          :postsFeatured="filterBy(postsRec, true, 'fields.featured')"
          :tag="post.fields.tags[0]" />

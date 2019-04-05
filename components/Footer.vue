@@ -1,6 +1,5 @@
 <template>
   <footer>
-    <adsbygoogle />
     <Latest :posts="posts" />
     <Tags :tags="tags"/>
     <Author :author="author"/>

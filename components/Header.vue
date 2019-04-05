@@ -15,47 +15,19 @@
         </h2>
       </div>
     </nuxt-link>
-    <nav>
-      <nuxt-link to='/tips'>
-        <li :class="{ active: $route.name == 'tips-getby-query' || $route.name == 'tips-slug' || $route.name == 'tips' }">Tips</li>
-      </nuxt-link>
-      <nuxt-link to='/docs'>    
-        <li :class="{ active: $route.name == 'docs-getby-query' || $route.name == 'docs-slug' || $route.name == 'docs' }">Docs</li>
-      </nuxt-link>  
-    </nav>   
-    <input v-if="$route.name == 'tips-getby-query' || $route.name == 'tips-slug' || $route.name == 'tips'"
-           class="searcher" 
+    <input class="searcher" 
            type="search" 
-           placeholder="Search Tips"
+           placeholder="Search posts"
            v-model="query"
-           @keypress.enter="$router.push({ name: 'tips-getby-query',
+           @keypress.enter="$router.push({ name: 'posts-getby-query',
                                            params: { 
                                              getby: 'search',
-                                             query: query } })">
-    <input v-if="$route.name == 'docs-getby-query' || $route.name == 'docs-slug' || $route.name == 'docs'"
-           class="searcher" 
-           type="search" 
-           placeholder="Search Docs"
-           v-model="query"
-           @keypress.enter="$router.push({ name: 'docs-getby-query',
-                                           params: { 
-                                             getby: 'search',
-                                             query: query } })">
-    <div v-if="$route.name == 'index'"></div>
-    <div v-else class="pay-btn">
-      <a href="https://note.mu/kyo_game_theory/n/n0786955fc31d" target="_blank">
-        <fa-layers full-width class="fa-x icon">
-          <fa :icon="faFeatherAlt"/>
-        </fa-layers>
-         モダンブログを始める
-      </a>   
-    </div>                                         
+                                             query: query } })">                                 
   </header>
 </template>
 
 <script>
 import siteConfig from '~/siteConfig.json'
-import { faFeatherAlt } from '@fortawesome/free-solid-svg-icons'
 
 export default {
   data () {
@@ -63,19 +35,11 @@ export default {
       query: '',
       logo: siteConfig.logo,
       title: siteConfig.title,
-      subtitle: siteConfig.subtitle,
-      categoriesFeatured: siteConfig.categoriesFeatured,
-      isOpen: true
-    }
-  },
-  computed: {
-    faFeatherAlt () {
-      return faFeatherAlt
+      subtitle: siteConfig.subtitle
     }
   }
 }
 </script>
-
 
 <style lang="stylus" scoped>
 header

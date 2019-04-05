@@ -1,50 +1,22 @@
 <template>
-  <section class="top">
-    <div class="titles">
-      <h1 class="title">{{ title }}</h1>
-      <p class="subtitle">{{ subtitle }}</p>
-    </div>
-    <div class="logo">
-      <img :src="logo">
-    </div>
-    <div class="message">
-      <div class="avatar">
-        <div class="img">
-          <img :src="author.fields.avatar.fields.file.url" alt="avatar">
-        </div>  
-        <p>{{ author.fields.name }}</p>
-       </div> 
-      <p>blackJAMは「静的サイトジェネレータ」と「ヘッドレスCMS」によって構成されるモダンでハイスペックなブログを今すぐかんたんに始めるためのテンプレートです。</p>
-    </div>
-    <div class="btns">
-      <a href="https://note.mu/kyo_game_theory/n/n0786955fc31d" target="_blank">
-        <div class="top-btn">
-          <fa-layers full-width class="fa-2x icon">
-            <fa :icon="faFeatherAlt"/>
-          </fa-layers>
-          500円でモダンブログをはじめる
-        </div>
-      </a>  
-      <nuxt-link to="/tips">
-        <div class="top-btn">
-          <fa-layers full-width class="icon">
-            <fa :icon="faEye"/>
-          </fa-layers>
-          Live Demoをみる
-        </div>
-      </nuxt-link>  
-    </div>
-    <p class="copyright">Copyright 2019. {{ author.fields.name }}. All Rights Reserved. The logo was created by cato Barend van Scalkwyk from Noun Project.</p>
+  <section class="posts">
+    <Featured :posts="posts" />
+    <List v-for="category in categoriesFeatured" 
+          :key="category.slug"
+          :posts="posts"
+          :category="category" />
+    <Footer :posts="posts"
+            :tags="tags"
+            :author="author" />      
   </section>
 </template>
 
 <script>
 import { createClient } from '~/plugins/contentful.js'
 import siteConfig from '~/siteConfig.json'
+import Featured from '~/components/Featured.vue'
 import List from '~/components/List.vue'
 import Footer from '~/components/Footer.vue'
-import { faEye } from '@fortawesome/free-regular-svg-icons'
-import { faFeatherAlt } from '@fortawesome/free-solid-svg-icons'
 
 const client = createClient()
 
@@ -63,108 +35,77 @@ export default {
     return Promise.all([
       client.getEntries({
         'sys.id': env.CTF_AUTHOR_ID
+      }),
+      client.getEntries({
+        'content_type': 'post',
+        order: '-sys.createdAt'
+      }),
+      client.getEntries({
+        'content_type': 'tag',
+        order: '-sys.createdAt'
       })
-    ]).then(([authors]) => {
+    ]).then(([authors, posts, tags]) => {
       return {
-        author: authors.items[0]
+        author: authors.items[0],
+        posts: posts.items,
+        tags: tags.items
       }
     }).catch(console.error)
   },
   data () {
     return {
-      title: siteConfig.title,
-      subtitle: siteConfig.subtitle,
-      logo: siteConfig.logo,
-      credentials: {
-        sandbox: 'AcpGL3CdBpLeRE27MwobneBk2DnHBuTHgSQjrc2cV_jA3LP5WmAjY0C46Boo7G9XYHjocxraOCWXqZie',
-        production: '<production client id>'
-      }
+      swiperOption: siteConfig.swiperOption,
+      categoriesFeatured: siteConfig.categoriesFeatured
     }
   },
-  computed: {
-    faEye () {
-      return faEye
-    },
-    faFeatherAlt () {
-      return faFeatherAlt
-    }
+  components: {
+    Featured,
+    List,
+    Footer
   }
 }
 </script>
 
-<style lang="stylus" scoped>
-.titles
+<style lang="stylus">
+.post-list
+  margin 50px 0
+  .posts 
+    display flex
+    flex-wrap wrap
+    justify-content center
+.post-list:after
+  content ''
+  display block
+  height 5px
+  width 100px
+  background #eee
+  margin 50px auto
+  border-radius 10px
+.section-title 
   text-align center
-  .title
-    font-size 5rem
-    font-family 'Amatic SC', sans-serif
-    margin 50px 0 0
-  .subtitle
-    font-size .8rem
-    font-weight bold
-    margin 0  
-.logo
-  margin 0 auto -60px
-  width 200px
-  overflow hidden
-  img
-    width 100%
-.message
-  display flex
-  flex-wrap no-wrap
-  justify-content flex-start
-  width 360px
-  margin 20px auto
-  padding 10px
-  border 1px solid #eee
+  padding 10px 0
   border-radius 5px
-  font-size .9rem
-  .avatar
-    text-align center
-    margin-right 10px
-    .img
-      width 50px
-      height 50px
-      max-width 50px
-      max-height 50px
-      border-radius 50%
-      overflow hidden
-      border 1px solid #eee
-      img
-        width 100%
-    p
-      margin 0
-.btns      
-  margin-bottom 100px
-  .top-btn
-    width 320px
-    margin 10px auto
-    text-align center   
-    background white
-    color #555
-    padding 10px 25px 12px
-    border 1px solid #eee
-    border-radius 40px
-    font-weight bold
-    transition .2s
-    .icon
-      font-size 1.5rem
-      margin 0 10px 0 0
-      position relative
-      top 3px
-  .top-btn:hover
-    box-shadow 0 0 5px rgba(0,0,0,.3)
-.copyright
-  margin 0 auto
+  margin-bottom 10px
+  h1, h2 
+    margin 0
+    font-size 1.5rem
+  .subtitle
+    margin 0
+    font-size .9rem
+.more-btn 
+  display block
+  width 150px
+  margin 10px auto
   text-align center
-  font-size .8rem
-  width 95%
-@media (max-width: 768px)
-  .message
-    width 80%
-  .btns
-    .top-btn
-      width 80%
-      padding 10px 0 12px
+  padding 10px 0
+  border 1px solid #eee
+  border-radius 20px
+  font-weight bold
+  cursor pointer
+  transition .2s
+.more-btn:hover 
+  border 1px solid #555
+.swiper-pagination-bullet 
+  background white
 </style>
 
