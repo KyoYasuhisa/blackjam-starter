@@ -162,7 +162,9 @@ export default {
 @media (max-width: 768px)
   .message
     width 80%
-  .top-btn
-    width 80%
+  .btns
+    .top-btn
+      width 80%
+      padding 10px 0 12px
 </style>
 
