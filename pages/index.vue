@@ -162,7 +162,7 @@ export default {
 @media (max-width: 768px)
   .message
     width 80%
-  .buy-btn
+  .top-btn
     width 80%
 </style>
 
