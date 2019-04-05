@@ -41,11 +41,19 @@
                                            params: { 
                                              getby: 'search',
                                              query: query } })">
+    <div v-if="$route.name == 'index'"></div>
+    <div v-else class="pay-btn">
+      <fa-layers full-width class="fa-x icon">
+        <fa :icon="faFeatherAlt"/>
+      </fa-layers>
+       モダンブログを始める
+    </div>                                         
   </header>
 </template>
 
 <script>
 import siteConfig from '~/siteConfig.json'
+import { faFeatherAlt } from '@fortawesome/free-solid-svg-icons'
 
 export default {
   data () {
@@ -56,6 +64,11 @@ export default {
       subtitle: siteConfig.subtitle,
       categoriesFeatured: siteConfig.categoriesFeatured,
       isOpen: true
+    }
+  },
+  computed: {
+    faFeatherAlt () {
+      return faFeatherAlt
     }
   }
 }
@@ -136,6 +149,25 @@ header
       margin 0
       padding 14px 15px 0
       text-align center
+  .pay-btn
+    background #555
+    color white
+    border-radius 5px
+    height 33px
+    line-height 33px  
+    width 165px
+    min-width 165px
+    margin 15px 15px 0 0
+    padding-right 5px
+    border 3px solid #555
+    text-align center
+    font-size .9rem
+    transition .2s
+    .icon
+      margin 0 5px
+  .pay-btn:hover
+    background white
+    color #555
 @media (max-width: 768px)
   header 
     width 100%
@@ -161,4 +193,17 @@ header
     .searcher:hover
       background #555
       color white
+    .pay-btn
+      position fixed
+      bottom 20px
+      left 50%
+      margin-left -45%
+      font-size .9rem
+      width 90%
+      height 30px
+      min-width 90%
+      min-height 30px
+      line-height 30px
+      border-radius 20px
+      padding 0
 </style>
