@@ -13,9 +13,14 @@
     "theme_color": "white",
     "icons": [
       {
-        "src": "/logo.svg",
-        "type": "image/svg",
+        "src": "/logo.png",
+        "type": "image/png",
         "sizes": "192x192"
+      },
+      {
+        "src": "/logo.png",
+        "type": "image/png",
+        "sizes": "512x512"
       }
     ],
     "display": "standalone"

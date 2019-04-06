@@ -16,14 +16,14 @@
         </nuxt-link>
         <h1>{{ post.fields.title }}</h1>
         <div class="tags">
-          <li v-for="tag in post.fields.tags"
+          <p v-for="tag in post.fields.tags"
               :key="tag.sys.id"
               @click="$router.push({ name: 'posts-getby-query', 
                                      params: { 
                                        getby: 'tag',
                                        query: tag.sys.id } })">
-            {{ tag.fields.name }}
-          </li>
+            # {{ tag.fields.name }}
+          </p>
         </div>
       </div>
     </div>
@@ -159,9 +159,8 @@ export default {
       cursor pointer
     .date 
       font-size 1rem
-    .tags li 
-      list-style none
-      border 1px solid #555
+    .tags p
+      border 1px solid #eee
       padding 5px 10px
       border-radius 5px
       display inline-block

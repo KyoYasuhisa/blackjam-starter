@@ -18,6 +18,7 @@
     <input class="searcher" 
            type="search" 
            placeholder="Search posts"
+           label="search"
            v-model="query"
            @keypress.enter="$router.push({ name: 'posts-getby-query',
                                            params: { 
@@ -47,7 +48,7 @@ header
   top 0
   width 100%
   margin 0 auto
-  padding 0 0 5px
+  padding 0 0 3px
   display flex
   flex-wrap nowrap
   justify-content flex-start

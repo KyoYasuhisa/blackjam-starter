@@ -20,15 +20,15 @@
             {{ post.fields.category.fields.name }}
           </p>
         </nuxt-link> 
-        <li class="tag"
+        <p class="tag"
             v-for="tag in post.fields.tags"
             :key="tag.sys.id"
             @click="$router.push({ name: 'posts-getby-query', 
                                    params: { 
                                      getby: 'tag',
                                      query: tag.sys.id } })">
-          {{ tag.fields.name }}
-        </li>
+          # {{ tag.fields.name }}
+        </p>
       </div>
     </div>
   </div>
@@ -69,7 +69,7 @@ export default {
   .text-box
     margin-left 15px
     h2 
-      font-size .9rem
+      font-size 1rem
       margin 0
       width 100%
       cursor pointer
@@ -84,7 +84,6 @@ export default {
       padding 3px 5px
       border-radius 5px  
     .tag 
-      list-style none
       display inline-block
       margin 1px
       padding 3px 5px

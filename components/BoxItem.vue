@@ -20,14 +20,14 @@
       </nuxt-link>
       <p class="date">{{ (new Date(post.fields.date)).toLocaleDateString() }}</p>
       <div class="tags">
-        <li v-for="tag in post.fields.tags"
+        <p v-for="tag in post.fields.tags"
             :key="tag.sys.id"
             @click="$router.push({ name: 'posts-getby-query', 
                                    params: { 
                                      getby: 'tag',
                                      query: tag.sys.id } })">
           # {{ tag.fields.name }}
-        </li>
+        </p>
       </div>
     </div>
   </div>
@@ -82,14 +82,13 @@ export default {
       font-size .8rem
       margin 0 10px 0 0
       text-align right
-    .tags li 
-      list-style none
+    .tags p
       padding 5px 10px
       border 1px solid #eee
       border-radius 5px
       display inline-block
       font-size .8rem
-      margin 0 2px
+      margin 2px
       cursor pointer
 .box-item:hover
   border 1px solid #555
