@@ -21,15 +21,15 @@
         </div>
       </div>
     </nuxt-link>  
-    <input class="searcher" 
-           type="search" 
-           placeholder="Search posts"
-           label="search"
-           v-model="query"
-           @keypress.enter="$router.push({ name: 'posts-getby-query',
-                                           params: { 
-                                             getby: 'search',
-                                             query: query } })">                                 
+    <label class="searcher">
+      <input type="search" 
+             placeholder="Search posts"
+             v-model="query"
+             @keypress.enter="$router.push({ name: 'posts-getby-query',
+                                             params: { 
+                                               getby: 'search',
+                                               query: query } })">     
+    </label>                                                                     
   </header>
 </template>
 
@@ -63,7 +63,7 @@ header
   z-index 100
   .logo-with-titles
     width 180px
-    margin 10px
+    margin 12px 10px
     overflow hidden
     img
       width 100%
@@ -109,22 +109,24 @@ header
       border-bottom 3px solid #555
     .active
       border-bottom 3px solid #555
-  .searcher 
-    display block
-    width 80%
-    margin 20px 12px 10px
-    padding 0 20px
-    border-radius 20px
-    height 40px
-    font-size .9rem
-    border 3px solid #eee
-    background rgba(255,255,255,.6)
-    transition .2s
-  .searcher:focus 
-    outline none
-  .searcher:hover 
-    outline none
-    border 3px solid #555
+  .searcher
+    width 100%
+    input
+      display block
+      width 95%
+      margin 20px 12px 10px
+      padding 0 20px
+      border-radius 20px
+      height 40px
+      font-size .9rem
+      border 3px solid #eee
+      background rgba(255,255,255,.6)
+      transition .2s
+    input:focus 
+      outline none
+    input:hover 
+      outline none
+      border 3px solid #555
   .menu-btn
     margin 2px 20px 0 0
     background #eee
@@ -177,13 +179,14 @@ header
     nav 
       margin 0 0 10px 0
     .searcher
-      width 100%
-      margin 0 auto
-      border-radius 0
-      background #eee
-    .searcher:hover
-      background #555
-      color white
+      input
+        width 100%
+        margin 0 auto
+        border-radius 0
+        background #eee
+      input:hover
+        background #555
+        color white
     .pay-btn
       position fixed
       bottom 20px
