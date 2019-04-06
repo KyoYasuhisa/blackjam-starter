@@ -2,9 +2,10 @@
   "title": "blackJAM", 
   "subtitle": "モダンなブログをかんたんに始めよう",
   "baseURL": "https://blackjam-starter.netlify.com",
-  "logo": "/logo.svg",
-  "icon": "/logo.svg",
-  "favicon": "/logo.svg",
+  "logo": "/icon.png",
+  "logoWithTitles": "/logo.png",
+  "icon": "/icon.png",
+  "favicon": "/icon.png",
   "analyticsID": "UA-***",
   "adsenseID": "ca-pub-***",
   "manifest": {

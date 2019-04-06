@@ -1,20 +1,26 @@
 <template>
   <header>
     <nuxt-link to='/'>
-      <div class="logo">
-        <img :src="logo" alt="logo">
+      <div class="logo-with-titles"
+           v-if="logoWithTitles">
+        <img :src="logoWithTitles" :alt="title">
+      </div>
+      <div class="logos"
+           v-else>
+        <div v-if="logo" 
+           class="logo">
+          <img :src="logo" :alt="title">
+        </div>
+        <div class="titles">
+          <h1 class="title">
+            {{ title }}
+          </h1>
+          <h2 class="subtitle">
+            {{ subtitle }}
+          </h2>
+        </div>
       </div>
     </nuxt-link>  
-    <nuxt-link to='/'>  
-      <div class="titles">
-        <h1 class="title">
-          {{ title }}
-        </h1>
-        <h2 class="subtitle">
-          {{ subtitle }}
-        </h2>
-      </div>
-    </nuxt-link>
     <input class="searcher" 
            type="search" 
            placeholder="Search posts"
@@ -36,7 +42,8 @@ export default {
       query: '',
       logo: siteConfig.logo,
       title: siteConfig.title,
-      subtitle: siteConfig.subtitle
+      subtitle: siteConfig.subtitle,
+      logoWithTitles: siteConfig.logoWithTitles
     }
   }
 }
@@ -54,27 +61,36 @@ header
   justify-content flex-start
   background rgba(255,255,255,.6)
   z-index 100
-  box-shadow 0 0 3px #eee
-  .logo
-    width 50px
-    height 50px
-    min-width 50px
-    min-height 50px
-    margin 10px 0 0 10px
+  .logo-with-titles
+    width 180px
+    margin 10px
     overflow hidden
-    img 
+    img
       width 100%
-  .titles 
-    width 200px
-    margin -6px 0 0 5px
-    .title
-      margin-bottom 8px
-      font-size 1.8rem
-      font-family 'Product Sans', sans-serif
-      font-weight lighter
-    .subtitle 
-      margin-top -10px
-      font-size .7rem
+  .logos
+    display flex
+    flex-wrap nowrap
+    justify-content flex-start
+    .logo
+      width 50px
+      height 50px
+      min-width 50px
+      min-height 50px
+      margin 10px 0 0 10px
+      overflow hidden
+      img 
+        width 100%
+    .titles 
+      width 200px
+      margin -6px 0 0 10px
+      .title
+        margin-bottom 8px
+        font-size 1.8rem
+        font-family 'Product Sans', sans-serif
+        font-weight lighter
+      .subtitle 
+        margin-top -10px
+        font-size .7rem
   nav
     display flex
     flex-wrap nowrap
@@ -96,7 +112,7 @@ header
   .searcher 
     display block
     width 80%
-    margin 15px 12px 10px
+    margin 20px 12px 10px
     padding 0 20px
     border-radius 20px
     height 40px
@@ -146,13 +162,18 @@ header
     position relative
     padding 10px 0
     border none
-    .logo 
-      margin 10px auto 0
-    .titles 
-      width 100%
-      margin 0
-      .title
-        margin 0 auto 8px
+    .logo-with-titles
+      margin 10px auto
+      width 30%
+    .logos
+      display block
+      .logo 
+        margin 10px auto 0
+      .titles 
+        width 100%
+        margin 0
+        .title
+          margin 0 auto 8px
     nav 
       margin 0 0 10px 0
     .searcher

@@ -45,8 +45,7 @@ export default {
   position relative
   border-top 1px solid #eee
   border-bottom 1px solid #eee
-  padding 10px 0 20px
-  margin-top -10px
+  padding 30px 0
   .img
     width 100px
     height 100px

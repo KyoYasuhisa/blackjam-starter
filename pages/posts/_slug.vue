@@ -128,6 +128,7 @@ export default {
     margin 0 0 30px 0
     overflow hidden
     position relative
+    text-align center
     .cover 
       position absolute
       background rgba(255,255,255,.9)
@@ -135,7 +136,7 @@ export default {
       bottom 0
       width 100%
     .img 
-      width 100%
+      width 60%
     .text-box 
       position absolute
       top 100px
@@ -160,7 +161,7 @@ export default {
     .date 
       font-size 1rem
     .tags p
-      border 1px solid #eee
+      border 1px solid #555
       padding 5px 10px
       border-radius 5px
       display inline-block

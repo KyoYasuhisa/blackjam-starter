@@ -34,7 +34,7 @@ export default {
   width 100%
 .swiper-button-prev,
 .swiper-button-next
-  top 40%
+  top 50%
 .swiper-button-prev
   background-image url('/left-arrow.svg')
 .swiper-button-next
