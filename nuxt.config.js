@@ -47,9 +47,6 @@ module.exports = {
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: siteConfig.title+' | '+siteConfig.subtitle }
     ], 
-    script: [
-      { src: 'https://unpkg.com/vue-paypal-checkout@2.0.0/dist/vue-paypal-checkout.min.js' }
-    ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: siteConfig.favicon },
       { rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css' },
