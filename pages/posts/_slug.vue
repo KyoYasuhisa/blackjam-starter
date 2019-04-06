@@ -220,7 +220,10 @@ export default {
       padding 10px 20px
     blockquote
       background #eee
-      padding 5px
+      padding 10px 15px
+      margin 10px
+      p
+        margin 0
 @media (max-width: 1000px)
   .single
     .head
