@@ -1,7 +1,7 @@
 {
   "title": "blackJAM", 
   "subtitle": "モダンなブログをかんたんに始めよう",
-  "baseURL": "https://blackjam.netlify.com",
+  "baseURL": "https://blackjam-starter.netlify.com",
   "logo": "/logo.svg",
   "icon": "/logo.png",
   "favicon": "/logo.svg",
