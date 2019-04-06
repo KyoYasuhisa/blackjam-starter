@@ -4,7 +4,7 @@
   "baseURL": "https://blackjam.netlify.com",
   "logo": "/logo.svg",
   "icon": "/logo.png",
-  "favicon": "/logo.png",
+  "favicon": "/logo.svg",
   "analyticsID": "UA-***",
   "adsenseID": "ca-pub-***",
   "manifest": {
@@ -13,8 +13,8 @@
     "theme_color": "white",
     "icons": [
       {
-        "src": "/logo.png",
-        "type": "image/png",
+        "src": "/logo.svg",
+        "type": "image/svg",
         "sizes": "192x192"
       }
     ],

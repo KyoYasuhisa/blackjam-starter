@@ -65,7 +65,7 @@ export default {
     min-height 50px
     border 1px solid #eee
     img 
-      width 180%
+      width 100%
   .text-box
     margin-left 15px
     h2 

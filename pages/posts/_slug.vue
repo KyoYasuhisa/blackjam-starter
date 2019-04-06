@@ -2,7 +2,9 @@
   <section class="single">
     <div class="head">
       <div class="cover"></div> 
-      <img :src="post.fields.image.fields.file.url" alt="thumbnail">
+      <img v-if="post.fields.image" 
+           :src="post.fields.image.fields.file.url" alt="thumbnail"
+           class="img"> 
       <div class="text-box">
         <nuxt-link :to="{ name: 'posts-getby-query', 
                           params: { 
@@ -59,7 +61,11 @@ export default {
         hid: `description`,
         name: 'description',
         content: `${this.post.fields.title} | ${siteConfig.title} - ${siteConfig.subtitle}`,
-      }]
+      }],
+      link: [
+        { rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css' },
+        { rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/atom-one-dark.min.css' },
+      ] 
     }
   },
   asyncData ({env,params}) {
@@ -128,7 +134,7 @@ export default {
       top 0
       bottom 0
       width 100%
-    img 
+    .img 
       width 100%
     .text-box 
       position absolute
@@ -197,7 +203,7 @@ export default {
       border-bottom 5px solid #555
     h3 
       font-size 1rem
-      margin 30px 0 -20px 0
+      margin 30px 0 0
       background #eee
       padding 5px 10px
       border-radius 5px
@@ -212,6 +218,9 @@ export default {
       background rgba(0,0,0,.9)
       border-radius 8px
       padding 10px 20px
+    blockquote
+      background #eee
+      padding 5px
 @media (max-width: 1000px)
   .single
     .head

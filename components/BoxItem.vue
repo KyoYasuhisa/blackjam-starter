@@ -58,7 +58,7 @@ export default {
     overflow hidden
     border 1px solid #eee
     img 
-      width 150%
+      width 100%
   .category 
     background #555
     border-radius 5px
