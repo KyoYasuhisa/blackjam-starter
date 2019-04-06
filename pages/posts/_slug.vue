@@ -198,7 +198,7 @@ export default {
 
     h2 
       margin 0 0 30px
-      padding 30px 0 10px
+      padding 50px 0 10px
       font-size 1.5rem
       border-bottom 5px solid #555
     h3 

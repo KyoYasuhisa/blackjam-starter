@@ -73,7 +73,7 @@ export default {
   .side-btns
     top auto
     left auto
-    bottom 60px
+    bottom 20px
     right 10px
 </style>
 
