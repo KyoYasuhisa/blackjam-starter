@@ -36,7 +36,7 @@
       </div>
       <div v-else
            class="not-found">
-        <p>記事が見つかりませんでした...</p>
+        <p>{{ notFoundMessage }}</p>
       </div>
     </section>  
     <Footer :posts="posts"
@@ -171,8 +171,9 @@ export default {
   data () {
     return {
       swiperOption: siteConfig.swiperOption,
-      shownum: siteConfig.listOption.shownum,
-      loadnum: siteConfig.listOption.loadnum
+      showNum: siteConfig.listOption.showNum,
+      loadNum: siteConfig.listOption.loadNum,
+      notFoundMessage: siteConfig.listOption.notFoundMessage
     }
   },
   components: {

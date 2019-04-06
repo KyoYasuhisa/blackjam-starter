@@ -4,7 +4,7 @@
       <h2>最新の記事</h2>
       <p class="subtitle">latest</p>
     </div>
-    <LineItem v-for="post in limitBy(posts, shownumLatest)"
+    <LineItem v-for="post in limitBy(posts, showNumLatest)"
               :key="post.sys.id"
               :post="post" />      
   </section>
@@ -18,7 +18,7 @@ import siteConfig from '~/siteConfig.json'
 export default {
   data () {
     return {
-      shownumLatest: siteConfig.listOption.shownumLatest
+      showNumLatest: siteConfig.listOption.showNumLatest
     }
   },
   props: ['posts'],

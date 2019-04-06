@@ -34,14 +34,9 @@ export default {
   width 100%
 .swiper-button-prev,
 .swiper-button-next
-  display none
-@media (max-width: 768px)
-  .swiper-button-prev,
-  .swiper-button-next
-    display block
-    top 40%
-  .swiper-button-prev
-    background-image url('/left-arrow.svg')
-  .swiper-button-next
-    background-image url('/right-arrow.svg')  
+  top 40%
+.swiper-button-prev
+  background-image url('/left-arrow.svg')
+.swiper-button-next
+  background-image url('/right-arrow.svg')    
 </style>

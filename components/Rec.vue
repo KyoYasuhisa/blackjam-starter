@@ -6,14 +6,14 @@
     </div>
     <div v-if="postsRec.length > 0">
       <swiper :options="swiperOption">
-        <SliderItem v-for="post in limitBy(postsRec, 4)"
+        <SliderItem v-for="post in limitBy(postsRec, showNumRec)"
                     :key="post.sys.id"
                     :post="post" />
       </swiper>              
     </div>
     <div v-else>
       <swiper :options="swiperOption">
-        <SliderItem v-for="post in limitBy(postsFeatured, 4)"
+        <SliderItem v-for="post in limitBy(postsFeatured, showNumRec)"
                     :key="post.sys.id"
                     :post="post" />
       </swiper>                 
@@ -32,6 +32,7 @@ export default {
   data() {
     return {
       swiperOption: siteConfig.swiperOption,
+      showNumRec: siteConfig.listOption.showNumRec
     }
   },
   props: ['postsRec','postsFeatured','tag'],
@@ -44,7 +45,6 @@ export default {
 
 <style lang="stylus" scoped>
 .rec
-  width 100%
   position relative
 .swiper-button-prev,
 .swiper-button-next

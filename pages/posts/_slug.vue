@@ -27,7 +27,10 @@
     </div>
     <SideBtns :post="post"
               :author="author" />        
-    <div class="body" v-html="$md.render(post.fields.content)"></div>
+    <div class="body" 
+         :style="'font-size:'+fontSize+'; line-height:'+lineHeight+';'"
+         v-html="$md.render(post.fields.content)">
+    </div>
     <Rec :postsRec="filterBy(postsRec, post.fields.tags[0].fields.name, 'fields.content')"
          :postsFeatured="filterBy(postsRec, true, 'fields.featured')"
          :tag="post.fields.tags[0]" />
@@ -95,7 +98,9 @@ export default {
     return {
       swiperOption: siteConfig.swiperOption,
       title: siteConfig.title,
-      subtitle: siteConfig.subtitle
+      subtitle: siteConfig.subtitle,
+      fontSize: siteConfig.postOption.fontSize,
+      lineHeight: siteConfig.postOption.lineHeight
     }
   },
   components: {
@@ -160,8 +165,6 @@ export default {
   .body 
     width 600px
     margin 50px auto 200px
-    font-size 1rem
-    line-height 2.4rem
     .table-of-contents
       position fixed
       width 180px
@@ -188,9 +191,10 @@ export default {
       margin 30px 0
 
     h2 
-      margin 0 0 -10px
-      padding-top 30px
-      font-size 1.4rem
+      margin 0 0 30px
+      padding 30px 0 10px
+      font-size 1.5rem
+      border-bottom 5px solid #555
     h3 
       font-size 1rem
       margin 30px 0 -20px 0

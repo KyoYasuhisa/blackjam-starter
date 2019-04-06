@@ -49,7 +49,7 @@ export default {
     async copyURL() {
       await this.$copyText(this.baseURL+'/post/'+this.post.fields.slug)
       .then(() => {
-        alert('Link Copied!')
+        alert('記事ページへのリンクをクリップボードにコピーしました。')
       })
     }
   }

@@ -40,9 +40,6 @@ module.exports = {
       ]
     }]
   ],
-  /*
-  ** Headers of the page
-  */
   head: {
     title: siteConfig.title+' | '+siteConfig.subtitle,
     meta: [
@@ -61,28 +58,15 @@ module.exports = {
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Noto+Sans+JP' }
     ] 
   },
-  manifest: {
-    name: siteConfig.title,
-    short_name: siteConfig.title,
-    lang: siteConfig.lang,
-    description: siteConfig.subtitle,
-    background_color: siteConfig.background_color,
-    theme_color: siteConfig.theme_color
-  },
+  manifest: siteConfig.manifest,
   css: [
     'swiper/dist/css/swiper.css'
   ],
-  /*
-  ** Customize the progress bar color
-  */
-  loading: { color: '#555' },
-  /*
-  ** Build configuration
-  */
+  loading: siteConfig.loaderOption,
   plugins: [
     { src: '~plugins/vue-awesome-swiper', ssr: false },
     '~/plugins/vue2-filters'
-  ],
+  ], 
   markdownit: { 
     html: true,
     preset: 'default',
@@ -101,9 +85,6 @@ module.exports = {
     vendor: [
       'vue-awesome-swiper'
     ],
-    /*
-    ** Run ESLint on save
-    */
     extend (config, { isDev, isClient }) {
       if (isDev && isClient) {
         config.module.rules.push({

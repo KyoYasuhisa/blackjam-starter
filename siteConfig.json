@@ -1,15 +1,25 @@
 {
-  "title": "blackJAM",
+  "title": "blackJAM", 
   "subtitle": "モダンなブログをかんたんに始めよう",
-  "logo": "/logo.svg",
   "baseURL": "https://blackjam.netlify.com",
+  "logo": "/logo.svg",
+  "icon": "/logo.png",
   "favicon": "/logo.png",
   "analyticsID": "UA-***",
   "adsenseID": "ca-pub-***",
-  "icon": "/logo.png",
-  "lang": "ja",
-  "background_color": "#fff",
-  "theme_color": "black",
+  "manifest": {
+    "lang": "ja",
+    "background_color": "#555",
+    "theme_color": "white",
+    "icons": [
+      {
+        "src": "/logo.png",
+        "type": "image/png",
+        "sizes": "192x192"
+      }
+    ],
+    "display": "standalone"
+  },
   "categoriesFeatured": [
     {
       "name": "機能を追加しよう",
@@ -24,17 +34,26 @@
       "slug": "seo"
     }
   ],
+  "loaderOption": {
+    "color": "#555"
+  },
   "listOption": {
     "showSlug": true,
-    "shownum,": 3,
-    "loadnum": 3,
-    "shownumTop": 3,
-    "shownumLatest": 4
+    "showNum": 3,
+    "loadNum": 3,
+    "showNumRec": 4,
+    "showNumTop": 3,
+    "showNumLatest": 4,
+    "notFoundMessage": "記事がみつかりませんでした。"
   },
   "swiperOption": {
     "autoplay": {
       "delay": 5000
     },
     "loop": true
+  },
+  "postOption": {
+    "fontSize": "1rem",
+    "lineHeight": "2.4rem"
   }
 }
