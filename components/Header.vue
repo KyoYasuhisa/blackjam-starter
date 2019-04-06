@@ -70,7 +70,8 @@ header
     .title
       margin-bottom 8px
       font-size 1.8rem
-      font-family 'Amatic SC', sans-serif
+      font-family 'Product Sans', sans-serif
+      font-weight lighter
     .subtitle 
       margin-top -10px
       font-size .7rem

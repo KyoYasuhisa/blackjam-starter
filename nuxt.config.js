@@ -49,7 +49,6 @@ module.exports = {
     ], 
     link: [
       { rel: 'mask-icon', href: siteConfig.favicon },
-      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Amatic+SC' },
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Noto+Sans+JP' }
     ] 
   },
