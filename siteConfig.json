@@ -61,6 +61,7 @@
   },
   "postOption": {
     "fontSize": "1rem",
-    "lineHeight": "2.4rem"
+    "lineHeight": "2.4rem",
+    "thumbnailSize": "20%"
   }
 }

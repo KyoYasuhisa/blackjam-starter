@@ -2,8 +2,8 @@
   <section class="single">
     <div class="head">
       <div class="cover"></div> 
-      <img v-if="post.fields.image" 
-           :src="post.fields.image.fields.file.url" alt="thumbnail"
+      <img :src="post.fields.image.fields.file.url" alt="thumbnail"
+           :style="'width:'+thumbnailSize+';'"
            class="img"> 
       <div class="text-box">
         <nuxt-link :to="{ name: 'posts-getby-query', 
@@ -106,7 +106,8 @@ export default {
       title: siteConfig.title,
       subtitle: siteConfig.subtitle,
       fontSize: siteConfig.postOption.fontSize,
-      lineHeight: siteConfig.postOption.lineHeight
+      lineHeight: siteConfig.postOption.lineHeight,
+      thumbnailSize: siteConfig.postOption.thumbnailSize
     }
   },
   components: {
@@ -135,8 +136,6 @@ export default {
       top 0
       bottom 0
       width 100%
-    .img 
-      width 60%
     .text-box 
       position absolute
       top 100px
