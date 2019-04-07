@@ -1,5 +1,10 @@
 <template>
   <section class="swiper-view post-list">
+    <div v-if="type == 'rec'" 
+         class="section-title">
+      <h1>あなたへのお薦め記事</h1>
+      <p>recommended</p>
+    </div>
     <swiper :options="swiperOption">
       <swiper-slide v-for="post in posts"
                     :key="post.sys.id" 
@@ -51,13 +56,18 @@ export default {
       swiperOption: siteConfig.swiperOption,
     }
   },
-  props: ['posts']
+  props: ['posts','type']
 }
 </script>
 
 <style lang="stylus" scoped>
 .swiper-view
   width 100%
+  .section-title
+    h1
+      margin-bottom 0
+    p
+      margin-top 0
   .swiper-button-prev,
   .swiper-button-next
     top 50%

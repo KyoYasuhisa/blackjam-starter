@@ -49,7 +49,6 @@
     "showSlug": true,
     "showNum": 3,
     "loadNum": 3,
-    "showNumRec": 4,
     "showNumTop": 3,
     "showNumLatest": 4,
     "notFoundMessage": "記事がみつかりませんでした。"

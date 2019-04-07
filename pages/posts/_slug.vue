@@ -33,9 +33,12 @@
          :style="'font-size:'+fontSize+'; line-height:'+lineHeight+';'"
          v-html="$md.render(post.fields.content)">
     </div>
-    <Rec :postsRec="filterBy(postsRec, post.fields.tags[0].fields.name, 'fields.content')"
-         :postsFeatured="filterBy(postsRec, true, 'fields.featured')"
-         :tag="post.fields.tags[0]" />
+    <SwiperView v-if="postsRec.length > 0" 
+                :posts="filterBy(postsRec, post.fields.tags[0].fields.name, 'fields.content')"
+                type="rec" />
+    <SwiperView v-else
+                :posts="filterBy(postsRec, true, 'fields.featured')"
+                type="rec" />
     <Footer :posts="posts"
             :tags="tags"
             :author="author" />     
@@ -46,7 +49,7 @@
 import { createClient } from '~/plugins/contentful.js'
 import siteConfig from '~/siteConfig.json'
 import List from '~/components/List.vue'
-import Rec from '~/components/Rec.vue'
+import SwiperView from '~/components/SwiperView.vue'
 import Footer from '~/components/Footer.vue'
 import SideBtns from '~/components/SideBtns.vue'
 import Vue2Filters from 'vue2-filters'
@@ -114,7 +117,7 @@ export default {
     List,
     Footer,
     SideBtns,
-    Rec
+    SwiperView
   },
   mixins: [Vue2Filters.mixin]
 }
