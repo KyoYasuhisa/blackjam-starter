@@ -48,8 +48,7 @@ module.exports = {
       { hid: 'description', name: 'description', content: siteConfig.title+' | '+siteConfig.subtitle }
     ], 
     link: [
-      { rel: 'mask-icon', href: siteConfig.favicon },
-      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Noto+Sans+JP' }
+      { rel: 'mask-icon', href: siteConfig.favicon }
     ] 
   },
   manifest: siteConfig.manifest,
