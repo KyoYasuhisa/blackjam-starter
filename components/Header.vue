@@ -30,8 +30,11 @@
         </div>
       </div>
     </nuxt-link>  
+    <label for="searcher" style="display: none;"></label>
     <input type="search" 
            name="searcher"
+           id="searcher"
+           aria-label="searcher"
            class="searcher"
            placeholder="Search posts"
            v-model="query"

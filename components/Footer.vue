@@ -3,7 +3,7 @@
     <Latest :posts="posts" />
     <Tags :tags="tags"/>
     <Author :author="author"/>
-    <p class="copyright">Copyright 2019. {{ author.fields.name }}. All Rights Reserved. The logo was created by cato Barend van Scalkwyk from Noun Project.</p>
+    <p class="copyright">Copyright 2019. {{ author.fields.name }}. All Rights Reserved.</p>
   </footer>
 </template>
 

@@ -2,6 +2,7 @@
   <section class="side-btns">
     <a :href='"https://twitter.com/share?url="+baseURL+"/post/"+post.fields.slug+"&via="+author.fields.twitter+"&related="+author.fields.twitter+"&text="+post.fields.title' 
         rel="nofollow" 
+        area-label="Tweet this post."
         target="_blank">
       <fa-layers full-width class="fa-2x icon">
         <fa :icon="faTwitter"/>
@@ -9,6 +10,7 @@
     </a>
     <a :href='"http://www.facebook.com/share.php?u="+baseURL+"/post/"+post.fields.slug' 
         rel="nofollow" 
+        area-label="Share this post."
         target="_blank">
       <fa-layers full-width class="fa-2x icon">
         <fa :icon="faFacebook"/>
