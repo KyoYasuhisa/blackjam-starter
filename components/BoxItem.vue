@@ -62,7 +62,9 @@ export default {
   .category 
     background #555
     border-radius 5px
-    padding 5px 15px
+    padding 0 15px
+    height 25px
+    line-height 25px
     color white
     display inline-block
     font-size .8rem
@@ -80,10 +82,12 @@ export default {
       cursor pointer
     .date 
       font-size .8rem
-      margin 0 10px 0 0
+      margin 0 10px 10px 0
       text-align right
     .tags p
-      padding 5px 10px
+      padding 0 10px
+      height 25px
+      line-height 25px
       border 1px solid #eee
       border-radius 5px
       display inline-block

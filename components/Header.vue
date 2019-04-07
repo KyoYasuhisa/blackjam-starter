@@ -36,7 +36,7 @@
            id="searcher"
            aria-label="searcher"
            class="searcher"
-           placeholder="Search posts"
+           :placeholder="searchBoxText"
            v-model="query"
            @keypress.enter="$router.push({ name: 'posts-getby-query',
                                            params: { 
@@ -56,7 +56,8 @@ export default {
       title: siteConfig.title,
       subtitle: siteConfig.subtitle,
       logoWithTitles: siteConfig.logoWithTitles,
-      logoWithTitlesSmall: siteConfig.logoWithTitlesSmall
+      logoWithTitlesSmall: siteConfig.logoWithTitlesSmall,
+      searchBoxText: siteConfig.searchBoxText
     }
   }
 }

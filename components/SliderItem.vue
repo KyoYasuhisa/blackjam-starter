@@ -76,12 +76,20 @@ export default {
       margin 0 0 20px
       text-align center
     .tags p
-      padding 5px 10px
+      padding 0 10px
+      height 25px
+      line-height 25px
       border 1px solid #eee
       border-radius 5px
       display inline-block
       font-size .8rem
-      margin 0 2px
+      margin 2px
       cursor pointer
+@media (max-width: 768px)
+  .slider-item
+    padding 10px 0
+    .text-box
+      h1
+        font-size 1.2rem
 </style>
 

@@ -81,13 +81,17 @@ export default {
       background #555
       color white
       font-size .8rem
-      padding 3px 5px
-      border-radius 5px  
+      padding 0 5px
+      height 20px
+      line-height 20px
+      border-radius 3px  
     .tag 
       display inline-block
       margin 1px
-      padding 3px 5px
-      border-radius 5px
+      padding 0 5px
+      height 20px
+      line-height 20px
+      border-radius 3px
       border 1px solid #eee
       font-size .8rem
       cursor pointer

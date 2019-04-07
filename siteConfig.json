@@ -7,6 +7,7 @@
   "logoWithTitlesSmall": "",
   "icon": "/icon.webp",
   "favicon": "/icon.webp",
+  "searchBoxText": "記事を検索する",
   "analyticsID": "UA-***",
   "adsenseID": "ca-pub-***",
   "manifest": {

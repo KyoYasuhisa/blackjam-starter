@@ -34,7 +34,9 @@ export default {
     margin 0 auto
     p
       border 1px solid #eee
-      padding 5px 10px
+      padding 0 10px
+      height 30px
+      line-height 30px
       border-radius 15px
       margin 1px
       cursor pointer

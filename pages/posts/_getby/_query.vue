@@ -1,6 +1,6 @@
 <template>
   <section class="query">
-    <Featured :posts="posts" />
+    <SwiperView :posts="posts" />
     <section class="post-list">
       <div class="section-title">
         <h1>
@@ -50,7 +50,7 @@ import BoxItem from '~/components/BoxItem.vue'
 import Vue2Filters from 'vue2-filters'
 import siteConfig from '~/siteConfig.json'
 import { createClient } from '~/plugins/contentful.js'
-import Featured from '~/components/Featured.vue'
+import SwiperView from '~/components/SwiperView.vue'
 import Footer from '~/components/Footer.vue'
 
 const client = createClient()
@@ -178,7 +178,7 @@ export default {
   },
   components: {
     BoxItem,
-    Featured,
+    SwiperView,
     Footer
   },
   mixins: [Vue2Filters.mixin]
