@@ -100,10 +100,10 @@ header
         width 100%
     .titles 
       width 200px
-      margin -6px 0 0 10px
+      margin -6px 0 0 5px
       .title
-        margin-bottom 8px
-        font-size 1.8rem
+        margin 20px 0 8px
+        font-size 1.5rem
         font-family 'Product Sans', sans-serif
         font-weight lighter
       .subtitle 
@@ -131,7 +131,7 @@ header
     width 100%
     display block
     width 95%
-    margin 20px 12px 10px
+    margin 15px 5px 10px
     padding 0 20px
     border-radius 20px
     height 40px
