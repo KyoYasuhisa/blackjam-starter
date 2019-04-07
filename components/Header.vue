@@ -5,6 +5,15 @@
            v-if="logoWithTitles">
         <img :src="logoWithTitles" :alt="title">
       </div>
+      <div class="logo-with-titles-small"
+           v-if="logoWithTitles">
+        <img v-if="logoWithTitlesSmall" 
+             :src="logoWithTitlesSmall" 
+             :alt="title">
+        <img v-else 
+             :src="logoWithTitles" 
+             :alt="title">
+      </div>
       <div class="logos"
            v-else>
         <div v-if="logo" 
@@ -21,15 +30,15 @@
         </div>
       </div>
     </nuxt-link>  
-    <label class="searcher">
-      <input type="search" 
-             placeholder="Search posts"
-             v-model="query"
-             @keypress.enter="$router.push({ name: 'posts-getby-query',
-                                             params: { 
-                                               getby: 'search',
-                                               query: query } })">     
-    </label>                                                                     
+    <input type="search" 
+           name="searcher"
+           class="searcher"
+           placeholder="Search posts"
+           v-model="query"
+           @keypress.enter="$router.push({ name: 'posts-getby-query',
+                                           params: { 
+                                              getby: 'search',
+                                              query: query } })">                                                                       
   </header>
 </template>
 
@@ -43,7 +52,8 @@ export default {
       logo: siteConfig.logo,
       title: siteConfig.title,
       subtitle: siteConfig.subtitle,
-      logoWithTitles: siteConfig.logoWithTitles
+      logoWithTitles: siteConfig.logoWithTitles,
+      logoWithTitlesSmall: siteConfig.logoWithTitlesSmall
     }
   }
 }
@@ -67,6 +77,11 @@ header
     overflow hidden
     img
       width 100%
+  .logo-with-titles-small
+     display none   
+     overflow hidden
+     img
+       width 100%
   .logos
     display flex
     flex-wrap nowrap
@@ -111,22 +126,21 @@ header
       border-bottom 3px solid #555
   .searcher
     width 100%
-    input
-      display block
-      width 95%
-      margin 20px 12px 10px
-      padding 0 20px
-      border-radius 20px
-      height 40px
-      font-size .9rem
-      border 3px solid #eee
-      background rgba(255,255,255,.6)
-      transition .2s
-    input:focus 
-      outline none
-    input:hover 
-      outline none
-      border 3px solid #555
+    display block
+    width 95%
+    margin 20px 12px 10px
+    padding 0 20px
+    border-radius 20px
+    height 40px
+    font-size .9rem
+    border 3px solid #eee
+    background rgba(255,255,255,.6)
+    transition .2s
+  .searcher:focus 
+    outline none
+  .searcher:hover 
+    outline none
+    border 3px solid #555
   .menu-btn
     margin 2px 20px 0 0
     background #eee
@@ -165,8 +179,11 @@ header
     padding 10px 0
     border none
     .logo-with-titles
+      display none
+    .logo-with-titles-small
+      display block
+      width 10%  
       margin 10px auto
-      width 30%
     .logos
       display block
       .logo 
@@ -179,14 +196,13 @@ header
     nav 
       margin 0 0 10px 0
     .searcher
-      input
-        width 100%
-        margin 0 auto
-        border-radius 0
-        background #eee
-      input:hover
-        background #555
-        color white
+      width 100%
+      margin 0 auto
+      border-radius 0
+      background #eee
+    .searcher:hover
+      background #555
+      color white
     .pay-btn
       position fixed
       bottom 20px

@@ -38,7 +38,7 @@ export default {
       max-height 80px
       border-radius 50%
       border 1px solid #eee  
-      margin 0 auto -10px
+      margin 0 auto -5px
       overflow hidden
       position relative
       top 8px
@@ -47,7 +47,7 @@ export default {
     .texts
       margin 0 auto
       .name 
-        font-size 1.5rem
+        font-size 1.2rem
         font-weight bold
         margin-bottom 0
         span 

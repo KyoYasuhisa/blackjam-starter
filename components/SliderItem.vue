@@ -43,7 +43,6 @@ export default {
 .slider-item
   width 90%
   position relative
-  border-top 1px solid #eee
   border-bottom 1px solid #eee
   padding 30px 0
   .img
@@ -68,7 +67,7 @@ export default {
   .text-box 
     text-align center
     h1
-      font-size 1.8rem
+      font-size 1.5rem
       margin 0
       padding 5px
       cursor pointer

@@ -2,10 +2,11 @@
   "title": "blackJAM", 
   "subtitle": "モダンなブログをかんたんに始めよう",
   "baseURL": "https://blackjam-starter.netlify.com",
-  "logo": "/icon.png",
-  "logoWithTitles": "/logo.png",
-  "icon": "/icon.png",
-  "favicon": "/icon.png",
+  "logo": "/icon.webp",
+  "logoWithTitles": "/logo.webp",
+  "logoWithTitlesSmall": "/icon.webp",
+  "icon": "/icon.webp",
+  "favicon": "/icon.webp",
   "analyticsID": "UA-***",
   "adsenseID": "ca-pub-***",
   "manifest": {
@@ -14,13 +15,13 @@
     "theme_color": "white",
     "icons": [
       {
-        "src": "/logo.png",
-        "type": "image/png",
+        "src": "/logo.webp",
+        "type": "image/webp",
         "sizes": "192x192"
       },
       {
-        "src": "/logo.png",
-        "type": "image/png",
+        "src": "/logo.webp",
+        "type": "image/webp",
         "sizes": "512x512"
       }
     ],

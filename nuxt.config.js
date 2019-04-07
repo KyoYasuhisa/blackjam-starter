@@ -58,7 +58,7 @@ module.exports = {
   ],
   loading: siteConfig.loaderOption,
   plugins: [
-    { src: '~plugins/vue-awesome-swiper', ssr: false },
+    '~plugins/vue-awesome-swiper',
     '~/plugins/vue2-filters'
   ], 
   markdownit: { 
