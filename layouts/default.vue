@@ -24,7 +24,7 @@ export default {
   font-weight 400
   src local('Open Sans'), local('OpenSans'), url(https://fonts.gstatic.com/s/productsans/v5/HYvgU2fE2nRJvZ5JFAumwegdm0LZdjqr5-oayXSOefg.woff2) format('woff2')
 html 
-  font-family 'Product Sans', 'Yu Gothic', 'YuGothic', 'Noto Sans JP', sans-serif
+  font-family 'Product Sans', 'Yu Gothic', 'YuGothic', sans-serif
   font-size 15px
   color #555
 body 

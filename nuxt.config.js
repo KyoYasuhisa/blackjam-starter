@@ -15,9 +15,9 @@ module.exports = {
   modules: [ 
     '@nuxtjs/pwa',
     'nuxt-clipboard2',
-    ['@nuxtjs/google-adsense', {
-      id: siteConfig.adsenseID
-    }],
+ // ['@nuxtjs/google-adsense', {
+ //   id: siteConfig.adsenseID
+ // }],
     ['@nuxtjs/google-analytics', {
       id: siteConfig.analyticsID
     }],
