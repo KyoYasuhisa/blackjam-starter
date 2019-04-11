@@ -33,12 +33,14 @@
          :style="'font-size:'+fontSize+'; line-height:'+lineHeight+';'"
          v-html="$md.render(post.fields.content)">
     </div>
-    <SwiperView v-if="postsRec.length > 0" 
-                :posts="filterBy(postsRec, post.fields.tags[0].fields.name, 'fields.content')"
-                type="rec" />
-    <SwiperView v-else
-                :posts="filterBy(postsRec, true, 'fields.featured')"
-                type="rec" />
+    <div v-if="filterBy(postsRec, post.fields.tags[0].fields.name, 'fields.content').length > 0">
+      <SwiperView :posts="filterBy(postsRec, post.fields.tags[0].fields.name, 'fields.content')"
+                  type="rec" />
+    </div>
+    <div v-else>
+      <SwiperView :posts="filterBy(posts, true, 'fields.featured')"
+                  type="rec" />
+    </div>
     <Footer :posts="posts"
             :tags="tags"
             :author="author" />     
