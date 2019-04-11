@@ -1,8 +1,6 @@
 <template>
   <section class="posts">
-    <!--
-    <SwiperView :posts="posts" />
-    -->
+    <SwiperView :posts="postsFeatured" />
     <List v-for="category in categoriesFeatured" 
           :key="category.slug"
           :posts="posts"
@@ -43,20 +41,25 @@ export default {
         order: '-sys.createdAt'
       }),
       client.getEntries({
+        'content_type': 'post',
+        'fields.featured': true,
+        order: '-sys.createdAt'
+      }),
+      client.getEntries({
         'content_type': 'tag',
         order: '-sys.createdAt'
       })
-    ]).then(([authors, posts, tags]) => {
+    ]).then(([authors, posts, postsFeatured, tags]) => {
       return {
         author: authors.items[0],
         posts: posts.items,
+        postsFeatured: postsFeatured.items,
         tags: tags.items
       }
     }).catch(console.error)
   },
   data () {
     return {
-      swiperOption: siteConfig.swiperOption,
       categoriesFeatured: siteConfig.categoriesFeatured
     }
   },

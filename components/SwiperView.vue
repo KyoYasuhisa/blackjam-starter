@@ -53,12 +53,7 @@ import Vue2Filters from 'vue2-filters'
 export default {
   data() {
     return {
-      swiperOption: {
-        "autoplay": {
-        "delay": 5000
-      },
-      "loop": true
-      }
+      swiperOption: siteConfig.swiperOption
     }
   },
   props: ['posts','type']

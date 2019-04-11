@@ -52,14 +52,14 @@ module.exports = {
     ] 
   },
   manifest: siteConfig.manifest,
-  css: [
-    'swiper/dist/css/swiper.css'
-  ],
   loading: siteConfig.loaderOption,
   plugins: [
     { src: '~plugins/vue-awesome-swiper', ssr: false },
     '~/plugins/vue2-filters'
   ], 
+  css: [
+    'swiper/dist/css/swiper.css'
+  ],
   markdownit: { 
     html: true,
     preset: 'default',
