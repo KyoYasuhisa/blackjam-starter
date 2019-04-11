@@ -21,7 +21,7 @@ import BoxItem from '~/components/BoxItem.vue'
 export default {
   props: ['posts','type'],
   components: {
-      BoxItem
+    BoxItem
   }
 }
 </script>

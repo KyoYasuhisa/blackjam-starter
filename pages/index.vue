@@ -44,7 +44,7 @@ export default {
         'content_type': 'post',
         'fields.featured': true,
         order: '-sys.createdAt',
-        limit: 4
+        limit: 6
       }),
       client.getEntries({
         'content_type': 'tag',
@@ -111,7 +111,8 @@ export default {
   transition .2s
 .more-btn:hover 
   border 1px solid #555
-.swiper-pagination-bullet 
-  background white
+@media (max-width: 768px)
+  .more-btn
+    width 95%
 </style>
 
