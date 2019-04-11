@@ -62,11 +62,11 @@ module.exports = {
   manifest: siteConfig.manifest,
   loading: siteConfig.loaderOption,
   plugins: [
-    { src: '~plugins/vue-awesome-swiper', ssr: false },
+    //{ src: '~plugins/vue-awesome-swiper', ssr: false },
     '~/plugins/vue2-filters'
   ], 
   css: [
-    'swiper/dist/css/swiper.css'
+    //'swiper/dist/css/swiper.css'
   ],
   markdownit: { 
     html: true,
@@ -79,13 +79,12 @@ module.exports = {
       'markdown-it-highlightjs',
       'markdown-it-katex',
       'markdown-it-footnote'
-      //['markdown-it-container']
     ]
   },
   build: {
-    vendor: [
-      'vue-awesome-swiper'
-    ],
+    //vendor: [
+    // 'vue-awesome-swiper'
+    //],
     extend (config, { isDev, isClient }) {
       if (isDev && isClient) {
         config.module.rules.push({

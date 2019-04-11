@@ -5,44 +5,46 @@
       <h1>あなたへのお薦め記事</h1>
       <p>recommended</p>
     </div>
-    <swiper :options="swiperOption">
-      <swiper-slide v-for="post in posts"
-                    :key="post.sys.id" 
-                    class="swiper-item">
-        <nuxt-link :to="{ name: 'posts-getby-query', 
-                          params: { 
-                            getby: 'category',
-                            query: post.fields.category.fields.slug } }">
-          <p class="category">
-            {{ post.fields.category.fields.name }}
-          </p>
-        </nuxt-link>  
-        <div class="img">
-          <img :src="post.fields.image.fields.file.url" alt="thumbnail">
-        </div>
-        <div class="text-box">
-          <nuxt-link :to="{ name: 'posts-slug', 
-                            params: { slug: post.fields.slug } }">
-            <h1>
-              {{ post.fields.title }}
-            </h1>
-          </nuxt-link>
-          <p class="date">{{ (new Date(post.fields.date)).toLocaleDateString() }}</p>
-          <div class="tags">
-            <p v-for="tag in post.fields.tags"
-                :key="tag.sys.id"
-                @click="$router.push({ name: 'posts-getby-query', 
-                                       params: { 
-                                         getby: 'tag',
-                                         query: tag.sys.id } })">
-              # {{ tag.fields.name }}
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide" 
+              v-for="post in posts"
+                      :key="post.sys.id">
+          <nuxt-link :to="{ name: 'posts-getby-query', 
+                            params: { 
+                              getby: 'category',
+                              query: post.fields.category.fields.slug } }">
+            <p class="category">
+              {{ post.fields.category.fields.name }}
             </p>
+          </nuxt-link>  
+          <div class="img">
+            <img :src="post.fields.image.fields.file.url" alt="thumbnail">
+          </div>
+          <div class="text-box">
+            <nuxt-link :to="{ name: 'posts-slug', 
+                              params: { slug: post.fields.slug } }">
+              <h1>
+                {{ post.fields.title }}
+              </h1>
+            </nuxt-link>
+            <p class="date">{{ (new Date(post.fields.date)).toLocaleDateString() }}</p>
+            <div class="tags">
+              <p v-for="tag in post.fields.tags"
+                  :key="tag.sys.id"
+                  @click="$router.push({ name: 'posts-getby-query', 
+                                        params: { 
+                                          getby: 'tag',
+                                          query: tag.sys.id } })">
+                # {{ tag.fields.name }}
+              </p>
+            </div>
           </div>
         </div>
-      </swiper-slide>
-      <div class="swiper-button-prev" slot="button-prev"></div>
-      <div class="swiper-button-next" slot="button-next"></div>                     
-    </swiper>
+        <div class="swiper-button-prev" slot="button-prev"></div>
+        <div class="swiper-button-next" slot="button-next"></div>
+      </div>
+    </div>
   </section>
 </template>
 
@@ -75,7 +77,7 @@ export default {
     background-image url('/left-arrow.svg')
   .swiper-button-next
     background-image url('/right-arrow.svg')   
-  .swiper-item
+  .swiper-slide
     width 90%
     position relative
     border-bottom 1px solid #eee
