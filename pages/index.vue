@@ -1,6 +1,8 @@
 <template>
   <section class="posts">
+    <!--
     <SwiperView :posts="posts" />
+    -->
     <List v-for="category in categoriesFeatured" 
           :key="category.slug"
           :posts="posts"
