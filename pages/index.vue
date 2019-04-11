@@ -1,8 +1,6 @@
 <template>
   <section class="posts">
-    <!--
-    <SwiperView :posts="postsFeatured" />
-    -->
+    <Featured :posts="postsFeatured" /> 
     <List v-for="category in categoriesFeatured" 
           :key="category.slug"
           :posts="posts"
@@ -16,7 +14,7 @@
 <script>
 import { createClient } from '~/plugins/contentful.js'
 import siteConfig from '~/siteConfig.json'
-import SwiperView from '~/components/SwiperView.vue'
+import Featured from '~/components/Featured.vue'
 import List from '~/components/List.vue'
 import Footer from '~/components/Footer.vue'
 
@@ -45,7 +43,8 @@ export default {
       client.getEntries({
         'content_type': 'post',
         'fields.featured': true,
-        order: '-sys.createdAt'
+        order: '-sys.createdAt',
+        limit: 4
       }),
       client.getEntries({
         'content_type': 'tag',
@@ -66,7 +65,7 @@ export default {
     }
   },
   components: {
-    SwiperView,
+    Featured,
     List,
     Footer
   }
