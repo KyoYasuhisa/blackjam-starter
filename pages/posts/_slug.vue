@@ -178,7 +178,7 @@ export default {
       cursor pointer
   .body 
     width 600px
-    margin 50px auto 200px
+    margin 10px auto 100px
     .table-of-contents
       position fixed
       width 180px
@@ -204,34 +204,48 @@ export default {
     p 
       margin 30px 0
 
-    h2 
-      margin 0 0 30px
+    h1 
+      margin 50px 0 30px
       padding 50px 0 10px
-      font-size 1.5rem
-      border-bottom 5px solid #555
-    h3 
+      font-size 1.8rem
+      text-align center
+    h2 
       font-size 1rem
       margin 30px 0 0
-      background #eee
-      padding 5px 10px
-      border-radius 5px
+      padding-left 10px
+      border-left 5px solid #555
     code
       margin 3px
       padding 3px
       border-radius 2px
       font-weight bold
       font-family 'Courier New', Courier, monospace
-      background #eee
+      background #eee 
     .hljs 
       background rgba(0,0,0,.9)
-      border-radius 8px
       padding 10px 20px
+      font-size .9rem
+    .result
+      border 1px solid #eee
+      padding 10px 20px
+      margin -15px 3px 0   
+      h1
+        margin 0
+        padding 10px 0 0
     blockquote
       background #eee
       padding 10px 15px
       margin 10px
       p
         margin 0
+  .body:after
+    content: ''
+    display block
+    margin 50px auto 0
+    width 50%
+    height 5px
+    background #555
+    border-radius 5px
 @media (max-width: 1000px)
   .single
     .head
@@ -267,8 +281,15 @@ export default {
       text-align justify
       .table-of-contents
         width 90%
-      h2
+      h1
+        margin 50px -2.5% 10px
         padding-top 20px
+        text-align center
+        font-size 1.4rem
+      h2
+        margin 0 -2.5%
+        border-radius 0  
+        font-size 1rem
       .hljs 
         background rgba(0,0,0,.9)
         border-radius 0

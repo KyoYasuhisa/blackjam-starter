@@ -11,7 +11,7 @@
         </a>
       </div>
     </div>
-    <p class="body">{{ author.fields.shortBio }}</p>
+    <p class="content">{{ author.fields.shortBio }}</p>
   </section>
 </template>
 
@@ -60,7 +60,7 @@ export default {
         transition .2s
       .twitter:hover 
         border-bottom 2px solid #555
-  .body
+  .content
     border 1px solid #eee
     border-radius 5px
     padding 10px
