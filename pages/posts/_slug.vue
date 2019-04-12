@@ -207,10 +207,12 @@ export default {
       font-size 1.8rem
       text-align center
     h2 
-      font-size 1rem
+      font-size 1.2rem
       margin 30px 0 0
       padding-left 10px
       border-left 5px solid #555
+    h3
+      font-size 1rem  
     code
       margin 3px
       padding 3px

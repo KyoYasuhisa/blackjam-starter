@@ -6,14 +6,6 @@ const client = contentful.createClient({
   accessToken: config.CTF_CDA_ACCESS_TOKEN
 })
 
-const shortcodes = {
-  hello: {
-    render: function(attr) {
-      return `<div>${attr.msg}</div>`;
-    }
-  }
-}
-
 module.exports = {
   env: {
     CTF_SPACE_ID: config.CTF_SPACE_ID,
