@@ -57,13 +57,14 @@ module.exports = {
     ], 
     link: [
       { rel: 'mask-icon', href: siteConfig.favicon }
-    ] 
+    ]
   },
   manifest: siteConfig.manifest,
   loading: siteConfig.loaderOption,
   plugins: [
     //{ src: '~plugins/vue-awesome-swiper', ssr: false },
-    '~/plugins/vue2-filters'
+    '~/plugins/vue2-filters',
+    '~/plugins/vue2-touch-events'
   ], 
   css: [
     //'swiper/dist/css/swiper.css'

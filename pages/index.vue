@@ -1,6 +1,6 @@
 <template>
   <section class="posts">
-    <Featured :posts="postsFeatured" /> 
+    <Swiper :posts="postsFeatured" /> 
     <List v-for="category in categoriesFeatured" 
           :key="category.slug"
           :posts="posts"
@@ -14,7 +14,7 @@
 <script>
 import { createClient } from '~/plugins/contentful.js'
 import siteConfig from '~/siteConfig.json'
-import Featured from '~/components/Featured.vue'
+import Swiper from '~/components/Swiper.vue'
 import List from '~/components/List.vue'
 import Footer from '~/components/Footer.vue'
 
@@ -65,7 +65,7 @@ export default {
     }
   },
   components: {
-    Featured,
+    Swiper,
     List,
     Footer
   }
