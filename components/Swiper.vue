@@ -68,7 +68,8 @@ export default {
 <style lang="stylus" scoped>
 .swiper
   .swiper-wrapper
-    width 100%
+    width 95%
+    margin 0 auto
     overflow hidden
     position relative
     box-shadow 0 0 10px #eee
@@ -90,8 +91,6 @@ export default {
       right 10px   
   @media (max-width: 768px)
     .swiper-wrapper
-      width 95%
-      margin 0 auto
       .slide-btn
         width 20px
 </style>
