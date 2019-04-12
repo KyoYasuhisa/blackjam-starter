@@ -71,10 +71,10 @@ export default {
     width 100%
     overflow hidden
     position relative
+    box-shadow 0 0 10px #eee
+    border-radius 10px
     .swiper-inner
       width 100%
-      border-top 1px solid #eee
-      border-bottom 1px solid #eee
       display flex
       flex-wrap nowrap
       justify-content flex-start
@@ -88,6 +88,10 @@ export default {
       left 10px
     .right-btn
       right 10px   
+  @media (max-width: 768px)
+    .swiper-wrapper
+      .slide-btn
+        width 20px
 </style>
 
 

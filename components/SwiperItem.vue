@@ -58,6 +58,7 @@ export default {
     border-radius 20px
   h1
     font-size 2rem
+    line-height 4rem
   .tags
     display flex
     flex-wrap nowrap
@@ -74,11 +75,12 @@ export default {
 @media (max-width: 768px) 
   .swiper-item
     height 200px
+    padding-top 20px
     img
       width 30%
       margin-left -15%
     h1
-      font-size 1.5rem
+      font-size 1.2rem
       width 80%
       margin 10px auto
 </style>

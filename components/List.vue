@@ -39,6 +39,19 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+.more-btn 
+  display block
+  width 150px
+  margin 10px auto
+  text-align center
+  padding 10px 0
+  border 1px solid #eee
+  border-radius 20px
+  font-weight bold
+  cursor pointer
+  transition .2s
+.more-btn:hover 
+  border 1px solid #555
 </style>
 
 

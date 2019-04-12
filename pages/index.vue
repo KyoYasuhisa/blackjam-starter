@@ -98,21 +98,5 @@ export default {
   .subtitle
     margin 0
     font-size .9rem
-.more-btn 
-  display block
-  width 150px
-  margin 10px auto
-  text-align center
-  padding 10px 0
-  border 1px solid #eee
-  border-radius 20px
-  font-weight bold
-  cursor pointer
-  transition .2s
-.more-btn:hover 
-  border 1px solid #555
-@media (max-width: 768px)
-  .more-btn
-    width 95%
 </style>
 

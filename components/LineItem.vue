@@ -86,6 +86,7 @@ export default {
       height 25px
       line-height 25px
       border-radius 5px  
+      border 1px solid #555
     .tag 
       display inline-block
       margin 1px
