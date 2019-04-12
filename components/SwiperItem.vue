@@ -58,7 +58,6 @@ export default {
     border-radius 20px
   h1
     font-size 2rem
-    line-height 4rem
   .tags
     display flex
     flex-wrap nowrap
