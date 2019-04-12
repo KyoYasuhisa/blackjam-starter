@@ -138,8 +138,13 @@ export default {
     overflow hidden
     position relative
     text-align center
-    img
+    .img
       opacity .1
+      width 100%
+      position absolute
+      top 0
+      left 50%
+      margin-left -50%
     .text-box 
       position absolute
       top 100px
@@ -149,7 +154,6 @@ export default {
       text-align center
       color #555
     .category 
-      font-size 1rem
       background #555
       color white
       display inline-block

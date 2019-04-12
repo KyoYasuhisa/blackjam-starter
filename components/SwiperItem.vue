@@ -41,10 +41,10 @@ export default {
   overflow hidden
   img
     position absolute
-    width 300px
-    top 30px
+    width 100%
+    top 0
     left 50%
-    margin-left -150px
+    margin-left -50%
     opacity .1
     z-index -1
   .category 
@@ -55,7 +55,7 @@ export default {
     line-height 35px
     background #555
     color white
-    border-radius 20px
+    border-radius 5px
   h1
     font-size 2rem
   .tags
@@ -75,9 +75,6 @@ export default {
   .swiper-item
     height 200px
     padding-top 20px
-    img
-      width 30%
-      margin-left -15%
     h1
       font-size 1.2rem
       width 80%

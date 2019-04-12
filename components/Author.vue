@@ -1,7 +1,7 @@
 <template>
   <section class="author">
     <div class="head">
-      <div class="img">
+      <div class="avatar">
         <img :src="author.fields.avatar.fields.file.url" alt="avatar">
       </div>  
       <div class="texts">
@@ -31,7 +31,7 @@ export default {
     text-align center
     height auto
     margin-bottom 0
-    .img
+    .avatar
       width 80px
       height 80px
       max-width 80px
