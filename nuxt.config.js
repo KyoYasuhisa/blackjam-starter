@@ -62,13 +62,9 @@ module.exports = {
   manifest: siteConfig.manifest,
   loading: siteConfig.loaderOption,
   plugins: [
-    //{ src: '~plugins/vue-awesome-swiper', ssr: false },
     '~/plugins/vue2-filters',
     '~/plugins/vue2-touch-events'
   ], 
-  css: [
-    //'swiper/dist/css/swiper.css'
-  ],
   markdownit: { 
     html: true,
     injected: true,
@@ -83,9 +79,6 @@ module.exports = {
     ]
   },
   build: {
-    //vendor: [
-    // 'vue-awesome-swiper'
-    //],
     extend (config, { isDev, isClient }) {
       if (isDev && isClient) {
         config.module.rules.push({
