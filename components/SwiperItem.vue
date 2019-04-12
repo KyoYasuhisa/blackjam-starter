@@ -35,14 +35,14 @@ export default {
   position relative
   margin 0 auto
   min-width 100%
-  height 300px
+  height 350px
   padding-top 50px
   text-align center
   overflow hidden
   img
     position absolute
     width 300px
-    top 0
+    top 30px
     left 50%
     margin-left -150px
     opacity .1
@@ -57,13 +57,13 @@ export default {
     color white
     border-radius 20px
   h1
-    font-size 1.5rem
+    font-size 2rem
   .tags
     display flex
     flex-wrap nowrap
     justify-content center
     p
-      margin 5px
+      margin 2px
       border 1px solid #555
       height 25px
       line-height 25px
@@ -74,10 +74,13 @@ export default {
 @media (max-width: 768px) 
   .swiper-item
     height 200px
-    padding-top 20px
     img
-      width 50%
-      margin-left -25%
+      width 30%
+      margin-left -15%
+    h1
+      font-size 1.5rem
+      width 80%
+      margin 10px auto
 </style>
 
 

@@ -9,6 +9,7 @@
 
 <script>
 import Header from '~/components/Header.vue'
+import SwiperItemVue from '../components/SwiperItem.vue'
 
 export default {
   components: {
@@ -26,11 +27,11 @@ export default {
   src local('Open Sans'), local('OpenSans'), url(https://fonts.gstatic.com/s/productsans/v5/HYvgU2fE2nRJvZ5JFAumwegdm0LZdjqr5-oayXSOefg.woff2) format('woff2')
 html 
   font-family 'Product Sans', 'Yu Gothic', 'YuGothic', sans-serif
-  font-size 15px
   color #555
 body 
   margin 0
   overflow-x hidden
+  font-size 15px
 main 
   width 100%
   max-width 1000px

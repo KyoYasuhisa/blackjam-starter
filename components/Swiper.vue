@@ -69,26 +69,25 @@ export default {
 .swiper
   .swiper-wrapper
     width 100%
+    overflow hidden
     position relative
     .swiper-inner
       width 100%
+      border-top 1px solid #eee
+      border-bottom 1px solid #eee
       display flex
       flex-wrap nowrap
       justify-content flex-start
-      transition .4s
+      transition .2s
       transition-timing-function ease-out
     .slide-btn
       position absolute
-      top 150px
+      top 45%
       width 40px
     .left-btn
       left 10px
     .right-btn
-      right 10px
-  @media (max-width: 768px)
-    .swiper-wrapper
-      .swiper-inner
-        height 200px
+      right 10px   
 </style>
 
 

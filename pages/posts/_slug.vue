@@ -134,7 +134,7 @@ export default {
     width 100%
     height calc(30vw + 100px)
     max-height 400px
-    margin 0 0 30px 0
+    margin 0 0 10px 0
     overflow hidden
     position relative
     text-align center
@@ -165,7 +165,9 @@ export default {
       font-size 1rem
     .tags p
       border 1px solid #555
-      padding 5px 10px
+      padding 0 10px
+      height 25px
+      line-height 25px
       border-radius 5px
       display inline-block
       font-size .8rem
@@ -237,16 +239,15 @@ export default {
     content: ''
     display block
     margin 50px auto 0
-    width 50%
+    width 25%
     height 5px
     background #555
-    border-radius 5px
+    border-radius 10px
 @media (max-width: 1000px)
   .single
     .head
       h1
         width auto
-        font-size 1.5rem
     .body
       width 80%
       margin 50px auto
@@ -257,25 +258,26 @@ export default {
         right auto
         border 1px solid #eee
         border-radius 5px
-        width 60%
-        margin 20px auto    
+        width 90%
+        margin 20px auto  
+        padding 10px 0
+        a
+          margin-left 10% 
 @media (max-width: 768px) 
   .single 
     .head 
       width 100%
-      margin 10px 0 30px 0
+      margin 10px 0 0
       border-radius 0
       .text-box 
         top 3vw
-    h1 
-      font-size 1.2rem
+      h1 
+        font-size 1.5rem
     .body 
       width 95%
       padding 5px
       margin 0 auto
       text-align justify
-      .table-of-contents
-        width 90%
       h1
         margin 50px -2.5% 10px
         padding-top 20px

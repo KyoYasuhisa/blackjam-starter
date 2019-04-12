@@ -82,6 +82,7 @@ export default {
       color white
       font-size .8rem
       padding 0 10px
+      margin 1px
       height 25px
       line-height 25px
       border-radius 5px  
@@ -103,12 +104,9 @@ export default {
   .line-item 
     border-radius 0
     border none
-    border-bottom 1px solid #eee
     padding 18px 5px 10px
-    margin 0
   .line-item:hover 
     border none
-    border-bottom 1px solid #eee
 </style>
 
 
