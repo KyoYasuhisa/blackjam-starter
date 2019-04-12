@@ -41,7 +41,7 @@ export default {
 
 <style lang="stylus" scoped>
 .box-item
-  width 315px
+  width 400px
   margin 5px
   padding 10px 0
   border-radius 5px
