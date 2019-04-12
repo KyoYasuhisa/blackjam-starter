@@ -90,6 +90,8 @@ export default {
       right 10px   
   @media (max-width: 768px)
     .swiper-wrapper
+      width 95%
+      margin 0 auto
       .slide-btn
         width 20px
 </style>
