@@ -53,15 +53,9 @@
     "showNumLatest": 4,
     "notFoundMessage": "記事がみつかりませんでした。"
   },
-  "swiperOption": {
-    "autoplay": {
-      "delay": 5000
-    },
-    "loop": true
-  },
   "postOption": {
     "fontSize": "1rem",
     "lineHeight": "2.4rem",
-    "thumbnailSize": "20%"
+    "thumbnailSize": "40%"
   }
 }

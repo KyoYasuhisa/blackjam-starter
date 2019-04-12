@@ -44,6 +44,7 @@ export default {
       top 8px
       img 
         width 100%
+        opacity 1
     .texts
       margin 0 auto
       .name 

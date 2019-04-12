@@ -1,7 +1,6 @@
 <template>
   <div class="swiper-item">
-    <img class="thumbnail"
-         :src="post.fields.image.fields.file.url" alt="thumbnail">  
+    <img :src="post.fields.image.fields.file.url" alt="thumbnail">  
     <nuxt-link :to="{ name: 'posts-getby-query', 
                       params: { 
                         getby: 'category',
@@ -40,13 +39,13 @@ export default {
   padding-top 50px
   text-align center
   overflow hidden
-  .thumbnail
+  img
     position absolute
     width 300px
     top 0
     left 50%
     margin-left -150px
-    opacity .3
+    opacity .1
     z-index -1
   .category 
     display inline-block
@@ -76,7 +75,7 @@ export default {
   .swiper-item
     height 200px
     padding-top 20px
-    .thumbnail
+    img
       width 50%
       margin-left -25%
 </style>

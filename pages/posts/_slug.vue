@@ -1,7 +1,6 @@
 <template>
   <section class="single">
     <div class="head">
-      <div class="cover"></div> 
       <img :src="post.fields.image.fields.file.url" alt="thumbnail"
            :style="'width:'+thumbnailSize+';'"
            class="img"> 
@@ -139,12 +138,8 @@ export default {
     overflow hidden
     position relative
     text-align center
-    .cover 
-      position absolute
-      background rgba(255,255,255,.9)
-      top 0
-      bottom 0
-      width 100%
+    img
+      opacity .1
     .text-box 
       position absolute
       top 100px
