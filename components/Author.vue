@@ -1,8 +1,8 @@
 <template>
   <section class="author">
     <div class="head">
-      <div class="avatar">
-        <img :src="author.fields.avatar.fields.file.url" alt="avatar">
+      <div class="avatar"
+           :style="'background-image: url(' + author.fields.avatar.fields.file.url +');'">
       </div>  
       <div class="texts">
         <p class="name"><span>Author:</span> {{ author.fields.name }}</p>
@@ -42,9 +42,8 @@ export default {
       overflow hidden
       position relative
       top 8px
-      img 
-        width 100%
-        opacity 1
+      background-repeat no-repeat
+      background-size cover
     .texts
       margin 0 auto
       .name 

@@ -1,7 +1,15 @@
 <template>
   <div class="line-item">  
-    <div class="img">
-      <img :src="post.fields.image.fields.file.url" alt="thumbnail">
+    <div class="img-box">
+      <div v-if="post.fields.image == undefined"
+           class="img"
+           :style="'background-image: url(' + defaultImg +');'">
+      </div>
+      <div v-else 
+           class="img"
+           :style="'background-image: url(' + post.fields.image.fields.file.url +');'">
+      </div>
+      <p class="category">{{ post.fields.category.fields.name }}</p>
     </div>
     <div class="text-box">
       <nuxt-link :to="{ name: 'posts-slug', 
@@ -16,9 +24,6 @@
                       params: { 
                         getby: 'category',
                         query: post.fields.category.fields.slug } }">
-          <p class="category">
-            {{ post.fields.category.fields.name }}
-          </p>
         </nuxt-link> 
         <p class="tag"
             v-for="tag in post.fields.tags"
@@ -35,8 +40,15 @@
 </template>
 
 <script>
+import siteConfig from '~/siteConfig.json'
+
 export default {
-  props: ['post']
+  props: ['post'],
+  data () {
+    return {
+      defaultImg: siteConfig.postOption.defaultImg
+    }
+  }
 }
 </script>
 
@@ -54,17 +66,23 @@ export default {
   border-radius 5px
   overflow hidden
   transition .2s
-  .img 
-    overflow hidden
-    width 50px
-    height 50px
-    border-radius 50%
-    max-width 50px
-    max-height 50px
-    min-width 50px
-    min-height 50px
-    border 1px solid #eee
-    img 
+  .img-box
+    .img 
+      overflow hidden
+      width 60px
+      height 60px
+      border-radius 50%
+      max-width 60px
+      max-height 60px
+      min-width 60px
+      min-height 60px
+      border 1px solid #eee
+      background-repeat no-repeat
+      background-size cover
+    .category
+      margin 0
+      font-size .8rem
+      text-align center
       width 100%
   .text-box
     margin-left 15px
@@ -76,17 +94,6 @@ export default {
     .date 
       margin 5px 0
       font-size .8rem
-    .category
-      display inline-block
-      background #555
-      color white
-      font-size .8rem
-      padding 0 10px
-      margin 1px
-      height 25px
-      line-height 25px
-      border-radius 5px  
-      border 1px solid #555
     .tag 
       display inline-block
       margin 1px

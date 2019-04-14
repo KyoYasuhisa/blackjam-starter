@@ -2,7 +2,7 @@
   <section class="post-list">
     <div class="section-title">
       <h1>{{ category.name }}</h1>
-      <p v-if="showSlug" class="subtitle">{{ category.slug }}</p>
+      <p v-if="showDesc" class="subtitle">{{ category.description }}</p>
     </div>
     <div class="posts">
       <BoxItem v-for="post in limitBy(filterBy(posts, category.slug, 'fields.category.fields.slug'), shownumTop)"
@@ -28,7 +28,7 @@ export default {
   mixins: [Vue2Filters.mixin],
   data () {
     return {
-      showSlug: siteConfig.listOption.showSlug,
+      showDesc: siteConfig.listOption.showDesc,
       shownumTop: siteConfig.listOption.shownumTop
     }
   },

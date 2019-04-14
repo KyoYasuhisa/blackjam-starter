@@ -30,7 +30,7 @@
         </div>
       </div>
     </nuxt-link>  
-    <label for="searcher" style="display: none;"></label>
+    <label for="searcher">search</label>
     <input type="search" 
            name="searcher"
            id="searcher"
@@ -128,6 +128,9 @@ header
       border-bottom 3px solid #555
     .active
       border-bottom 3px solid #555
+  label
+    position absolute
+    opacity 0    
   .searcher
     width 100%
     display block

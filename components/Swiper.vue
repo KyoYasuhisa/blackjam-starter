@@ -15,10 +15,12 @@
                     :post="post"/>    
       </div>    
       <div v-if="posts.length > 1">
-        <div class="slide-btn left-btn">
+        <div class="slide-btn left-btn"
+             @click="swipeRight">
           <img src="/left-arrow.svg" alt="left-arrow">
         </div>
-        <div class="slide-btn right-btn">
+        <div class="slide-btn right-btn"
+             @click="swipeLeft">
           <img src="/right-arrow.svg" alt="left-arrow">
         </div>    
       </div>
@@ -73,7 +75,7 @@ export default {
     overflow hidden
     position relative
     box-shadow 0 0 10px #eee
-    border-radius 10px
+    border-radius 5px
     .swiper-inner
       width 100%
       display flex
@@ -85,6 +87,7 @@ export default {
       position absolute
       top 45%
       width 40px
+      cursor pointer
     .left-btn
       left 10px
     .right-btn

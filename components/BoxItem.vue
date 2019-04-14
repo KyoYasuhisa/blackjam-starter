@@ -1,7 +1,12 @@
 <template>
   <div class="box-item">
-    <div class="img">
-      <img :src="post.fields.image.fields.file.url" alt="thumbnail">
+    <div v-if="post.fields.image == undefined"
+         class="img"
+         :style="'background-image: url('+ defaultImg +');'">
+    </div>
+    <div v-else
+         class="img"
+         :style="'background-image: url(' + post.fields.image.fields.file.url +');'">
     </div>
     <nuxt-link :to="{ name: 'posts-getby-query', 
                       params: { 
@@ -19,6 +24,10 @@
         </h1>
       </nuxt-link>
       <p class="date">{{ (new Date(post.fields.date)).toLocaleDateString() }}</p>
+      <div v-if="post.fields.intro != undefined" 
+           class="intro" 
+           v-html="$md.render(post.fields.intro)">
+      </div>
       <div class="tags">
         <p v-for="tag in post.fields.tags"
             :key="tag.sys.id"
@@ -34,14 +43,21 @@
 </template>
 
 <script>
+import siteConfig from '~/siteConfig.json'
+
 export default {
-  props: ['post']
+  props: ['post'],
+  data () {
+    return {
+      defaultImg: siteConfig.postOption.defaultImg
+    }
+  }
 }
 </script>
 
 <style lang="stylus" scoped>
 .box-item
-  width 400px
+  width 280px
   margin 5px
   padding 10px 0
   border-radius 5px
@@ -57,17 +73,14 @@ export default {
     right 10px
     overflow hidden
     border 1px solid #eee
-    img 
-      width 100%
+    background-repeat no-repeat
+    background-size cover
   .category 
-    background #555
-    border-radius 5px
-    padding 0 15px
     height 30px
     line-height 30px
-    color white
     display inline-block
     font-size .8rem
+    border-bottom 2px solid #555
     margin 0
     position absolute
     top 10px
@@ -76,9 +89,9 @@ export default {
   .text-box 
     margin 65px 10px 5px 10px
     h1
-      font-size 1.2rem
+      font-size 1rem
       margin 0
-      padding 5px
+      padding 5px 0
       cursor pointer
     .date 
       font-size .8rem
@@ -94,12 +107,16 @@ export default {
       font-size .8rem
       margin 2px
       cursor pointer
+    .intro
+      font-size .7rem
+      max-height 100px
+      overflow-y scroll
+      margin 10px 0
+    ::-webkit-scrollbar 
+      width 0
 .box-item:hover
   border 1px solid #555
-@media (max-width: 1000px) 
-  .box-item 
-    width 45%
-@media (max-width: 600px) 
+@media (max-width: 768px) 
   .box-item 
     width 95%
 </style>

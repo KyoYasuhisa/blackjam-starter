@@ -24,29 +24,32 @@
         "src": "/logo.webp",
         "type": "image/webp",
         "sizes": "512x512"
-      }
+      } 
     ],
     "display": "standalone"
   },
   "categoriesFeatured": [
     {
-      "name": "機能を追加しよう",
-      "slug": "customize"
+      "name": "Customize",
+      "slug": "customize",
+      "description": "機能を追加しよう"
     },
     {
-      "name": "デザインを高めよう",
-      "slug": "design"
+      "name": "Design",
+      "slug": "design",
+      "description": "デザインを高めよう"
     },
     {
-      "name": "読んでもらおう",
-      "slug": "seo"
+      "name": "SEO",
+      "slug": "seo",
+      "description": "読んでもらおう"
     }
   ],
   "loaderOption": {
     "color": "#555"
   },
   "listOption": {
-    "showSlug": true,
+    "showDesc": true,
     "showNum": 3,
     "loadNum": 3,
     "showNumTop": 3,
@@ -55,6 +58,14 @@
   },
   "postOption": {
     "fontSize": "1rem",
-    "lineHeight": "2.4rem"
+    "lineHeight": "2.4rem",
+    "defaultImg": "/sample.png"
+  },
+  "backgroundImageOption": {
+    "repeat": "no-repeat",
+    "size": "contain",
+    "position": "center center",
+    "attachment": "fixed",
+    "filter": "opacity(.2)"
   }
 }

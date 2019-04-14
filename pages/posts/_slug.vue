@@ -1,9 +1,24 @@
 <template>
   <section class="single">
     <div class="head">
-      <img :src="post.fields.image.fields.file.url" alt="thumbnail"
-           :style="'width:'+thumbnailSize+';'"
-           class="img"> 
+      <div v-if="post.fields.image == undefined"
+           class="img"
+           :style="'background-image: url('+ defaultImg +');'
+                  +'background-repeat:' + repeat +';'
+                  +'background-size:' + size + ';'
+                  +'background-position:' + position + ';'
+                  +'background-attachment:' + attachment + ';'
+                  +'filter:' + filter + ';'">
+      </div>
+      <div v-else
+           class="img"
+           :style="'background-image: url(' + post.fields.image.fields.file.url +');'
+                  +'background-repeat:' + repeat +';'
+                  +'background-size:' + size + ';'
+                  +'background-position:' + position + ';'
+                  +'background-attachment:' + attachment + ';'
+                  +'filter:' + filter + ';'">
+      </div>
       <div class="text-box">
         <nuxt-link :to="{ name: 'posts-getby-query', 
                           params: { 
@@ -27,7 +42,11 @@
       </div>
     </div>
     <SideBtns :post="post"
-              :author="author" />        
+              :author="author" />     
+    <div class="post-intro" 
+         :style="'font-size:'+fontSize+'; line-height:'+lineHeight+';'"
+         v-html="$md.render(post.fields.intro)">    
+    </div>              
     <div class="body" 
          :style="'font-size:'+fontSize+'; line-height:'+lineHeight+';'"
          v-html="$md.render(post.fields.content)">
@@ -115,7 +134,12 @@ export default {
       subtitle: siteConfig.subtitle,
       fontSize: siteConfig.postOption.fontSize,
       lineHeight: siteConfig.postOption.lineHeight,
-      thumbnailSize: siteConfig.postOption.thumbnailSize
+      repeat: siteConfig.backgroundImageOption.repeat,
+      size: siteConfig.backgroundImageOption.size,
+      position: siteConfig.backgroundImageOption.position,
+      attachment: siteConfig.backgroundImageOption.attachment,
+      filter: siteConfig.backgroundImageOption.filter,
+      defaultImg: siteConfig.postOption.defaultImg
     }
   },
   components: {
@@ -132,51 +156,37 @@ export default {
 .single 
   .head 
     width 100%
-    height calc(30vw + 100px)
-    max-height 400px
-    margin 0 0 10px 0
-    overflow hidden
     position relative
+    overflow hidden
     text-align center
+    min-height 350px
     .img
-      opacity .1
-      width 100%
       position absolute
       top 0
-      left 50%
-      margin-left -50%
+      bottom 0
+      width 100%
+      z-index -1
     .text-box 
-      position absolute
-      top 100px
-      width 90%
-      left 50%
-      margin-left -45%
-      text-align center
-      color #555
-    .category 
-      background #555
-      color white
-      display inline-block
-      padding 5px 10px
-      border-radius 5px
-      cursor pointer
-    h1 
-      width 600px
-      font-size 2rem
-      margin 5px auto
-      cursor pointer
-    .date 
-      font-size 1rem
-    .tags p
-      border 1px solid #555
-      padding 0 10px
-      height 25px
-      line-height 25px
-      border-radius 5px
-      display inline-block
-      font-size .8rem
-      margin 0 2px
-      cursor pointer
+      padding 10px 0 30px
+      .category 
+        display inline-block
+        padding 5px 10px
+        border-bottom 3px solid #555
+      h1 
+        font-size 2rem
+        margin 10px auto 20px
+      .date 
+        font-size 1rem
+      .tags p
+        border 1px solid #eee
+        padding 0 10px
+        height 25px
+        line-height 25px
+        border-radius 5px
+        display inline-block
+        font-size .8rem
+        margin 0 2px
+        cursor pointer
   .body 
     width 600px
     margin 10px auto 100px
@@ -249,11 +259,27 @@ export default {
     height 5px
     background #555
     border-radius 10px
+  .post-intro
+    width 80%
+    margin 30px auto
+    padding 20px 40px
+    border-radius 5px
+    h1,h2,h3,h4,h5,h6
+      text-align left
+      margin 5px 0
+      padding 0
+    p
+      margin 0
+      font-size .9rem
+      line-height 1.8rem
+  .intro:after
+    display none
 @media (max-width: 1000px)
   .single
     .head
-      h1
-        width auto
+      .text-box 
+        h1
+          width auto
     .body
       width 80%
       margin 50px auto
@@ -274,11 +300,12 @@ export default {
     .head 
       width 100%
       margin 10px 0 0
-      border-radius 0
+      min-height 200px
       .text-box 
         top 3vw
-      h1 
-        font-size 1.5rem
+      .text-box 
+        h1 
+          font-size 1.5rem
     .body 
       width 95%
       padding 5px
