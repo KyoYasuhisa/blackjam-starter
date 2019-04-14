@@ -186,7 +186,7 @@ export default {
         display inline-block
         font-size .8rem
         margin 0 2px
-        cursor pointer
+        cursor pointer  
   .body 
     width 600px
     margin 10px auto 100px
@@ -218,7 +218,7 @@ export default {
     h1 
       margin 50px 0 30px
       padding 50px 0 10px
-      font-size 1.8rem
+      font-size 1.5rem
       text-align center
     h2 
       font-size 1.2rem
@@ -270,8 +270,6 @@ export default {
       padding 0
     p
       margin 0
-      font-size .9rem
-      line-height 1.8rem
   .intro:after
     display none
 @media (max-width: 1000px)
@@ -279,7 +277,7 @@ export default {
     .head
       .text-box 
         h1
-          width auto
+          width auto   
     .body
       width 80%
       margin 50px auto
@@ -306,6 +304,12 @@ export default {
       .text-box 
         h1 
           font-size 1.5rem
+    .post-intro
+      width 95%  
+      margin 30px auto 0
+      padding 0   
+      h1
+        font-size 1.2rem
     .body 
       width 95%
       padding 5px
