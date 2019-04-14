@@ -50,7 +50,10 @@
     <Swiper v-if="filterBy(postsRec, post.fields.tags[0].fields.name, 'fields.content').length > 0"
             :posts="filterBy(postsRec, post.fields.tags[0].fields.name, 'fields.content')"
             type="top-rec"
-            class="top-rec" />    
+            class="top-rec" />  
+    <Swiper v-else
+            :posts="postsFeatured"
+            type="rec" />          
     <div class="body" 
          :style="'font-size:'+fontSize+'; line-height:'+lineHeight+';'"
          v-html="$md.render(post.fields.content)">
