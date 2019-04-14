@@ -5,11 +5,6 @@
       <h1>あなたへのお薦め</h1>
       <p class="subtitle">recommended</p>
     </div>
-    <div v-if="type == 'top-rec'"
-         class="section-title">
-      <h1>こちらもお薦め</h1>
-      <p class="subtitle">recommended</p>
-    </div>
     <div class="swiper-wrapper">
       <div class="swiper-inner"
            id="swiper-inner"
