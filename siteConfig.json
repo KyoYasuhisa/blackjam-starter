@@ -65,7 +65,7 @@
     "repeat": "no-repeat",
     "size": "contain",
     "position": "center center",
-    "attachment": "fixed",
+    "attachment": "auto",
     "filter": "opacity(.2)"
   }
 }
