@@ -46,7 +46,11 @@
     <div class="post-intro" 
          :style="'font-size:'+fontSize+'; line-height:'+lineHeight+';'"
          v-html="$md.render(post.fields.intro)">    
-    </div>              
+    </div>     
+    <Swiper v-if="filterBy(postsRec, post.fields.tags[0].fields.name, 'fields.content').length > 0"
+            :posts="filterBy(postsRec, post.fields.tags[0].fields.name, 'fields.content')"
+            type="top-rec"
+            class="top-rec" />    
     <div class="body" 
          :style="'font-size:'+fontSize+'; line-height:'+lineHeight+';'"
          v-html="$md.render(post.fields.content)">
@@ -187,6 +191,22 @@ export default {
         font-size .8rem
         margin 0 2px
         cursor pointer  
+  .top-rec
+    width 600px
+    margin 10px auto
+  .post-intro
+    width 600px
+    margin 30px auto
+    padding 20px 40px
+    border-radius 5px
+    h1,h2,h3,h4,h5,h6
+      text-align left
+      margin 5px 0
+      padding 0
+    p
+      margin 0
+  .intro:after
+    display none
   .body 
     width 600px
     margin 10px auto 100px
@@ -259,25 +279,15 @@ export default {
     height 5px
     background #555
     border-radius 10px
-  .post-intro
-    width 80%
-    margin 30px auto
-    padding 20px 40px
-    border-radius 5px
-    h1,h2,h3,h4,h5,h6
-      text-align left
-      margin 5px 0
-      padding 0
-    p
-      margin 0
-  .intro:after
-    display none
 @media (max-width: 1000px)
   .single
     .head
       .text-box 
         h1
           width auto   
+    .post-intro,
+    .top-rec
+      width 80%      
     .body
       width 80%
       margin 50px auto
@@ -304,7 +314,8 @@ export default {
       .text-box 
         h1 
           font-size 1.5rem
-    .post-intro
+    .post-intro,
+    .top-rec
       width 95%  
       margin 30px auto 0
       padding 0   

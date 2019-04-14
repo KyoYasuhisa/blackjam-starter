@@ -1,6 +1,6 @@
 <template>
   <section class="author">
-    <div class="head">
+    <div class="author-head">
       <div class="avatar"
            :style="'background-image: url(' + author.fields.avatar.fields.file.url +');'">
       </div>  
@@ -11,7 +11,7 @@
         </a>
       </div>
     </div>
-    <p class="content">{{ author.fields.shortBio }}</p>
+    <p class="author-content">{{ author.fields.shortBio }}</p>
   </section>
 </template>
 
@@ -27,7 +27,7 @@ export default {
   margin 0 auto 100px
   position relative
   background rgba(255,255,255,.4)
-  .head
+  .author-head
     text-align center
     height auto
     margin-bottom 0
@@ -60,7 +60,7 @@ export default {
         transition .2s
       .twitter:hover 
         border-bottom 2px solid #555
-  .content
+  .author-content
     border 1px solid #eee
     border-radius 5px
     padding 10px
