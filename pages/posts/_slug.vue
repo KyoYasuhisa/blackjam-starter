@@ -53,7 +53,8 @@
             class="top-rec" />  
     <Swiper v-else
             :posts="postsFeatured"
-            type="rec" />          
+            type="rec"
+            class="top-rec" />          
     <div class="body" 
          :style="'font-size:'+fontSize+'; line-height:'+lineHeight+';'"
          v-html="$md.render(post.fields.content)">
