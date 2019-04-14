@@ -53,7 +53,7 @@
             class="top-rec" />  
     <Swiper v-else
             :posts="postsFeatured"
-            type="rec"
+            type="top-rec"
             class="top-rec" />          
     <div class="body" 
          :style="'font-size:'+fontSize+'; line-height:'+lineHeight+';'"
