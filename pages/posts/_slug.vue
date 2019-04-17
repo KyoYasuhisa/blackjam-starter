@@ -47,20 +47,10 @@
          :style="'font-size:'+fontSize+'; line-height:'+lineHeight+';'"
          v-html="$md.render(post.fields.intro)">    
     </div>     
-    <div class="post-list">
-      <div class="section-title">
-        <h1>こちらもお薦め</h1>
-        <p class="subtitle">recommended</p>
-      </div>
-      <div class="posts">
-        <div class="top-rec">
-          <SwiperItem v-if="filterBy(postsRec, post.fields.tags[0].fields.name, 'fields.content').length > 0"
-                      :post="filterBy(postsRec, post.fields.tags[0].fields.name, 'fields.content')[0]" />
-          <SwiperItem v-else
-                      :post="postsFeatured[0]" />  
-        </div>
-      </div> 
-    </div>   
+    <Rec v-if="filterBy(postsRec, post.fields.tags[0].fields.name, 'fields.content').length > 0"
+              :posts="filterBy(postsRec, post.fields.tags[0].fields.name, 'fields.content')" />
+    <Rec v-else
+              :posts="postsFeatured" />
     <div class="body" 
          :style="'font-size:'+fontSize+'; line-height:'+lineHeight+';'"
          v-html="$md.render(post.fields.content)">
@@ -83,6 +73,7 @@ import siteConfig from '~/siteConfig.json'
 import List from '~/components/List.vue'
 import Swiper from '~/components/Swiper.vue'
 import SwiperItem from '~/components/SwiperItem.vue'
+import Rec from '~/components/Rec.vue'
 import Footer from '~/components/Footer.vue'
 import SideBtns from '~/components/SideBtns.vue'
 import Vue2Filters from 'vue2-filters'
@@ -161,6 +152,7 @@ export default {
     List,
     Swiper,
     SwiperItem,
+    Rec,
     Footer,
     SideBtns
   },

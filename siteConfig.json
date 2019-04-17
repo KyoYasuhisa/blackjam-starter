@@ -30,9 +30,9 @@
   },
   "categoriesFeatured": [
     {
-      "name": "Customize",
-      "slug": "customize",
-      "description": "機能を追加しよう"
+      "name": "Docs",
+      "slug": "docs",
+      "description": "blackJAMをはじめよう"
     },
     {
       "name": "Design",
@@ -54,11 +54,12 @@
     "loadNum": 3,
     "showNumTop": 3,
     "showNumLatest": 4,
+    "showNumRec": 3,
     "notFoundMessage": "記事がみつかりませんでした。"
   },
   "postOption": {
     "fontSize": "1rem",
-    "lineHeight": "2.4rem",
+    "lineHeight": "2.2rem",
     "defaultImg": "/sample.png"
   },
   "backgroundImageOption": {
