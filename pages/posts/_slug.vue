@@ -240,7 +240,7 @@ export default {
         border-bottom 2px solid #555
     p 
       margin 30px 0
-
+      text-align left
     h1 
       margin 50px 0 30px
       padding 50px 0 10px
@@ -254,7 +254,7 @@ export default {
     h3
       font-size 1rem  
     img
-      width 100%
+      width 95%
       border 5px solid #eee
     table
       margin 0 auto
@@ -345,7 +345,7 @@ export default {
       margin 0 auto
       text-align justify
       h1
-        margin 50px -2.5% 10px
+        margin 50px -2.5% 0
         padding-top 20px
         text-align center
         font-size 1.4rem

@@ -67,8 +67,8 @@ module.exports = {
       'markdown-it-table-of-contents',
       'markdown-it-highlightjs',
       'markdown-it-katex',
-      'markdown-it-footnote'
-    ]
+      'markdown-it-footnote' 
+    ] 
   },
   build: {
     extend (config, { isDev, isClient }) {
