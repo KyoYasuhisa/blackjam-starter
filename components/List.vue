@@ -46,7 +46,7 @@ export default {
   text-align center
   padding 10px 0
   border 1px solid #eee
-  border-radius 20px
+  border-radius 30px
   font-weight bold
   cursor pointer
   transition .2s
