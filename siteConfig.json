@@ -1,5 +1,5 @@
 {
-  "title": "blackjam.", 
+  "title": "blackJAM.", 
   "subtitle": "モダンなブログをかんたんに始めよう",
   "baseURL": "https://blackjam-starter.netlify.com",
   "logo": "/icon.webp",
@@ -30,19 +30,14 @@
   },
   "categoriesFeatured": [
     {
-      "name": "Docs",
-      "slug": "docs",
+      "name": "Get Started",
+      "slug": "get-started",
       "description": "blackJAMをはじめよう"
     },
     {
-      "name": "Design",
-      "slug": "design",
-      "description": "デザインを高めよう"
-    },
-    {
-      "name": "SEO",
-      "slug": "seo",
-      "description": "読んでもらおう"
+      "name": "Customize",
+      "slug": "customize",
+      "description": "オリジナルのブログをつくろう"
     }
   ],
   "loaderOption": {

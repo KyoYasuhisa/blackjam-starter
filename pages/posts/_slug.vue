@@ -43,7 +43,8 @@
     </div>
     <SideBtns :post="post"
               :author="author" />     
-    <div class="post-intro" 
+    <div v-if="post.fields.intro != undefined" 
+         class="post-intro" 
          :style="'font-size:'+fontSize+'; line-height:'+lineHeight+';'"
          v-html="$md.render(post.fields.intro)">    
     </div>     
@@ -252,6 +253,19 @@ export default {
       border-left 5px solid #555
     h3
       font-size 1rem  
+    img
+      width 100%
+      border 5px solid #eee
+    table
+      margin 0 auto
+      th
+        background #555
+        color white
+      td
+        padding 5px 10px
+        background #eee
+        font-size .9rem
+        width 30%
     code
       margin 3px
       padding 3px
