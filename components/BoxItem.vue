@@ -109,11 +109,7 @@ export default {
       cursor pointer
     .intro
       font-size .7rem
-      max-height 100px
-      overflow-y scroll
       margin 10px 0
-    ::-webkit-scrollbar 
-      width 0
 .box-item:hover
   border 1px solid #555
 @media (max-width: 768px) 

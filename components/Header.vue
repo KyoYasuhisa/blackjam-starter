@@ -141,7 +141,7 @@ header
     height 40px
     font-size .9rem
     border 3px solid #eee
-    background rgba(255,255,255,.6)
+    background transparent
     transition .2s
   .searcher:focus 
     outline none
