@@ -57,8 +57,8 @@ export default {
 
 <style lang="stylus" scoped>
 .box-item
-  width 280px
-  margin 5px
+  width 250px
+  margin 30px 10px
   padding 10px 0
   border-radius 5px
   position relative
@@ -115,5 +115,6 @@ export default {
 @media (max-width: 768px) 
   .box-item 
     width 95%
+    margin 5px
 </style>
 
