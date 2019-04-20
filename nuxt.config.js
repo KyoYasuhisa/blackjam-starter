@@ -55,7 +55,8 @@ module.exports = {
   loading: siteConfig.loaderOption,
   plugins: [
     '~/plugins/vue2-filters',
-    '~/plugins/vue2-touch-events'
+    '~/plugins/vue2-touch-events',
+    '~/plugins/disqus'
   ], 
   markdownit: { 
     html: true,

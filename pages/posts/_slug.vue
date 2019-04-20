@@ -42,27 +42,32 @@
       </div>
     </div>
     <SideBtns :post="post"
-              :author="author" />     
-    <div v-if="post.fields.intro != undefined" 
-         class="post-intro" 
-         :style="'font-size:'+fontSize+'; line-height:'+lineHeight+';'"
-         v-html="$md.render(post.fields.intro)">    
-    </div>     
-    <Rec v-if="filterBy(postsRec, post.fields.tags[0].fields.name, 'fields.content').length > 0"
-              :posts="filterBy(postsRec, post.fields.tags[0].fields.name, 'fields.content')" />
-    <Rec v-else
-              :posts="postsFeatured" />
-    <div class="body" 
-         :style="'font-size:'+fontSize+'; line-height:'+lineHeight+';'"
-         v-html="$md.render(post.fields.content)">
-    </div>     
-    <Swiper v-if="filterBy(postsRec, post.fields.tags[0].fields.name, 'fields.content').length > 0"
-              :posts="filterBy(postsRec, post.fields.tags[0].fields.name, 'fields.content')"
-              type="rec" />
-    <Swiper v-else
-              :posts="postsFeatured"
-              type="rec" />
-    <Footer :posts="posts"
+              :author="author" />    
+    <div class="contents">
+      <div v-if="post.fields.intro != undefined" 
+                 class="post-intro" 
+                 :style="'font-size:'+fontSize+'; line-height:'+lineHeight+';'"
+                 v-html="$md.render(post.fields.intro)">    
+      </div>     
+      <Rec v-if="filterBy(postsRec, post.fields.tags[0].fields.name, 'fields.content').length > 0"
+           :posts="filterBy(postsRec, post.fields.tags[0].fields.name, 'fields.content')" />
+      <Rec v-else
+           :posts="postsFeatured" />
+      <div class="body" 
+          :style="'font-size:'+fontSize+'; line-height:'+lineHeight+';'"
+          v-html="$md.render(post.fields.content)">
+      </div>   
+      <Swiper v-if="filterBy(postsRec, post.fields.tags[0].fields.name, 'fields.content').length > 0"
+                :posts="filterBy(postsRec, post.fields.tags[0].fields.name, 'fields.content')"
+                type="rec" />
+      <Swiper v-else
+                :posts="postsFeatured"
+                type="rec" />
+      <Comment v-if="disqus != undefined"
+               :title="post.fields.title"
+               :slug="post.fields.slug" />  
+    </div>           
+    <Footer :posts="postsLatest"
             :tags="tags"
             :author="author" />     
   </section>
@@ -75,6 +80,7 @@ import List from '~/components/List.vue'
 import Swiper from '~/components/Swiper.vue'
 import SwiperItem from '~/components/SwiperItem.vue'
 import Rec from '~/components/Rec.vue'
+import Comment from '~/components/Comment.vue'
 import Footer from '~/components/Footer.vue'
 import SideBtns from '~/components/SideBtns.vue'
 import Vue2Filters from 'vue2-filters'
@@ -121,16 +127,21 @@ export default {
         order: '-sys.createdAt'
       }),
       client.getEntries({
+        'content_type': 'post',
+        order: '-fields.date'
+      }),
+      client.getEntries({
         'content_type': 'tag',
         order: '-sys.createdAt'
       })
-    ]).then(([authors, post, posts, postsRec, postsFeatured, tags]) => {
+    ]).then(([authors, post, posts, postsRec, postsFeatured, postsLatest, tags]) => {
       return {
         author: authors.items[0],
         post: post.items[0],
         posts: posts.items,
         postsRec: postsRec.items,
         postsFeatured: postsFeatured.items,
+        postsLatest: postsLatest.items,
         tags: tags.items
       }
     }).catch(console.error)
@@ -146,7 +157,8 @@ export default {
       position: siteConfig.backgroundImageOption.position,
       attachment: siteConfig.backgroundImageOption.attachment,
       filter: siteConfig.backgroundImageOption.filter,
-      defaultImg: siteConfig.postOption.defaultImg
+      defaultImg: siteConfig.postOption.defaultImg,
+      disqus: siteConfig.disqusShortName
     }
   },
   components: {
@@ -154,6 +166,7 @@ export default {
     Swiper,
     SwiperItem,
     Rec,
+    Comment,
     Footer,
     SideBtns
   },
@@ -188,119 +201,114 @@ export default {
       .date 
         font-size 1rem
       .tags p
-        border 1px solid #eee
+        background #eee
         padding 0 10px
         height 25px
         line-height 25px
         border-radius 5px
         display inline-block
         font-size .8rem
-        margin 0 2px
+        margin 2px
         cursor pointer  
-  .top-rec
+  .contents
     width 600px
     margin 0 auto
-    box-shadow 0 0 10px #eee
-  .post-intro
-    width 600px
-    margin 30px auto
-    padding 20px 40px
-    border-radius 5px
-    h1,h2,h3,h4,h5,h6
-      text-align left
-      margin 5px 0
-      padding 0
-    p
-      margin 0
-  .intro:after
-    display none
-  .body 
-    width 600px
-    margin 10px auto 100px
-    .table-of-contents
-      position fixed
-      width 20%
-      top 60px
-      right 5px
-      border-radius 5px
-      padding 0 12px
-      z-index 10
-      ul 
-        margin 0
-        padding 0
-        li 
-          list-style none
-          font-size .9rem
-          line-height 1.2rem
-          margin 15px 0
-          padding 5px
-          background #eee
-          border-radius 5px
-          ul
-            margin 0
-            li
-              margin 0 10px
-              padding 0
-              font-size .7rem
-    :link,:visited
-      border-bottom 2px solid #eee
-      transition .2s
-    :link:hover,:visited:hover
-        border-bottom 2px solid #555
-    p 
+    .post-intro
       margin 30px 0
-      text-align left
-    h1 
-      margin 50px 0 30px
-      padding 50px 0 10px
-      font-size 1.5rem
-      text-align center
-    h2 
-      font-size 1.2rem
-      margin 30px 0 0
-      padding-left 10px
-      border-left 5px solid #555
-    h3
-      font-size 1rem  
-    img
-      width 95%
-      border 5px solid #eee
-    table
-      margin 0 auto
-      th
-        background #555
-        color white
-      td
-        padding 5px 10px
-        background #eee
-        font-size .9rem
-        width 30%
-    code
-      margin 3px
-      padding 3px
-      border-radius 2px
-      font-weight bold
-      font-family 'Courier New', Courier, monospace
-      background #eee 
-      line-height 1rem
-    .hljs 
-      background rgba(0,0,0,.9)
-      padding 25px
-      border-radius 5px
-      font-size .9rem
-    .result
-      border 1px solid #eee
-      padding 10px 20px
-      margin -15px 3px 0   
-      h1
-        margin 0
-        padding 10px 0 0
-    blockquote
-      background #eee
-      padding 10px 15px
-      margin 10px
+      h1,h2,h3,h4,h5,h6
+        text-align left
+        margin 5px 0
+        padding 0
       p
         margin 0
+    .intro:after
+      display none
+    .body 
+      margin 10px auto 100px
+      .table-of-contents
+        position fixed
+        width 20%
+        top 60px
+        right 5px
+        border-radius 5px
+        padding 0 12px
+        z-index 10
+        ul 
+          margin 0
+          padding 0
+          li 
+            list-style none
+            font-size .9rem
+            line-height 1.2rem
+            margin 15px 0
+            padding 5px
+            background #eee
+            border-radius 5px
+            ul
+              margin 0
+              li
+                margin 0 10px
+                padding 0
+                font-size .7rem
+      :link,:visited
+        border-bottom 2px solid #eee
+        transition .2s
+      :link:hover,:visited:hover
+          border-bottom 2px solid #555
+      p 
+        margin 30px 0
+        text-align left
+      h1 
+        margin 50px 0 30px
+        padding 50px 0 10px
+        font-size 1.5rem
+        text-align center
+      h2 
+        font-size 1.2rem
+        margin 30px 0 0
+        padding-left 10px
+        border-left 5px solid #555
+      h3
+        font-size 1rem  
+      img
+        width 95%
+        border 5px solid #eee
+      table
+        margin 0 auto
+        th
+          background #555
+          color white
+        td
+          padding 5px 10px
+          background #eee
+          font-size .9rem
+          width 30%
+      code
+        margin 3px
+        padding 3px
+        border-radius 2px
+        font-weight bold
+        font-family 'Courier New', Courier, monospace
+        background #eee 
+        line-height 1rem
+      .hljs 
+        background rgba(0,0,0,.9)
+        padding 25px
+        border-radius 5px
+        font-size .9rem
+      .result
+        border 1px solid #eee
+        padding 10px 20px
+        margin -15px 3px 0   
+        h1
+          margin 0
+          padding 10px 0 0
+      blockquote
+        background #eee
+        padding 10px 15px
+        margin 10px
+        p
+          margin 0
   .body:after
     content: ''
     display block
@@ -315,25 +323,19 @@ export default {
       .text-box 
         h1
           width auto   
-    .post-intro,
-    .top-rec
+    .contents    
       width 80%      
-    .body
-      width 80%
-      margin 50px auto
-      .table-of-contents
-        position relative
-        width auto
-        top auto
-        right auto
-        border 1px solid #eee
-        border-radius 5px
-        width 90%
-        margin 20px auto  
-        padding 10px
-        ul
-          li
-            background white
+      .body
+        margin 50px auto
+        .table-of-contents
+          position relative
+          width auto
+          top auto
+          right auto
+          background #eee
+          border-radius 5px
+          margin 20px auto  
+          padding 10px 20px
 @media (max-width: 768px) 
   .single 
     .head 
@@ -346,31 +348,26 @@ export default {
         h1 
           font-size 1.5rem
           width 80%
-    .post-intro,
-    .top-rec
-      width 95%  
-      padding 0   
-      h1
-        font-size 1.2rem
-    .body 
-      width 95%
-      padding 5px
-      margin 0 auto
-      text-align justify
-      h1
-        margin 50px auto 0
-        padding-top 20px
-        text-align center
-        font-size 1.2rem
-      h2
-        margin 0
-        border-radius 0  
-        font-size 1rem
-        line-height 2rem
-      .hljs 
-        background rgba(0,0,0,.9)
-        border-radius 0
-        padding 20px
-        margin 0 -2.5%
+    .contents
+      width 98%
+      .body 
+        padding 5px
+        margin 0 auto
+        text-align justify
+        h1
+          margin 50px auto 0
+          padding-top 20px
+          text-align center
+          font-size 1.2rem
+        h2
+          margin 0
+          border-radius 0  
+          font-size 1rem
+          line-height 2rem
+        .hljs 
+          background rgba(0,0,0,.9)
+          border-radius 0
+          padding 20px
+          margin 0 -2.5%
 </style>
 

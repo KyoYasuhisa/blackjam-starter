@@ -24,7 +24,7 @@
       </div>
       <div v-if="postsFiltered.length > 0">
         <div class="posts">
-          <BoxItem v-for="post in limitBy(postsFiltered, showNum)"
+          <BoxItem v-for="post in orderBy(limitBy(postsFiltered, showNum), listPostsOrder, listPostsOrderDirection)"
                    :key="post.sys.id"
                    :post="post" /> 
         </div>
@@ -39,7 +39,7 @@
         <p>{{ notFoundMessage }}</p>
       </div>
     </section>  
-    <Footer :posts="posts"
+    <Footer :posts="postsLatest"
             :tags="tags"
             :author="author" />    
   </section>
@@ -84,21 +84,21 @@ export default {
         }),
         client.getEntries({
           'content_type': 'post',
-          order: '-sys.createdAt'
+          order: '-fields.date'
         }),
         client.getEntries({
           'content_type': 'post',
           query: params.query,
-          order: '-sys.createdAt'
+          order: '-fields.date'
         }),
         client.getEntries({
           'content_type': 'tag',
           order: '-sys.createdAt'
         })
-      ]).then(([entries, posts, postsFiltered, tags]) => {
+      ]).then(([entries, postsLatest, postsFiltered, tags]) => {
         return {
           author: entries.items[0],
-          posts: posts.items,
+          postsLatest: postsLatest.items,
           postsFiltered: postsFiltered.items,
           tags: tags.items
         }
@@ -110,12 +110,13 @@ export default {
         }),
         client.getEntries({
           'content_type': 'post',
-          order: '-sys.createdAt'
+          order: '-fields.date'
         }),
         client.getEntries({
           'content_type': 'post',
           'fields.category.sys.contentType.sys.id': 'category',
-          'fields.category.fields.slug[match]': params.query
+          'fields.category.fields.slug[match]': params.query,
+          order: '-fields.date'
         }),
         client.getEntries({
           'content_type': 'category',
@@ -125,10 +126,10 @@ export default {
           'content_type': 'tag',
           order: '-sys.createdAt'
         })
-      ]).then(([entries, posts, postsFiltered, category, tags]) => {
+      ]).then(([entries, postsLatest, postsFiltered, category, tags]) => {
         return {
           author: entries.items[0],
-          posts: posts.items,
+          postsLatest: postsLatest.items,
           postsFiltered: postsFiltered.items,
           thisQuery: category.items[0],
           tags: tags.items
@@ -141,12 +142,12 @@ export default {
         }),
         client.getEntries({
           'content_type': 'post',
-          order: '-sys.createdAt'
+          order: '-fields.date'
         }),
         client.getEntries({
           'content_type': 'post',
           'fields.tags.sys.id': params.query,
-          order: '-sys.createdAt'
+          order: '-fields.date'
         }),
         client.getEntries({
           'content_type': 'tag',
@@ -156,10 +157,10 @@ export default {
           'content_type': 'tag',
           order: '-sys.createdAt'
         })
-      ]).then(([entries, posts, postsFiltered, tag, tags]) => {
+      ]).then(([entries, postsLatest, postsFiltered, tag, tags]) => {
         return {
           author: entries.items[0],
-          posts: posts.items,
+          postsLatest: postsLatest.items,
           postsFiltered: postsFiltered.items,
           thisQuery: tag.items[0],
           tags: tags.items
@@ -172,7 +173,9 @@ export default {
       swiperOption: siteConfig.swiperOption,
       showNum: siteConfig.listOption.showNum,
       loadNum: siteConfig.listOption.loadNum,
-      notFoundMessage: siteConfig.listOption.notFoundMessage
+      notFoundMessage: siteConfig.listOption.notFoundMessage,
+      listPostsOrder: siteConfig.listOption.listPostsOrder,
+      listPostsOrderDirection: siteConfig.listOption.listPostsOrderDirection
     }
   },
   components: {

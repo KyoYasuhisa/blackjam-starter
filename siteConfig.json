@@ -9,6 +9,7 @@
   "favicon": "/icon.png",
   "analyticsID": "UA-***",
   "adsenseID": "ca-pub-***",
+  "disqusShortName": "blackjam",
   "manifest": {
     "lang": "ja",
     "background_color": "#555",
@@ -50,7 +51,11 @@
     "showNumTop": 3,
     "showNumLatest": 4,
     "showNumRec": 3,
-    "notFoundMessage": "記事がみつかりませんでした。"
+    "notFoundMessage": "記事がみつかりませんでした。",
+    "swiperPostsOrder": "fields.date",
+    "swiperPostsOrderDirection": 1,
+    "listPostsOrder": "fields.date",
+    "listPostsOrderDirection": -1
   },
   "postOption": {
     "fontSize": "1rem",

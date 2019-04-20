@@ -59,22 +59,34 @@ export default {
     swipeLeft () {
       const inner = document.getElementById('swiper-inner')
       const slideLength = document.getElementsByClassName('swiper-item').length
+      const btns = document.getElementsByClassName('btn')
       if ( this.currentSlide == slideLength ) {
         this.currentSlide = 1
       } else {
         this.currentSlide ++
       }
       inner.style.marginLeft = (this.currentSlide-1)*(-100)+'%'
+      const btn = document.getElementsByClassName('btn')[this.currentSlide-1]
+      for (var i = 0; i < btns.length; i++) {
+        btns[i].style.background = '#555'
+      }
+      btn.style.background = 'white'
     },
     swipeRight () {
       const inner = document.getElementById('swiper-inner')
       const slideLength = document.getElementsByClassName('swiper-item').length
+      const btns = document.getElementsByClassName('btn')
       if ( this.currentSlide == 1 ) {
         this.currentSlide = slideLength
       } else {
         this.currentSlide --
       }
       inner.style.marginLeft = (this.currentSlide-1)*(-100)+'%'
+      const btn = document.getElementsByClassName('btn')[this.currentSlide-1]
+      for (var i = 0; i < btns.length; i++) {
+        btns[i].style.background = '#555'
+      }
+      btn.style.background = 'white'
     },
     jumpSlide (i) {
       const inner = document.getElementById('swiper-inner')

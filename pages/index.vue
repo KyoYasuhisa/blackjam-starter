@@ -5,7 +5,7 @@
           :key="category.slug"
           :posts="posts"
           :category="category" />
-    <Footer :posts="posts"
+    <Footer :posts="postsLatest"
             :tags="tags"
             :author="author" />      
   </section>
@@ -37,24 +37,26 @@ export default {
         'sys.id': env.CTF_AUTHOR_ID
       }),
       client.getEntries({
-        'content_type': 'post',
-        order: '-fields.date'
+        'content_type': 'post'
       }),
       client.getEntries({
         'content_type': 'post',
-        'fields.featured': true,
-        order: '-fields.date',
-        limit: 6
+        'fields.featured': true
+      }),
+      client.getEntries({
+        'content_type': 'post',
+        order: '-fields.date'
       }),
       client.getEntries({
         'content_type': 'tag',
         order: '-sys.createdAt'
       })
-    ]).then(([authors, posts, postsFeatured, tags]) => {
+    ]).then(([authors, posts, postsFeatured, postsLatest, tags]) => {
       return {
         author: authors.items[0],
         posts: posts.items,
         postsFeatured: postsFeatured.items,
+        postsLatest: postsLatest.items,
         tags: tags.items
       }
     }).catch(console.error)
