@@ -5,7 +5,7 @@
       <p v-if="category.description != undefined" class="subtitle">{{ category.description }}</p>
     </div>
     <div class="posts">
-      <BoxItem v-for="post in limitBy(filterBy(posts, category.slug, 'fields.category.fields.slug'), shownumTop)"
+      <BoxItem v-for="post in orderBy(limitBy(filterBy(posts, category.slug, 'fields.category.fields.slug'), shownumTop), listPostsOrder, listPostsOrderDirection)"
                :key="post.sys.id"
                :post="post" />    
     </div>
@@ -28,7 +28,9 @@ export default {
   mixins: [Vue2Filters.mixin],
   data () {
     return {
-      shownumTop: siteConfig.listOption.shownumTop
+      shownumTop: siteConfig.listOption.shownumTop,
+      listPostsOrder: siteConfig.listOption.listPostsOrder,
+      listPostsOrderDirection: siteConfig.listOption.listPostsOrderDirection
     }
   },
   components: {

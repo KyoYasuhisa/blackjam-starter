@@ -30,13 +30,8 @@ export default {
 
 <style lang="stylus" scoped>
 .rec
-  width 60%
-  margin 0 auto
   h2
     font-size 1rem
-@media (max-width 768px)
-  .rec
-    width 100%
 </style>
 
 

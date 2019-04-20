@@ -1,23 +1,37 @@
 <template>
   <section class="author">
     <div class="author-head">
-      <div class="avatar"
+      <div v-if="author.fields.avatar != undefined"
+           class="avatar"
            :style="'background-image: url(' + author.fields.avatar.fields.file.url +');'">
       </div>  
+      <div v-else
+           class="avatar"
+           :style="'background-image: url('+ defaultImg +');'">
+      </div> 
       <div class="texts">
         <p class="name"><span>Author:</span> {{ author.fields.name }}</p>
-        <a :href="'https://twitter.com/' + author.fields.twitter" target="blank">
+        <a v-if="author.fields.twitter != undefined"
+           :href="'https://twitter.com/' + author.fields.twitter" target="blank">
           <p class="twitter">@{{ author.fields.twitter }}</p>
         </a>
       </div>
     </div>
-    <p class="author-content">{{ author.fields.shortBio }}</p>
+    <p v-if="author.fields.shortBio != undefined"
+       class="author-content">{{ author.fields.shortBio }}</p>
   </section>
 </template>
 
 <script>
+import siteConfig from '~/siteConfig.json'
+
 export default {
-  props: ['author']
+  props: ['author'],
+  data () {
+    return {
+      defaultImg: siteConfig.postOption.defaultImg
+    }
+  }
 }
 </script>
 
@@ -27,25 +41,29 @@ export default {
   margin 0 auto 100px
   position relative
   background rgba(255,255,255,.4)
+  border 1px solid #eee
+  padding 10px
+  border-radius 5px
   .author-head
-    text-align center
-    height auto
-    margin-bottom 0
+    display flex
+    flex-wrap nowrap
+    justify-content flex-start
     .avatar
       width 80px
       height 80px
       max-width 80px
       max-height 80px
+      min-width 80px
+      min-height 80px
+      margin-right 10px
       border-radius 50%
       border 1px solid #eee  
-      margin 0 auto -5px
       overflow hidden
       position relative
       top 8px
       background-repeat no-repeat
       background-size cover
     .texts
-      margin 0 auto
       .name 
         font-size 1.5rem
         font-weight bold
@@ -61,7 +79,7 @@ export default {
       .twitter:hover 
         border-bottom 2px solid #555
   .author-content
-    border 1px solid #eee
+    background #eee
     border-radius 5px
     padding 10px
     margin 0 auto

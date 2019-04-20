@@ -10,10 +10,18 @@
            id="swiper-inner"
            v-touch:swipe.left="swipeLeft"
            v-touch:swipe.right="swipeRight">
-        <SwiperItem v-for="post in posts"
+        <SwiperItem v-for="post in orderBy(posts, swiperPostsOrder, swiperPostsOrderDirection)"
                     :key="post.sys.id"
                     :post="post"/>    
       </div>    
+      <div v-if="posts.length > 1"
+           class="btns">
+        <li class="btn"
+            v-for="i in posts.length" 
+            :key="i"
+            @click="jumpSlide(i)">
+        </li>
+      </div>
       <div v-if="posts.length > 1">
         <div class="slide-btn left-btn"
              @click="swipeRight">
@@ -31,14 +39,19 @@
 <script>
 import Vue2TouchEvents from 'vue2-touch-events'
 import SwiperItem from '~/components/SwiperItem.vue'
+import Vue2Filters from 'vue2-filters'
+import siteConfig from '~/siteConfig.json'
 
 export default {
   props: ['posts','type'],
   data () {
     return {
       currentSlide: 1,
+      swiperPostsOrder: siteConfig.listOption.swiperPostsOrder,
+      swiperPostsOrderDirection: siteConfig.listOption.swiperPostsOrderDirection
     }
   },
+  mixins: [Vue2Filters.mixin],
   components: {
     SwiperItem
   },
@@ -62,6 +75,16 @@ export default {
         this.currentSlide --
       }
       inner.style.marginLeft = (this.currentSlide-1)*(-100)+'%'
+    },
+    jumpSlide (i) {
+      const inner = document.getElementById('swiper-inner')
+      const btn = document.getElementsByClassName('btn')[i-1]
+      const btns = document.getElementsByClassName('btn')
+      inner.style.marginLeft = (i-1)*(-100)+'%'
+      for (var i = 0; i < btns.length; i++) {
+        btns[i].style.background = '#555'
+      }
+      btn.style.background = 'white'
     }
   }
 }
@@ -70,7 +93,7 @@ export default {
 <style lang="stylus" scoped>
 .swiper
   .swiper-wrapper
-    width 95%
+    width 100%
     margin 0 auto
     overflow hidden
     position relative
@@ -83,6 +106,27 @@ export default {
       justify-content flex-start
       transition .2s
       transition-timing-function ease-out
+    .btns
+      width 90%
+      display flex
+      flex-wrap nowrap
+      justify-content center
+      position absolute
+      bottom 20px
+      left 50%
+      margin-left -45%
+      .btn
+        display block
+        list-style none
+        width 10px
+        height 10px
+        border-radius 50%  
+        margin 0 10px
+        background #555
+        border 3px solid #555
+        transition .2s
+      .btn:first-child
+        background white
     .slide-btn
       position absolute
       top 45%
@@ -94,6 +138,7 @@ export default {
       right 10px   
   @media (max-width: 768px)
     .swiper-wrapper
+      width 95%
       .slide-btn
         width 20px
 </style>

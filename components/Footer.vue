@@ -33,12 +33,17 @@ export default {
 
 <style lang="stylus" scoped>
 footer
-  width 60%
+  width 600px
   margin 0 auto
   padding 5px 0
   text-align center
   .copyright
     font-size .8rem
+@media (max-width: 1000px) 
+  footer 
+    width 80%
+  .latest .item 
+    width auto    
 @media (max-width: 768px) 
   footer 
     width 95%

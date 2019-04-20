@@ -50,7 +50,6 @@
 
 <script>
 import siteConfig from '~/siteConfig.json'
-import Vue2Filters from 'vue2-filters'
 
 export default {
   props: ['post','intro'],
@@ -63,8 +62,7 @@ export default {
       filter: siteConfig.backgroundImageOption.filter,
       defaultImg: siteConfig.postOption.defaultImg
     }
-  },
-  mixins: [Vue2Filters.mixin]
+  }
 }
 </script>
 
@@ -107,7 +105,7 @@ export default {
       justify-content center
       p
         margin 2px
-        border 1px solid #eee
+        background #eee
         height 25px
         line-height 25px
         font-size .8rem
