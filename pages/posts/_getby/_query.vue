@@ -22,16 +22,17 @@
           </span>
         </p>
       </div>
-      <div v-if="postsFiltered.length > 0"
-           class="posts">
-        <BoxItem v-for="post in limitBy(postsFiltered, shownum)"
-              :key="post.sys.id"
-              :post="post" />
-        <p v-if="shownum < postsFiltered.length"
-           class="more-btn" 
-           @click="shownum = shownum + loadnum">
+      <div v-if="postsFiltered.length > 0">
+        <div class="posts">
+          <BoxItem v-for="post in limitBy(postsFiltered, showNum)"
+                   :key="post.sys.id"
+                   :post="post" /> 
+        </div>
+        <p v-if="showNum < postsFiltered.length"
+           class="load-btn" 
+           @click="showNum = showNum + loadNum">
           もっとみる
-        </p>     
+        </p>    
       </div>
       <div v-else
            class="not-found">
@@ -183,6 +184,16 @@ export default {
 </script>
 
 <style lang="stylus">
+.load-btn
+  margin 10px auto
+  width 200px
+  text-align center
+  padding 10px 0
+  border-radius 30px
+  border 1px solid #eee
+  cursor pointer
+.load-btn:hover
+  border 1px solid #555
 .not-found 
   text-align center
 </style>

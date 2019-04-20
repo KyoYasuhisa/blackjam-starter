@@ -184,6 +184,7 @@ export default {
       h1 
         font-size 2rem
         margin 10px auto 20px
+        width 60%
       .date 
         font-size 1rem
       .tags p
@@ -218,8 +219,8 @@ export default {
     margin 10px auto 100px
     .table-of-contents
       position fixed
-      width 180px
-      top 35vh
+      width 20%
+      top 25vh
       right 5px
       border-radius 5px
       padding 0 12px
@@ -229,10 +230,18 @@ export default {
         padding 0
         li 
           list-style none
-          font-size .8rem
+          font-size .9rem
           line-height 1.2rem
           margin 15px 0
-          padding-bottom 2px
+          padding 5px
+          background #eee
+          border-radius 5px
+          ul
+            margin 0
+            li
+              margin 0 10px
+              padding 0
+              font-size .7rem
     :link,:visited
       border-bottom 2px solid #eee
       transition .2s
@@ -273,9 +282,11 @@ export default {
       font-weight bold
       font-family 'Courier New', Courier, monospace
       background #eee 
+      line-height 1rem
     .hljs 
       background rgba(0,0,0,.9)
-      padding 10px 20px
+      padding 25px
+      border-radius 5px
       font-size .9rem
     .result
       border 1px solid #eee
@@ -319,9 +330,10 @@ export default {
         border-radius 5px
         width 90%
         margin 20px auto  
-        padding 10px 0
-        a
-          margin-left 10% 
+        padding 10px
+        ul
+          li
+            background white
 @media (max-width: 768px) 
   .single 
     .head 
@@ -333,6 +345,7 @@ export default {
       .text-box 
         h1 
           font-size 1.5rem
+          width 80%
     .post-intro,
     .top-rec
       width 95%  
@@ -345,18 +358,19 @@ export default {
       margin 0 auto
       text-align justify
       h1
-        margin 50px -2.5% 0
+        margin 50px auto 0
         padding-top 20px
         text-align center
-        font-size 1.4rem
+        font-size 1.2rem
       h2
-        margin 0 -2.5%
+        margin 0
         border-radius 0  
         font-size 1rem
+        line-height 2rem
       .hljs 
         background rgba(0,0,0,.9)
         border-radius 0
-        padding 10px
+        padding 20px
         margin 0 -2.5%
 </style>
 

@@ -2,12 +2,11 @@
   "title": "blackJAM.", 
   "subtitle": "モダンなブログをかんたんに始めよう",
   "baseURL": "https://blackjam-starter.netlify.com",
-  "logo": "/icon.webp",
-  "logoWithTitles": "",
-  "logoWithTitlesSmall": "",
-  "icon": "/icon.webp",
-  "favicon": "/icon.webp",
-  "searchBoxText": "記事を検索する",
+  "logo": "",
+  "logoWithTitles": "/logo.webp",
+  "logoWithTitlesSmall": "/logoSmall.webp",
+  "icon": "/icon.png",
+  "favicon": "/icon.png",
   "analyticsID": "UA-***",
   "adsenseID": "ca-pub-***",
   "manifest": {
@@ -16,18 +15,19 @@
     "theme_color": "white",
     "icons": [
       {
-        "src": "/logo.webp",
+        "src": "/logoSmall.webp",
         "type": "image/webp",
         "sizes": "192x192"
       },
       {
-        "src": "/logo.webp",
+        "src": "/logoSmall.webp",
         "type": "image/webp",
         "sizes": "512x512"
       } 
     ],
     "display": "standalone"
   },
+  "searchBoxText": "記事を検索する",
   "categoriesFeatured": [
     {
       "name": "Get Started",
@@ -43,8 +43,8 @@
   "loaderOption": {
     "color": "#555"
   },
+  "showAuthor": true,
   "listOption": {
-    "showDesc": true,
     "showNum": 3,
     "loadNum": 3,
     "showNumTop": 3,
@@ -55,7 +55,7 @@
   "postOption": {
     "fontSize": "1rem",
     "lineHeight": "2.2rem",
-    "defaultImg": "/sample.png"
+    "defaultImg": "/logoSmall.webp"
   },
   "backgroundImageOption": {
     "repeat": "no-repeat",

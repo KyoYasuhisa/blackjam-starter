@@ -64,7 +64,7 @@ module.exports = {
     breaks: true,
     use: [
       'markdown-it-anchor',
-      'markdown-it-table-of-contents',
+      ['markdown-it-table-of-contents','includeLevel:[1]'],
       'markdown-it-highlightjs',
       'markdown-it-katex',
       'markdown-it-footnote' 

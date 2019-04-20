@@ -3,13 +3,13 @@
     <nuxt-link to='/'>
       <div class="logo-with-titles"
            v-if="logoWithTitles">
-        <img :src="logoWithTitles" :alt="title">
+        <img :src="logoWithTitles" :alt="title+' | '+subtitle">
       </div>
       <div class="logo-with-titles-small"
            v-if="logoWithTitles">
         <img v-if="logoWithTitlesSmall" 
              :src="logoWithTitlesSmall" 
-             :alt="title">
+             :alt="title+' | '+subtitle">
         <img v-else 
              :src="logoWithTitles" 
              :alt="title">
@@ -76,8 +76,8 @@ header
   background rgba(255,255,255,.6)
   z-index 100
   .logo-with-titles
-    width 180px
-    margin 12px 10px
+    width 170px
+    margin 0 10px
     overflow hidden
     img
       width 100%
@@ -189,8 +189,8 @@ header
       display none
     .logo-with-titles-small
       display block
-      width 10%  
-      margin 10px auto
+      width 20%  
+      margin 0 auto 10px
     .logos
       display block
       .logo 
