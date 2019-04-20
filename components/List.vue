@@ -39,20 +39,45 @@ export default {
 }
 </script>
 
-<style lang="stylus" scoped>
-.more-btn 
+<style lang="stylus">
+.section-title 
+    text-align center
+    padding 10px 0
+    border-radius 5px
+    margin-bottom 10px
+    h1, h2 
+      margin 0
+      font-size 1.4rem
+    .subtitle
+      margin 0
+      font-size .9rem
+.post-list
+  margin 50px 0
+  .posts 
+    display flex
+    flex-wrap wrap
+    justify-content center    
+  .more-btn 
+    display block
+    width 150px
+    margin 10px auto
+    text-align center
+    padding 10px 0
+    border 1px solid #eee
+    border-radius 30px
+    font-weight bold
+    cursor pointer
+    transition .2s
+  .more-btn:hover 
+    border 1px solid #555
+.post-list:after
+  content ''
   display block
-  width 150px
-  margin 10px auto
-  text-align center
-  padding 10px 0
-  border 1px solid #eee
-  border-radius 30px
-  font-weight bold
-  cursor pointer
-  transition .2s
-.more-btn:hover 
-  border 1px solid #555
+  height 5px
+  width 100px
+  background #eee
+  margin 50px auto
+  border-radius 10px
 </style>
 
 
