@@ -38,12 +38,12 @@ export default {
       }),
       client.getEntries({
         'content_type': 'post',
-        order: '-sys.createdAt'
+        order: '-fields.date'
       }),
       client.getEntries({
         'content_type': 'post',
         'fields.featured': true,
-        order: '-sys.createdAt',
+        order: '-fields.date',
         limit: 6
       }),
       client.getEntries({

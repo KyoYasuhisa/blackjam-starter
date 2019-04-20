@@ -220,7 +220,7 @@ export default {
     .table-of-contents
       position fixed
       width 20%
-      top 25vh
+      top 60px
       right 5px
       border-radius 5px
       padding 0 12px
