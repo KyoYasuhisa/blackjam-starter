@@ -101,7 +101,7 @@ export default {
       width 0
     .tags
       display flex
-      flex-wrap nowrap
+      flex-wrap wrap
       justify-content center
       p
         margin 2px

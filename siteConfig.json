@@ -10,6 +10,7 @@
   "analyticsID": "UA-***",
   "adsenseID": "ca-pub-***",
   "disqusShortName": "blackjam",
+  "commentMessage": "ご質問・バグ報告などもこちらからどうぞ。",
   "manifest": {
     "lang": "ja",
     "background_color": "#555",

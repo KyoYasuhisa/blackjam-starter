@@ -2,7 +2,7 @@
   <section class="comments">
     <div class="section-title">
       <h2>Comments</h2>
-      <p class="subtitle">質問・バグの報告はこちらからお願いします。</p>
+      <p class="subtitle">{{ commentMessage }}</p>
     </div>
     <vue-disqus :shortname="disqusShortName"
                 :title="title"
@@ -18,7 +18,8 @@ export default {
   data () {
     return {
       baseURL: siteConfig.baseURL,
-      disqusShortName: siteConfig.disqusShortName  
+      disqusShortName: siteConfig.disqusShortName,
+      commentMessage: siteConfig.commentMessage
     }
   },
   props: ['title','slug']
