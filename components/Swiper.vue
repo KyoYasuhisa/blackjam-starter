@@ -70,7 +70,7 @@ export default {
       for (var i = 0; i < btns.length; i++) {
         btns[i].style.background = '#555'
       }
-      btn.style.background = 'white'
+      btn.style.background = 'transparent'
     },
     swipeRight () {
       const inner = document.getElementById('swiper-inner')
@@ -86,7 +86,7 @@ export default {
       for (var i = 0; i < btns.length; i++) {
         btns[i].style.background = '#555'
       }
-      btn.style.background = 'white'
+      btn.style.background = 'transparente'
     },
     jumpSlide (i) {
       const inner = document.getElementById('swiper-inner')
@@ -96,7 +96,7 @@ export default {
       for (var i = 0; i < btns.length; i++) {
         btns[i].style.background = '#555'
       }
-      btn.style.background = 'white'
+      btn.style.background = 'transparent'
     }
   }
 }
@@ -138,7 +138,7 @@ export default {
         border 3px solid #555
         transition .2s
       .btn:first-child
-        background white
+        background transparent
     .slide-btn
       position absolute
       top 45%

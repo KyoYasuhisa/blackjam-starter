@@ -304,9 +304,12 @@ export default {
           margin 0
           padding 10px 0 0
       blockquote
-        background #eee
-        padding 10px 15px
-        margin 10px
+        border-left 5px solid #eee
+        border-bottom 5px solid #eee
+        margin-left 10px
+        padding 20px 0 20px 20px
+        font-size .8rem
+        line-height 1.6rem
         p
           margin 0
   .body:after
@@ -336,6 +339,9 @@ export default {
           border-radius 5px
           margin 20px auto  
           padding 10px 20px
+          ul
+            li
+              background none
 @media (max-width: 768px) 
   .single 
     .head 

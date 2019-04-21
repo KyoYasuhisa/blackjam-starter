@@ -37,9 +37,9 @@
       "description": "blackJAMをはじめよう"
     },
     {
-      "name": "Customize",
-      "slug": "customize",
-      "description": "オリジナルのブログをつくろう"
+      "name": "Advanced",
+      "slug": "advanced",
+      "description": "発展的なガイド"
     }
   ],
   "loaderOption": {
