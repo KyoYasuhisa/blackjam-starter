@@ -82,7 +82,7 @@ export default {
     background #eee
     border-radius 5px
     padding 10px
-    margin 0 auto
+    margin 10px auto 0
     font-size .9rem
     line-height 1.5rem
   .copyright 

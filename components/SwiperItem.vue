@@ -6,6 +6,7 @@
                 +'background-repeat:' + repeat +';'
                 +'background-size:' + size + ';'
                 +'background-position:' + position + ';'
+                +'background-clip:' + clip + ';'
                 +'background-attachment:' + attachment + ';'
                 +'filter:' + filter + ';'">
     </div>    
@@ -15,6 +16,7 @@
                 +'background-repeat:' + repeat +';'
                 +'background-size:' + size + ';'
                 +'background-position:' + position + ';'
+                +'background-clip:' + clip + ';'
                 +'background-attachment:' + attachment + ';'
                 +'filter:' + filter + ';'">
     </div>      
@@ -58,6 +60,7 @@ export default {
       repeat: siteConfig.backgroundImageOption.repeat,
       size: siteConfig.backgroundImageOption.size,
       position: siteConfig.backgroundImageOption.position,
+      clip: siteConfig.backgroundImageOption.clip,
       attachment: siteConfig.backgroundImageOption.attachment,
       filter: siteConfig.backgroundImageOption.filter,
       defaultImg: siteConfig.postOption.defaultImg

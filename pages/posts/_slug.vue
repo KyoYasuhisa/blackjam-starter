@@ -7,6 +7,7 @@
                   +'background-repeat:' + repeat +';'
                   +'background-size:' + size + ';'
                   +'background-position:' + position + ';'
+                  +'background-clip:' + clip + ';'
                   +'background-attachment:' + attachment + ';'
                   +'filter:' + filter + ';'">
       </div>
@@ -16,6 +17,7 @@
                   +'background-repeat:' + repeat +';'
                   +'background-size:' + size + ';'
                   +'background-position:' + position + ';'
+                  +'background-clip:' + clip + ';'
                   +'background-attachment:' + attachment + ';'
                   +'filter:' + filter + ';'">
       </div>
@@ -24,15 +26,19 @@
                           params: { 
                             getby: 'category',
                             query: post.fields.category.fields.slug } }">
-          <p class="category">
+          <p v-if="post.fields.category != undefined"
+             class="category">
             {{ post.fields.category.fields.name }}
           </p>
         </nuxt-link>
-        <h1>{{ post.fields.title }}</h1>
-        <div class="tags">
+        <h1 v-if="post.fields.title != undefined">
+          {{ post.fields.title }}
+        </h1>
+        <div v-if="post.fields.tags != undefined"
+             class="tags">
           <p v-for="tag in post.fields.tags"
-              :key="tag.sys.id"
-              @click="$router.push({ name: 'posts-getby-query', 
+             :key="tag.sys.id"
+             @click="$router.push({ name: 'posts-getby-query', 
                                      params: { 
                                        getby: 'tag',
                                        query: tag.sys.id } })">
@@ -42,7 +48,7 @@
       </div>
     </div>
     <SideBtns :post="post"
-              :author="author" />    
+              :author="author" />
     <div class="contents">
       <div v-if="post.fields.intro != undefined" 
                  class="post-intro" 
@@ -53,9 +59,10 @@
            :posts="filterBy(postsRec, post.fields.tags[0].fields.name, 'fields.content')" />
       <Rec v-else
            :posts="postsFeatured" />
-      <div class="body" 
-          :style="'font-size:'+fontSize+'; line-height:'+lineHeight+';'"
-          v-html="$md.render(post.fields.content)">
+      <div v-if="post.fields.content != undefined"
+           class="post-body" 
+           :style="'font-size:'+fontSize+'; line-height:'+lineHeight+';'"
+           v-html="$md.render(post.fields.content)">
       </div>   
       <Swiper v-if="filterBy(postsRec, post.fields.tags[0].fields.name, 'fields.content').length > 0"
                 :posts="filterBy(postsRec, post.fields.tags[0].fields.name, 'fields.content')"
@@ -155,6 +162,7 @@ export default {
       repeat: siteConfig.backgroundImageOption.repeat,
       size: siteConfig.backgroundImageOption.size,
       position: siteConfig.backgroundImageOption.position,
+      clip: siteConfig.backgroundImageOption.clip,
       attachment: siteConfig.backgroundImageOption.attachment,
       filter: siteConfig.backgroundImageOption.filter,
       defaultImg: siteConfig.postOption.defaultImg,
@@ -214,7 +222,8 @@ export default {
     width 600px
     margin 0 auto
     .post-intro
-      margin 30px 0
+      margin 30px auto
+      padding 0 5px
       h1,h2,h3,h4,h5,h6
         text-align left
         margin 5px 0
@@ -223,8 +232,9 @@ export default {
         margin 0
     .intro:after
       display none
-    .body 
+    .post-body 
       margin 10px auto 100px
+      padding 0 5px
       .table-of-contents
         position fixed
         width 20%
@@ -270,9 +280,86 @@ export default {
         border-left 5px solid #555
       h3
         font-size 1rem  
+      iframe
+        width 100%
+        min-height 50px
+        margin 0 auto
       img
-        width 95%
+        width calc(100% - 10px)
         border 5px solid #eee
+        margin 10px auto
+        display block
+        margin 0
+      .bubble
+        display flex
+        flex-wrap no-wrap
+        justify-content flex-start
+        width 70%
+        margin 30px auto
+        position relative
+        img
+          width 60px
+          height 60px
+          max-width 56px
+          max-height 60px
+          min-width 60px
+          min-height 60px
+          border-radius 50%
+          border 2px solid #eee
+          margin 0 10px
+        p
+          margin 0
+          padding 0
+        p:nth-child(2)
+          position absolute
+          top 65px
+          left 10px
+          width 60px
+          text-align center
+          font-size .7rem
+          line-height 1rem
+        p:nth-child(3)
+          border 1px solid #eee
+          padding 6px 10px
+          border-radius 5px
+          font-size .8rem
+          line-height 1.2rem
+          min-width 50%
+      .bubble-i
+        display flex
+        flex-wrap no-wrap
+        justify-content flex-end
+        width 70%
+        margin 30px auto
+        position relative
+        img
+          width 60px
+          height 60px
+          max-width 56px
+          max-height 60px
+          min-width 60px
+          min-height 60px
+          border-radius 50%
+          border 2px solid #eee
+          margin 0 10px
+        p
+          margin 0
+          padding 0
+        p:first-child
+          border 1px solid #eee
+          padding 6px 10px
+          border-radius 5px
+          font-size .8rem
+          line-height 1.2rem
+          min-width 50%
+        p:nth-child(2)
+          position absolute
+          top 65px
+          right 10px
+          width 60px
+          text-align center
+          font-size .7rem
+          line-height 1rem  
       table
         margin 0 auto
         th
@@ -312,7 +399,7 @@ export default {
         line-height 1.6rem
         p
           margin 0
-  .body:after
+  .post-body:after
     content: ''
     display block
     margin 50px auto 0
@@ -328,7 +415,7 @@ export default {
           width auto   
     .contents    
       width 80%      
-      .body
+      .post-body
         margin 50px auto
         .table-of-contents
           position relative
@@ -356,7 +443,7 @@ export default {
           width 80%
     .contents
       width 98%
-      .body 
+      .post-body 
         padding 5px
         margin 0 auto
         text-align justify
@@ -375,5 +462,7 @@ export default {
           border-radius 0
           padding 20px
           margin 0 -2.5%
+        .bubble, .bubble-i
+          width 85%
 </style>
 

@@ -62,13 +62,16 @@ module.exports = {
     html: true,
     injected: true,
     linkify: true,
-    breaks: true,
+    breaks: false,
     use: [
       'markdown-it-anchor',
       'markdown-it-table-of-contents',
       'markdown-it-highlightjs',
       'markdown-it-katex',
-      'markdown-it-footnote' 
+      'markdown-it-footnote',
+      'markdown-it-video',
+      ['markdown-it-container', 'bubble'],
+      ['markdown-it-container', 'bubble-i']
     ] 
   },
   build: {

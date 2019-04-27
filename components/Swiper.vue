@@ -86,7 +86,7 @@ export default {
       for (var i = 0; i < btns.length; i++) {
         btns[i].style.background = '#555'
       }
-      btn.style.background = 'transparente'
+      btn.style.background = 'transparent'
     },
     jumpSlide (i) {
       const inner = document.getElementById('swiper-inner')

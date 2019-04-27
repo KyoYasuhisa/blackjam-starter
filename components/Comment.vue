@@ -28,6 +28,7 @@ export default {
 
 <style lang="stylus">
 .comments
+  width 95%
   margin 0 auto 30px
 </style>
 

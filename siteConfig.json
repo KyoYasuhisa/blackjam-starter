@@ -1,6 +1,6 @@
 {
   "title": "blackJAM.", 
-  "subtitle": "モダンなブログをかんたんに始めよう",
+  "subtitle": "これからのブログを始めよう",
   "baseURL": "https://blackjam-starter.netlify.com",
   "logo": "",
   "logoWithTitles": "/logo.webp",
@@ -67,6 +67,7 @@
     "repeat": "no-repeat",
     "size": "contain",
     "position": "center center",
+    "clip": "border-box",
     "attachment": "auto",
     "filter": "opacity(.2)"
   }
