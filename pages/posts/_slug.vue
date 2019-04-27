@@ -304,7 +304,7 @@ export default {
           max-height 60px
           min-width 60px
           min-height 60px
-          border-radius 50%
+          border-radius 70%
           border 2px solid #eee
           margin 0 10px
         p
@@ -351,7 +351,7 @@ export default {
           border-radius 5px
           font-size .8rem
           line-height 1.2rem
-          min-width 50%
+          min-width 70%
         p:nth-child(2)
           position absolute
           top 65px
