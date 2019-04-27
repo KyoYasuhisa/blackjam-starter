@@ -1,6 +1,6 @@
-# blackjam
+# blackjam v.1.0
 
-> Nuxt.js project
+> 「これからのブログ」を簡単に始めよう。
 
 ## Build Setup
 
