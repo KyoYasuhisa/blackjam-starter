@@ -260,8 +260,8 @@ export default {
                 list-style-type disc
                 margin 5px 0 5px 20px
                 padding 0
-                font-size .7rem
-                line-height .9rem
+                font-size .8rem
+                line-height 1rem
       :link,:visited
         border-bottom 2px solid #eee
         transition .2s
