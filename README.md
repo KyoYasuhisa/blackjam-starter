@@ -45,7 +45,7 @@ $ git push -u origin master
 ```
 
 
-### Deploy Site via Netlify
+### 5. Deploy Site via Netlify
 
 Create your [Netlify](https://www.netlify.com/) account with your GitHub account.
 
@@ -69,20 +69,19 @@ Set the deploy setting as follows:
 > インストール後、次の手順に従ってください。
 
 
-### 依存パッケージをインストールする（クローンしたら最初に行ってください）
+### 1. テンプレートをインストールする
+```bash
+$ git clone https://github.com/KyoYasuhisa/blackjam-starter.git
+```
 
+
+### 2. 依存パッケージをインストールする
 ``` bash
 $ npm install # Or yarn install
 ```
 
 
-### 開発モードで起動（localhost:3000でサイトを表示できるようになります）
-```bash
-$ npm run dev
-```
-
-
-### `siteConfig.json`で基本設定を行う（公開後に設定を変更することもできます）
+### 3. `siteConfig.json`で基本設定を行う（公開後に設定を変更することもできます）
 
 ロゴ、アイコン画像はテンプレートフォルダ直下の`static`内に保存した上で、`/ファイル名`のように記入します。
 ```json
@@ -100,7 +99,7 @@ $ npm run dev
 ```
 
 
-### テンプレートフォルダをGitHubレポジトリにpushする
+### 4. テンプレートフォルダをGitHubレポジトリにpushする
 
 GitHubレポジトリを持っていない場合は、[GutHub](https://github.com/)でアカウントを作成後、レポジトリを作成してください。
 ```bash
@@ -112,7 +111,7 @@ $ git push -u origin master
 ```
 
 
-### Netlifyでサイトを公開する
+### 5. Netlifyでサイトを公開する
 
 [Netlify](https://www.netlify.com/)で、GitHubアカウントと連携させてアカウントを作成してください。
 
