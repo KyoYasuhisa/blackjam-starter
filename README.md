@@ -2,20 +2,25 @@
 
 > A Minimal Template for Modern Blogs with Nuxt.js & Contentful.
 
+
+
 ### 1. Install.
 
 ```bash
 $ git clone https://github.com/KyoYasuhisa/blackjam-starter.git
 ```
 
-### 2. Install Dependencies.
+
+
+### 2. Install dependencies.
 
 ``` bash
 $ npm install # Or yarn install
 ```
 
 
-### 3. Basic Settings in `siteConfig.json`.
+
+### 3. Configure basic settings in `siteConfig.json`.
 
 Save logo & icon image files in a folder named `static` and write the file names as `/fileName`.
 ```json
@@ -33,7 +38,8 @@ Save logo & icon image files in a folder named `static` and write the file names
 ```
 
 
-### 4. Push the template folder into your GutHub Repo.
+
+### 4. Push the template folder into your GutHub repository.
 
 In case you still don't have your own GitHub repository, prepare one after creating your GitHub account at [GutHub](https://github.com/).
 ```bash
@@ -45,11 +51,12 @@ $ git push -u origin master
 ```
 
 
-### 5. Deploy Site via Netlify
+
+### 5. Deploy site via Netlify.
 
 Create your [Netlify](https://www.netlify.com/) account with your GitHub account.
 
-Set the deploy setting as follows: 
+Configure the deploy setting as follows: 
 - Build command: **npm run generate**
 - Publish directory: **dist**
 
@@ -61,12 +68,17 @@ Set the deploy setting as follows:
 
 [blackJAM](https://berryjam.icu/)
 
+
+
 ---
+
+
 
 # blackJAM v.1.0
 
 > 「これからのブログ」を簡単に始めよう。
 > インストール後、次の手順に従ってください。
+
 
 
 ### 1. テンプレートをインストールする
@@ -75,10 +87,12 @@ $ git clone https://github.com/KyoYasuhisa/blackjam-starter.git
 ```
 
 
+
 ### 2. 依存パッケージをインストールする
 ``` bash
 $ npm install # Or yarn install
 ```
+
 
 
 ### 3. `siteConfig.json`で基本設定を行う（公開後に設定を変更することもできます）
@@ -99,6 +113,7 @@ $ npm install # Or yarn install
 ```
 
 
+
 ### 4. テンプレートフォルダをGitHubレポジトリにpushする
 
 GitHubレポジトリを持っていない場合は、[GutHub](https://github.com/)でアカウントを作成後、レポジトリを作成してください。
@@ -109,6 +124,7 @@ $ git commit -m"blackJAM initial commit"
 $ git remote add origin <あなたのレポジトリのURL>
 $ git push -u origin master
 ```
+
 
 
 ### 5. Netlifyでサイトを公開する
