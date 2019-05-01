@@ -80,6 +80,10 @@ Create your [Netlify](https://www.netlify.com/) account with your GitHub account
 > 「これからのブログ」を簡単に始めよう。
 > インストール後、次の手順に従ってください。
 
+![logo](/static/logo.webp)
+
+[blackJAM Official Site](https://berryjam.icu/)
+
 
 
 ### 1. テンプレートをインストールする
