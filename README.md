@@ -54,9 +54,7 @@ $ git push -u origin master
 
 ### 5. Deploy site via Netlify.
 
-Create your [Netlify](https://www.netlify.com/) account with your GitHub account.
-
-Configure the deploy setting as follows: 
+Create your [Netlify](https://www.netlify.com/) account with your GitHub account and configure the deploy setting as follows: 
 - Build command: **npm run generate**
 - Publish directory: **dist**
 
