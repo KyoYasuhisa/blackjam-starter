@@ -57,3 +57,8 @@ $ git push -u origin master
 
 ![netlify-deploy-setting](/static/netlify-deploy-setting.gif)
 
+
+
+### その後の流れについては、公式サイトを参照してください。
+
+[公式サイト](https://berryjam.icu/)
