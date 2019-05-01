@@ -237,12 +237,13 @@ export default {
       padding 0 5px
       .table-of-contents
         position fixed
-        width 20%
-        top 60px
+        width 18%
+        top 70px
         right 5px
         border-radius 5px
-        padding 0 12px
+        padding 0 5px
         z-index 10
+        background #eee
         ul 
           margin 0
           padding 0
@@ -250,16 +251,17 @@ export default {
             list-style none
             font-size .9rem
             line-height 1.2rem
-            margin 15px 0
+            margin 10px 0
             padding 5px
-            background #eee
             border-radius 5px
             ul
               margin 0
               li
-                margin 0 10px
+                list-style-type disc
+                margin 5px 0 5px 20px
                 padding 0
                 font-size .7rem
+                line-height .9rem
       :link,:visited
         border-bottom 2px solid #eee
         transition .2s

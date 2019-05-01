@@ -35,12 +35,13 @@ export default {
     p
       border 1px solid #eee
       padding 0 10px
-      height 30px
-      line-height 30px
+      height 25px
+      line-height 25px
       border-radius 15px
       margin 1px
       cursor pointer
       transition .2s
+      font-size .8rem
     p:hover
       border 1px solid #555
 </style>

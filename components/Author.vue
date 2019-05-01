@@ -41,9 +41,7 @@ export default {
   margin 0 auto 100px
   position relative
   background rgba(255,255,255,.4)
-  border 1px solid #eee
   padding 10px
-  border-radius 5px
   .author-head
     display flex
     flex-wrap nowrap

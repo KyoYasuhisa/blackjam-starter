@@ -60,10 +60,8 @@ export default {
   flex-wrap nowrap
   justify-content flex-start
   text-align left
-  border 1px solid #eee
   padding 25px 1% 15px
   margin 10px auto
-  border-radius 5px
   overflow hidden
   transition .2s
   .img-box
@@ -106,15 +104,9 @@ export default {
       cursor pointer
       background white
       color #555
-.line-item:hover 
-  border 1px solid #555
 @media (max-width: 768px) 
   .line-item 
-    border-radius 0
-    border none
     padding 18px 5px 10px
-  .line-item:hover 
-    border none
 </style>
 
 
