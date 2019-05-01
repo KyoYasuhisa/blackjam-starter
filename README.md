@@ -2,8 +2,9 @@
 
 > A Minimal Template for Modern Blogs with Nuxt.js & Contentful.
 
+<a href="https://berryjam.icu/">
 ![logo](/static/logo.webp)
-
+</a>
 
 
 ### 1. Install.
