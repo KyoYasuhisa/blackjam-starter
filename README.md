@@ -1,10 +1,10 @@
-<a href="https://berryjam.icu/">
 # blackJAM v.1.0
-</a>
 
 > A Minimal Template for Modern Blogs with Nuxt.js & Contentful.
 
 ![logo](/static/logo.webp)
+
+[blackJAM Official Site](https://berryjam.icu/)
 
 
 ### 1. Install.
