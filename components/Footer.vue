@@ -6,6 +6,9 @@
       <Author :author="author"/>
     </div>
     <p class="copyright">Copyright 2019. {{ author.fields.name }}. All Rights Reserved.</p>
+    <amp-auto-ads type="adsense"
+                  data-ad-client="ca-pub-2127744750609343">
+    </amp-auto-ads>
   </footer>
 </template>
 

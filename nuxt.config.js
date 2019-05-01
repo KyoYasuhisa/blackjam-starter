@@ -15,9 +15,9 @@ module.exports = {
   modules: [ 
     '@nuxtjs/pwa',
     'nuxt-clipboard2',
- // ['@nuxtjs/google-adsense', {
- //   id: siteConfig.adsenseID
- // }],
+    ['@nuxtjs/google-adsense', {
+      id: siteConfig.adsenseID
+    }],
     ['@nuxtjs/google-analytics', {
       id: siteConfig.analyticsID
     }],
@@ -49,6 +49,9 @@ module.exports = {
     ], 
     link: [
       { rel: 'mask-icon', href: siteConfig.favicon }
+    ],
+    script: [
+      { async: true, customElement: 'amp-auto-ads', src: 'https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js' }
     ]
   },
   manifest: siteConfig.manifest,
