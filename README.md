@@ -2,6 +2,8 @@
 
 > A Minimal Template for Modern Blogs with Nuxt.js & Contentful.
 
+![logo](/static/logo.webp)
+
 
 
 ### 1. Install.
