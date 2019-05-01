@@ -1,5 +1,70 @@
 # blackJAM v.1.0
 
+> A Minimal Template for Modern Blogs with Nuxt.js & Contentful.
+
+### 1. Install.
+
+```bash
+$ git clone https://github.com/KyoYasuhisa/blackjam-starter.git
+```
+
+### 2. Install Dependencies.
+
+``` bash
+$ npm install # Or yarn install
+```
+
+
+### 3. Basic Settings in `siteConfig.json`.
+
+Save logo & icon image files in a folder named `static` and write the file names as `/fileName`.
+```json
+{
+  "title": "Site title", 
+  "subtitle": "Site subtitle",
+  "baseURL": "Toppage URL",
+  "logo": "/logo.png",
+  "logoWithTitles": "/logo.png",
+  "logoWithTitlesSmall": "/logoSmall.png",
+  "icon": "/icon.png",
+  "favicon": "/icon.png",
+  ...
+}
+```
+
+
+### 4. Push the template folder into your GutHub Repo.
+
+In case you still don't have your own GitHub repository, prepare one after creating your GitHub account at [GutHub](https://github.com/).
+```bash
+$ git init
+$ git add .
+$ git commit -m"blackJAM initial commit"
+$ git remote add origin <Your Repository URL>
+$ git push -u origin master
+```
+
+
+### Deploy Site via Netlify
+
+Create your [Netlify](https://www.netlify.com/) account with your GitHub account.
+
+Set the deploy setting as follows: 
+- Build command: **npm run generate**
+- Publish directory: **dist**
+
+![netlify-deploy-setting](/static/netlify-deploy-setting.gif)
+
+
+
+### Visit our official website for further directions.
+
+[blackJAM](https://berryjam.icu/)
+
+---
+
+# blackJAM v.1.0
+
 > 「これからのブログ」を簡単に始めよう。
 > インストール後、次の手順に従ってください。
 
