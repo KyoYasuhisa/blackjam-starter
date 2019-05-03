@@ -10,7 +10,7 @@
   "analyticsID": "UA-***",
   "adsenseID": "ca-pub-***",
   "disqusShortName": "blackjam",
-  "commentMessage": "ご質問・バグ報告などもこちらからどうぞ。",
+  "commentMessage": "Questions, Bag Reports...",
   "manifest": {
     "lang": "ja",
     "background_color": "#555",
@@ -47,16 +47,22 @@
   },
   "showAuthor": true,
   "listOption": {
-    "showNum": 3,
-    "loadNum": 3,
-    "showNumTop": 3,
-    "showNumLatest": 4,
-    "showNumRec": 3,
-    "notFoundMessage": "記事がみつかりませんでした。",
     "swiperPostsOrder": "fields.date",
     "swiperPostsOrderDirection": 1,
+    "labelRec": "Recommended Posts",
+    "showNumRec": 3,
+    "showNumTop": 3,
+    "showNum": 3,
+    "loadNum": 3,
+    "labelLatest": "Latest Posts",
+    "showNumLatest": 4,
     "listPostsOrder": "fields.date",
-    "listPostsOrderDirection": -1
+    "listPostsOrderDirection": -1,
+    "labelCategory": "Category",
+    "labelTag": "Tag",
+    "labelSearchResult": "Search Result",
+    "labelKeywords": "Keywords",
+    "notFoundMessage": "Sorry, Post Not Found."
   },
   "postOption": {
     "fontSize": "1rem",

@@ -1,8 +1,7 @@
 <template>
   <section class="tags">
     <div class="section-title">
-      <h2>キーワード</h2>
-      <p class="subtitle">keywords</p>
+      <h2>{{ labelKeywords }}</h2>
     </div>
     <div class="tags">
       <p v-for="tag in tags"
@@ -18,8 +17,15 @@
 </template>
 
 <script>
+import siteConfig from '~/siteConfig.json'
+
 export default {
-  props: ['tags']
+  props: ['tags'],
+  data () {
+    return {
+      labelKeywords: siteConfig.listOption.labelKeywords
+    }
+  }
 }
 </script>
 

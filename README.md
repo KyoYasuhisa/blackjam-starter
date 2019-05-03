@@ -1,6 +1,6 @@
 # blackJAM v.1.0
 
-> A Minimal Template for Modern Blogs with Nuxt.js & Contentful.
+> A Minimal Template for JAMstack Blogs with Nuxt.js & Contentful.
 
 ![logo](/static/logo.webp)
 
@@ -42,7 +42,7 @@ Save logo & icon image files in a folder named `static` and write the file names
 
 
 
-### 4. Push the template folder into your GutHub repository.
+### 4. Push the template folder into your GitHub repository.
 
 In case you still don't have your own GitHub repository, prepare one after creating your GitHub account at [GutHub](https://github.com/).
 ```bash

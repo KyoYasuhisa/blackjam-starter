@@ -1,8 +1,7 @@
 <template>
   <section class="latest">
     <div class="section-title">
-      <h2>最新の記事</h2>
-      <p class="subtitle">latest</p>
+      <h2>{{ labelLatest }}</h2>
     </div>
     <LineItem v-for="post in limitBy(posts, showNumLatest)"
               :key="post.sys.id"
@@ -18,7 +17,8 @@ import siteConfig from '~/siteConfig.json'
 export default {
   data () {
     return {
-      showNumLatest: siteConfig.listOption.showNumLatest
+      showNumLatest: siteConfig.listOption.showNumLatest,
+      labelLatest: siteConfig.listOption.labelLatest
     }
   },
   props: ['posts'],

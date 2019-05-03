@@ -12,13 +12,13 @@
         </h1>  
         <p class="subtitle">
            <span v-if="$route.params.getby == 'category'">
-            カテゴリー
+            {{ labelCategory }}
           </span>
           <span v-else-if="$route.params.getby == 'tag'">
-            タグ
+            {{ labelTag }}
           </span>
           <span v-else-if="$route.params.getby == 'search'">
-            検索結果
+            {{ labelSearchResult }}
           </span>
         </p>
       </div>
@@ -175,7 +175,10 @@ export default {
       loadNum: siteConfig.listOption.loadNum,
       notFoundMessage: siteConfig.listOption.notFoundMessage,
       listPostsOrder: siteConfig.listOption.listPostsOrder,
-      listPostsOrderDirection: siteConfig.listOption.listPostsOrderDirection
+      listPostsOrderDirection: siteConfig.listOption.listPostsOrderDirection,
+      labelCategory: siteConfig.listOption.labelCategory,
+      labelTag: siteConfig.listOption.labelTag,
+      labelSearchResult: siteConfig.listOption.labelSearchResult
     }
   },
   components: {
